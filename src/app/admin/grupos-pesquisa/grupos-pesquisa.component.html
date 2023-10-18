@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+  <div class="col-md-12">
+    <div class="grupos">
+      <div class="row">
+        <ng-container *ngIf="grupos.length > 0">
+          <div class="col-6 col-md-4 mb-3" *ngFor="let grupo of grupos">
+            <research-group-card-component [researchGroup]="grupo" (edit)="edit(grupo)"
+              (participante)="participante(grupo)" (pesquisa)="pesquisa(grupo)" (dissertacao)="dissertacao(grupo)"
+              (artigo)="artigo(grupo)" (livro)="livro(grupo)" (capitulo)="capitulo(grupo)"
+              (parceiros)="parceiros(grupo)" (extensaoEnsino)="extensaoEnsino(grupo)" (delete)="delete($event)">
+            </research-group-card-component>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="grupos.length < 1">
+          <div class="alert">
+            <p class="alert__msg">{{ 'admim.nope' | translate }}!</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-end mb-4">
+  <div class="col-md-3 text-end">
+    <!--<button mat-raised-button color="accent" class="btn coordinator-btn" (click)="register()">Cadastrar grupo</button>-->
+  </div>
+</div>

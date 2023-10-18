@@ -1,0 +1,49 @@
+<section id="hero" style="padding: 0px 0px;">
+
+    <div class="container">
+        <div data-aos="flip-left" style="margin-top: 86px;" data-aos-easing="ease-out-cubic" data-aos-duration="2000"
+            class=" carouselCont ">
+            <ngb-carousel [showNavigationArrows]="true" [showNavigationIndicators]="false" interval="5000"
+                [keyboard]="true" [pauseOnHover]="true" [wrap]="true">
+                <ng-template ngbSlide *ngFor="let noticia of noticias" class="imageSlider">
+                    <div *ngIf="noticia.imagePathS3">
+
+                        <div class="d-none d-md-block picsum-img-wrapper">
+                            <img [src]="noticia.imagePathS3 | imagePathComplement" alt="Random first slide"
+                                class="img-fluid">
+                        </div>
+                        <div class="d-block d-md-none picsum-img-wrapper-mobile">
+                            <img [src]="noticia.imagePathS3 | imagePathComplement" alt="Random first slide"
+                                class="img-fluid">
+                        </div>
+                        <div class="d-block d-md-none" data-aos="fade-right">
+                            <div class="row" class="carousel-caption-container-mobile">
+                                <h3 class="carousel-caption-header-mobile">{{noticia.title}} </h3>
+
+
+                                <div class="carousel-caption-description-mobile  ">
+                                    <div (click)="visualizar(noticia)" style="cursor:pointer;"
+                                        class="carousel-caption-link-mobile">{{ 'comum.leia' | translate }}</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="d-none d-md-block" data-aos="fade-right">
+                            <div class="row" class="carousel-caption-container">
+                                <h3 class="carousel-caption-header">{{noticia.title}} </h3>
+
+
+                                <div class="carousel-caption-description  ">
+                                    <div (click)="visualizar(noticia)" style="cursor:pointer;"
+                                        class="carousel-caption-link">{{ 'comum.leia' | translate }}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+    </div>
+</section>

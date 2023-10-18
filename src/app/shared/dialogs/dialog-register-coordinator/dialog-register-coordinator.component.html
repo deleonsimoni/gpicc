@@ -1,0 +1,74 @@
+<div class="row" mat-dialog-content>
+  <form [formGroup]="coordenadoraForm" (ngSubmit)="registerCoordinator()">
+
+    <!-- <div class="section">
+      <h3 class="section__title">Dados Pessoais</h3>
+    </div> -->
+
+    <div class="form-row justify-content-center align-items-center">
+      <div class="col-12 col-md-8 order-2 order-md-1">
+        <div class="form-group">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Name" formControlName="name" />
+          <div class="validation"></div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="email" class="form-control" id="email" placeholder="Email" formControlName="email" />
+          <div class="validation"></div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="group" class="form-control" id="group" placeholder="Grupo" formControlName="group" />
+          <div class="validation"></div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="orcid" class="form-control" id="orcid" placeholder="ORCID" formControlName="orcid" />
+          <div class="validation"></div>
+        </div>
+      </div>
+      <div class="col-8 col-md-4 order-1 order-md-2 mb-3">
+        <div class="profile">
+          <img [src]="logo ? logo : '../../../assets/img/placeholder-profile.png'" class="profile__image">
+          <input type="file" name="logo" class="profile__input" id="logo" placeholder="Logo"
+            (change)="getProfileImageCode($event)" />
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="section">
+      <h3 class="section__title">Contato</h3>
+    </div> -->
+
+    <div class="form-row">
+      <div class="form-group col-12 col-md-6">
+        <input type="email" name="lattes" class="form-control" id="lattes" placeholder="Lattes"
+          formControlName="lattes" />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group col-12 col-md-6">
+        <input type="email" name="instagram" class="form-control" id="instagram" placeholder="Instagram"
+          formControlName="instagram" />
+        <div class="validation"></div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-12 col-md-6">
+        <input type="email" name="twitter" class="form-control" id="twitter" placeholder="Twitter"
+          formControlName="twitter" />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group col-12 col-md-6">
+        <input type="email" name="facebook" class="form-control" id="facebook" placeholder="Facebook"
+          formControlName="facebook" />
+        <div class="validation"></div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center" mat-dialog-actions>
+      <div class="col-md-6">
+        <div class="action">
+          <a class="btn btn-primary action__btn" (click)="closeDialog()">Cancelar</a>
+          <button class="btn btn-primary action__btn" type="submit">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

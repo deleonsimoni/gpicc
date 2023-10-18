@@ -1,0 +1,458 @@
+<div>
+    <section id="hero" class="hero d-flex align-items-center section-bg" style="background-color: #fff;">
+        <div class="container">
+            <div class="row justify-content-between gy-5">
+                <div
+                    class="col-lg-7 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+                    <h2 data-aos="fade-up"> {{home?.title}}
+                    </h2>
+                    <p data-aos="fade-up" data-aos-delay="100">
+                        {{home?.subTitle}}
+                        <br>
+                    </p>
+
+                    <!-- <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                        <div class="chef-member">
+                            <div class="member-img">
+                                <img src="../assets/img/grupos pesquisa/g2.jpg" class="img-fluid" alt="">
+
+                            </div>
+                            <div class="member-info">
+                                <p><strong>Coordenadora:</strong> <br />
+                                    Profª Drª Giseli Barreto da Cruz
+                                    <a style="color:#499acd" href=" mailto:giselicruz@ufrj.br">giselicruz@ufrj.br</a>
+                                    <br />
+
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>End Chefs Member -->
+
+
+
+                    <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <div class="social-icons">
+                            <a href="{{home?.facebook}}" target="_blank" class="social-icon social-icon--facebook">
+                                <i class="fa-brands fa-facebook"></i>
+                                <div class="tooltip">Facebook</div>
+                            </a>
+                            <!--<a class="social-icon social-icon--youtube">
+                                <i class="fa-brands fa-youtube"></i>
+                                <div class="tooltip">Youtube</div>
+                            </a>-->
+                            <a href="{{home?.instagram}}" target="_blank" class="social-icon social-icon--instagram">
+                                <i class="fa-brands fa-instagram"></i>
+                                <div class="tooltip">Instagram</div>
+                            </a>
+                            <!-- <a class="social-icon social-icon--twitter">
+                                <i class="fa-brands fa-twitter"></i>
+                                <div class="tooltip">Twitter</div>
+                            </a>-->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+                    <br />
+                    <br />
+                    <img src="{{home?.imagePathS3 | imagePathComplement}}" class="img-fluid" alt="" data-aos="zoom-out"
+                        data-aos-delay="300">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="chefs" style="padding: 0px;" class="">
+        <div class="container">
+            <div class="tabset">
+
+                <input type="radio" name="tabset" id="tab1" aria-controls="quemSomos" checked>
+                <label for="tab1">{{ 'comum.quemSomos' | translate }}</label>
+
+                <input (click)="getPesquisas('geprod', 1)" type="radio" name="tabset" id="tab2"
+                    aria-controls="projetos">
+                <label for="tab2">{{ 'tabelacao.titulos.pesquisas' | translate }}</label>
+
+
+                <input type="radio" (click)="getExtensaoEnsino('geprod', 2)" name="tabset" id="tab3"
+                    aria-controls="ensino">
+                <label for="tab3">{{ 'tabelacao.titulos.ensinoEx' | translate }}</label>
+
+                <!--<input type="radio" name="tabset" id="tab4" aria-controls="extensao">
+                <label for="tab4">Extensão</label>
+
+                <input type="radio" name="tabset" id="tab5" aria-controls="pibid">
+                <label for="tab5">PIBID</label>-->
+                <input type="radio" name="tabset" id="tab6" aria-controls="publicacoes">
+                <label for="tab6" (click)="getTeses();publicacao = 'dissertacao'">{{ 'comum.publicacoes' | translate
+                    }}</label>
+                <!--<input type="radio" name="tabset" id="tab7" aria-controls="painel">
+                <label for="tab7">Galeria</label>-->
+
+                <input type="radio" name="tabset" id="tab8" aria-controls="contato">
+                <label for="tab8">{{ 'contato.titulo' | translate }}</label>
+
+                <div class="tab-panels">
+
+                    <section id="quemSomos" class="tab-panel">
+
+                        <p [innerHTML]="home?.content" style="text-align: justify;">
+
+                        </p>
+
+
+                        <div class="container" data-aos="fade-up">
+
+                            <div class="section-header">
+                                <p>{{ 'tabelacao.partAtual' | translate }}</p>
+
+                            </div>
+                            <section id="chefs" class="chefs">
+
+                                <div class="row gy-4 mb-4 align-items-center justify-content-center">
+
+                                    <div class=" col-lg-4 col-md-6 d-flex align-items-stretch"
+                                        *ngFor="let participante of home?.participantes" data-aos="fade-up"
+                                        data-aos-delay="100">
+                                        <div class="chef-member">
+                                            <div class="member-img">
+                                                <img src="{{participante.imagePathS3 | imagePathComplement}}"
+                                                    class="img-fluid img-participantes" alt="">
+                                                <div class="social">
+                                                    <a target="_blank" href="{{participante.twitter}}"><i
+                                                            class="bi bi-twitter"></i></a>
+                                                    <a target="_blank" href="{{participante.facebook}}"><i
+                                                            class="bi bi-facebook"></i></a>
+                                                    <a target="_blank" href="{{participante.instagram}}"><i
+                                                            class="bi bi-instagram"></i></a>
+                                                    <a target="_blank" href="{{participante.email}}"><i
+                                                            class="bi bi-globe"></i></a>
+                                                </div>
+                                            </div>
+                                            <div class="member-info">
+                                                <p>{{participante.name}}<br />
+
+
+                                                    <a target="_blank" href="{{participante.lattes}}">Lattes</a><br />
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div><!-- End Chefs Member -->
+
+
+                                </div>
+                            </section>
+
+
+                        </div>
+
+
+                        <div class="container" data-aos="fade-up">
+
+                            <div class="section-header">
+                                <p>{{ 'tabelacao.parcIntt' | translate }}</p>
+
+                            </div>
+
+                            <div class="row gy-4 mb-4">
+
+                                <div class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                                    *ngFor="let parceria of home?.parceiros" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="chef-member">
+                                        <div class="member-img">
+                                            <img src="{{parceria.imagePathS3 | imagePathComplement}}" class="img-fluid"
+                                                alt="">
+
+                                        </div>
+                                        <div class="member-info">
+                                            <p><strong>{{parceria.parceriaName}}</strong></p>
+
+                                            <p>
+                                                {{parceria.parceriaDesc}}
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div><!-- End Chefs Member -->
+
+
+
+
+                            </div>
+                        </div>
+                    </section>
+
+
+
+                    <section id="projetos" class="tab-panel">
+                        <div class="tabset2">
+
+                            <button type="button" (click)="getPesquisas('geprod', 1);pesquisas = 'Pesquisas Realizadas'"
+                                class="btn btn-primary m-3">{{ 'tabelacao.butao.pescReal' | translate }}</button>
+
+
+                            <button type="button" (click)="getPesquisas('geprod', 2);pesquisas = 'Em Andamento'"
+                                class="btn btn-primary m-3">{{ 'tabelacao.butao.pescAnda' | translate }}</button>
+
+
+                        </div>
+                        <div id="realizada" class="tabset2" *ngIf="pesquisasServer">
+                            <br />
+                            <br />
+                            <h4> {{pesquisas}}</h4>
+                            <p *ngFor="let pesquisa of pesquisasServer.pesquisas" style="text-align: justify;">
+                                <strong>{{pesquisa.titleResearch}} </strong>
+                                <br />
+                                <strong>{{ 'comum.coordenacao' | translate }}:</strong> {{pesquisa.coordination}}
+                                <br />
+                                <strong>{{ 'comum.periodo' | translate }}:</strong> {{pesquisa.period}}<br /> <br />
+                                <strong>{{ 'comum.resumo' | translate }}:</strong>
+                                <span [innerHTML]="pesquisa.resume"></span>
+                                <br /> <br />
+
+                                <strong>{{ 'comum.financiamento' | translate }}:</strong> {{pesquisa.financing}}
+
+                                <br /> <br />
+
+                                <strong>{{ 'comum.publicacoes' | translate }}:</strong> <br /> <br />
+                                <span [innerHTML]="pesquisa.researchLink"></span>
+
+
+                            </p>
+
+
+
+                        </div>
+
+
+                    </section>
+
+                    <section id="ensino" class="tab-panel">
+                        <h4> {{ 'tabelacao.titulos.ensinoEx' | translate }}</h4><br />
+                        <div *ngFor="let extensao of extensaoEnsino?.extensaoEnsino">
+                            {{ 'comum.titulo' | translate }}: {{extensao.title}} <br />
+                            {{ 'comum.tipo' | translate }}: {{extensao.type}}<br />
+                            <a style="color:#499acd" target="_blank" href="{{extensao.link}}">
+                                {{ 'tabelacao.zelda' | translate }} </a>
+                            <br />
+                            <iframe *ngIf="extensao.linkYoutube" [src]="sanitizeVideo(extensao.linkYoutube)" width="560"
+                                height="315" style="border: none; overflow: hidden;" scrolling="no" frameborder="0"
+                                allowTransparency="true" allowFullScreen="true" allowfullscreen></iframe>
+
+                            <br />
+                            <br />
+
+                        </div>
+                    </section>
+
+                    <section id="publicacoes" class="tab-panel">
+
+                        <div class="tabset3">
+
+                            <button type="button" (click)="getTeses();publicacao = 'dissertacao'"
+                                class="btn btn-primary m-4">{{ 'tabelacao.butao.tcc' | translate }}</button>
+
+                            <button type="button" (click)="getArtigos();publicacao = 'artigos'"
+                                class="btn btn-primary m-4">{{ 'tabelacao.butao.artigo' | translate }}</button>
+
+                            <button type="button" (click)="getLivros();publicacao = 'livros'"
+                                class="btn btn-primary m-4">{{ 'comum.livros' | translate }}</button>
+
+                            <button type="button" (click)="getCapitulos();publicacao = 'caplivros'"
+                                class="btn btn-primary m-4">{{ 'tabelacao.butao.capLivro' | translate }}</button>
+
+                        </div>
+
+                        <div id="dissertacao" class="tabset3" *ngIf="publicacao == 'dissertacao'">
+                            <h4> {{ 'tabelacao.butao.tcc' | translate }}</h4>
+
+                            <div *ngFor="let tese of teses?.teses">
+
+                                {{ 'comum.categoria' | translate }}: {{tese.categoryId}}
+                                <br />
+
+                                {{ 'comum.titulo' | translate }}: {{tese.categoryId}}:
+                                <a style="color:#499acd" target="_blank" href="{{tese.linkTesis}}">
+                                    {{tese.titleTesis}} </a>
+
+                                <br />
+                                {{ 'comum.autor' | translate }}: {{tese.authorTesis}} <br />
+                                {{ 'comum.dataDef' | translate }}: {{tese.dateTesis}}<br /><br />
+                            </div>
+
+
+                        </div>
+
+                        <div id="artigos" class="tabset3" *ngIf="publicacao == 'artigos'">
+                            <h4> {{ 'comum.artigos' | translate }}</h4>
+
+                            <div *ngFor="let artigo of artigos?.artigos">
+                                <strong>{{artigo.titleArticle}}.</strong><br />
+                                <strong> {{ 'comum.autor' | translate }}(es):</strong><br />
+                                {{artigo.authorsArticle}}<br />
+                                <strong>{{ 'comum.periodico' | translate }}:</strong> {{artigo.journalArticle}}<br />
+                                <strong>{{ 'tabelacao.disponivel' | translate }}: </strong> <a style="color:#499acd"
+                                    target="_blank" href="{{artigo.linkArticle}}">{{ 'tabelacao.link' | translate }}</a>
+                                <br /><br />
+                            </div>
+
+
+                        </div>
+
+                        <div id="livros" class="tabset3" *ngIf="publicacao == 'livros'">
+                            <h4>{{ 'comum.livros' | translate }}</h4>
+
+
+
+
+                            <div class="row gy-4 mb-4">
+
+                                <div *ngFor="let livro of livros?.livros"
+                                    class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                                    data-aos-delay="100">
+                                    <div class="chef-member">
+                                        <div class="member-img">
+                                            <img width="304" height="236"
+                                                src="{{livro.imagePathS3 | imagePathComplement}}" class="img-fluid"
+                                                alt="">
+
+                                        </div>
+
+                                        <div class="col-8">
+
+                                            <p><b>{{livro.titleBook}}</b></p>
+                                            <div style="text-align: justify; text-justify: inter-word;" class="mb-4">
+                                                <p>{{livro.authorsBook}}</p>
+                                                <p><a href="{{livro.linkBook}}" target="_blank">+ {{ 'comum.saibaMais' |
+                                                        translate }}</a></p>
+
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div id="caplivros" class="tabset3" *ngIf="publicacao == 'caplivros'">
+                            <h4> {{ 'tabelacao.butao.capLivro' | translate }}</h4>
+
+                            <p *ngFor="let capitulo of capitulos?.capitulos" style="text-align: justify;"> <br />
+
+                                <strong>{{capitulo.titleChapter}}</strong> <br />
+                                <strong> {{ 'comum.autor' | translate }}(es): </strong><br />
+                                {{capitulo.authorsChapter}}<br />
+                                <strong>{{ 'comum.livros' | translate }}: </strong>{{capitulo.titleBook}}<br />
+                                <strong>{{ 'comum.organizador' | translate }}(es): </strong><br />
+                                {{capitulo.eds}}<br />
+                                <strong>{{ 'comum.editora' | translate }}: </strong>{{capitulo.publisher}}<br />
+                                <strong>{{ 'comum.edicao' | translate }}: </strong>{{capitulo.edition}}<br />
+                                <strong>{{ 'comum.local' | translate }}: </strong>{{capitulo.location}}<br />
+                                <strong>{{ 'comum.volume' | translate }}: </strong>{{capitulo.vol}}<br />
+                                <strong>{{ 'comum.paginas' | translate }}: </strong>{{capitulo.pages}}<br />
+                                <strong>{{ 'comum.ano' | translate }}: </strong>{{capitulo.year}}<br /><br />
+                            </p>
+
+
+
+                        </div>
+                    </section>
+
+
+                    <section id="contato" class="tab-panel">
+                        <section id="contact" class="contact">
+                            <div class="container" data-aos="fade-up">
+
+                                <div class="section-header">
+                                    <h1>{{ 'contato.titulo' | translate }}</h1>
+
+                                </div>
+
+                                <div class="mb-3">
+                                    <iframe style="border:0; width: 100%; height: 350px;"
+                                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14695.770657127821!2d-43.1744735!3d-22.9523386!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6817eb587a3627a9!2sUFRJ%20-%20Campus%20Praia%20Vermelha!5e0!3m2!1spt-BR!2sbr!4v1656298509370!5m2!1spt-BR!2sbr"
+                                        frameborder="0" allowfullscreen></iframe>
+                                </div><!-- End Google Maps -->
+
+                                <div class="row gy-4">
+
+                                    <div class="col-md-6">
+                                        <div class="info-item  d-flex align-items-center">
+                                            <i class="icon bi bi-map flex-shrink-0"></i>
+                                            <div>
+                                                <h3>{{ 'contato.endereco' | translate }}</h3>
+                                                <p>UFRJ Praia vermelha</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- End Info Item -->
+
+                                    <div class="col-md-6">
+                                        <div class="info-item d-flex align-items-center">
+                                            <i class="icon bi bi-envelope flex-shrink-0"></i>
+                                            <div>
+                                                <h3>Email</h3>
+                                                <p>geped.feufrj@gmail.com</p>
+                                            </div>
+                                        </div>
+                                    </div><!-- End Info Item -->
+
+
+                                    <div class="col-md-6">
+                                        <div class="info-item  d-flex align-items-center">
+                                            <i class="icon bi bi-share flex-shrink-0"></i>
+                                            <div>
+                                                <h3>{{ 'contato.horarios' | translate }}</h3>
+                                                <div><strong>{{ 'contato.segSex' | translate }}:</strong> 9AM - 20PM;
+                                                    <strong>{{ 'contato.domingo' | translate }}:</strong> {{
+                                                    'contato.fechado' | translate }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- End Info Item -->
+
+                                </div>
+
+
+                                <!--End Contact Form -->
+
+                            </div>
+                        </section>
+                    </section>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<section id="galeria" class="gallery section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+
+            <p><span>{{ 'comum.galeria' | translate }}</span></p>
+        </div>
+
+        <div class="gallery-slider swiper">
+            <div class="swiper-wrapper align-items-center img-coordenadores">
+
+                <div *ngFor="let galeria of home?.galeria" class="swiper-slide"><a class="glightbox"
+                        data-gallery="images-gallery" href="{{galeria | imagePathComplement}}"><img
+                            src="{{galeria | imagePathComplement}}" class="img-fluid" alt=""></a></div>
+
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+    </div>
+</section>

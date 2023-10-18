@@ -1,0 +1,23 @@
+<div class="profile-card">
+    <div class="row profile-card--blur-content">
+
+        <div class="col-md-12">
+            <div class="profile-card__data">
+                <p class="profile-data__group">{{ forms.titleArticle }}</p>
+                <p class="profile-data__name">{{ forms.createdAt | date: 'dd/MM/yyyy' }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row profile-card__action">
+        <div class="content-action">
+            <button class="btn btn-danger content-action__btn" (click)="delete.emit(forms)">
+                <i class="fa-solid fa-trash"></i>
+                Deletar
+            </button>
+            <button class="btn btn-primary content-action__btn" (click)="edit.emit()">
+                <i class="fa-solid fa-pencil"></i>
+                Editar
+            </button>
+        </div>
+    </div>
+</div>

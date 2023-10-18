@@ -1,0 +1,19 @@
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <div class="forms">
+            <div class="row">
+                <div class="col-6 col-md-4 mb-3" *ngFor="let evento of events">
+                    <app-events-card [forms]="evento" (edit)="edit(evento)" (delete)="delete($event)">
+                    </app-events-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-end mb-4">
+    <div class="col-md-3 text-end">
+        <button mat-raised-button color="accent" class="btn coordinator-btn" (click)="register()">
+            {{ 'admim.cadastrar' | translate }} {{ 'admim.evento' | translate }}
+        </button>
+    </div>
+</div>

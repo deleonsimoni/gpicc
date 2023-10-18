@@ -1,0 +1,33 @@
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="page-header mt-2">
+            <h1 id="timeline">{{ 'comum.noticias' | translate }}</h1>
+        </div>
+
+        <mat-card *ngFor="let noticia of noticias" class="example-card m-4">
+            <mat-card-title><b>{{noticia.title}}</b></mat-card-title>
+            <mat-card-content>
+                <div class="row">
+                    <div class="mb-4">
+                        <img (click)="visualizar(noticia)" class="img-fluid" style="max-height: 38vh;"
+                            src="{{ noticia.imagePathS3 ? (noticia.imagePathS3 | imagePathComplement) : '../../../assets/img/placeholder-profile.png' }}">
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="">
+                        <p [innerHTML]="noticia.content  | truncateString:[500, '...']"></p><a
+                            (click)="visualizar(noticia)" class="linkLEPED">{{ 'comum.leia' | translate | uppercase }}</a>
+                    </div>
+                </div>
+
+            </mat-card-content>
+
+        </mat-card>
+
+
+
+    </div>
+</section>

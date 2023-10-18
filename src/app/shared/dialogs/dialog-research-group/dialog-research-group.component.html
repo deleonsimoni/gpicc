@@ -1,0 +1,140 @@
+<div class="row" mat-dialog-content>
+  <form [formGroup]="grupoForm" (ngSubmit)="registerCoordinator()">
+    <div class="form-row justify-content-center align-items-center">
+      <div class="col-12 col-md-8 order-2 order-md-1">
+        <div class="form-group">
+          <input type="text" name="title" class="form-control" id="title" placeholder="Título"
+            formControlName="title" />
+          <div class="validation"></div>
+        </div>
+        <!-- <div class="form-group">
+          <input type="text" name="type" class="form-control" id="type" placeholder="Tipo" formControlName="type" />
+          <div class="validation"></div>
+        </div>-->
+        <div class="form-group">
+          <input type="text" name="subTitle" class="form-control" id="subTitle" placeholder="Subtítulo"
+            formControlName="subTitle" />
+          <div class="validation"></div>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" class="form-control" id="email" placeholder="Email"
+            formControlName="email" />
+          <div class="validation"></div>
+        </div>
+      </div>
+      <div class="col-8 col-md-4 order-1 order-md-2 mb-3">
+        <div class="profile">
+          <img [src]="logo ? logo : '../../../assets/img/placeholder-profile.png'" class="profile__image">
+          <input type="file" name="logo" class="profile__input" id="logo" placeholder="Logo"
+            (change)="getProfileImageCode($event)" />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-12 col-md-6">
+        <input type="text" name="endereco" class="form-control" id="endereco" placeholder="Endereço"
+          formControlName="endereco" />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group col-12 col-md-6">
+        <input type="text" name="enderecoGoogle" class="form-control" id="enderecoGoogle" placeholder="Site google"
+          formControlName="enderecoGoogle" />
+        <div class="validation"></div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-12 col-md-6">
+        <input type="text" name="telefone" class="form-control" id="telefone" placeholder="Telefone"
+          formControlName="telefone" />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group col-12 col-md-6">
+        <input type="text" name="funcionamento" class="form-control" id="funcionamento" placeholder="Funcionamento"
+          formControlName="funcionamento" />
+        <div class="validation"></div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-12 col-md-12">
+        <angular-editor placeholder="Conteúdo..." formControlName="content"></angular-editor>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-12 col-md-6">
+        <input type="email" name="youtube" class="form-control" id="youtube" placeholder="Youtube"
+          formControlName="youtube" />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group col-12 col-md-6">
+        <input type="email" name="instagram" class="form-control" id="instagram" placeholder="Instagram"
+          formControlName="instagram" />
+        <div class="validation"></div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-12 col-md-6">
+        <input type="email" name="twitter" class="form-control" id="twitter" placeholder="Twitter"
+          formControlName="twitter" />
+        <div class="validation"></div>
+      </div>
+      <div class="form-group col-12 col-md-6">
+        <input type="email" name="facebook" class="form-control" id="facebook" placeholder="Facebook"
+          formControlName="facebook" />
+        <div class="validation"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 class="section__title">Coordenadora</h3>
+    </div>
+
+    <div class="form-row justify-content-center align-items-center">
+      <div class="col-12 col-md-8 order-2 order-md-1">
+        <div class="form-group">
+          <input type="text" name="coordenadoraName" class="form-control" id="coordenadoraName" placeholder="Nome"
+            formControlName="coordenadoraName" />
+          <div class="validation"></div>
+        </div>
+      </div>
+      <div class="col-8 col-md-4 order-1 order-md-2 mb-3">
+        <div class="profile">
+          <img [src]="logo2 ? logo2 : '../../../assets/img/placeholder-profile.png'" class="profile__image">
+          <input type="file" name="logo2" class="profile__input" id="logo2" placeholder="Logo"
+            (change)="getProfileImageCode($event, 2)" />
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section">
+      <h3 class="section__title">Galeria</h3>
+    </div>
+
+    <div class="row">
+      <div class="col-2 col-md-2 mb-3" *ngFor="let picture of gallery; let index = index">
+        <div class="profile">
+          <img [src]="picture && picture.base64 ? picture.base64 : '../../../assets/img/placeholder-profile.png'"
+            class="profile__gallery">
+          <input type="file" name="logo2" class="profile__input" id="logo2" placeholder="Logo"
+            (change)="setGalleryImage($event, index)" />
+        </div>
+        <ng-container *ngIf="index > 0">
+          <a class="profile__delete" (click)="deleteImage(index)">Deletar</a>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="row justify-content-center" mat-dialog-actions>
+      <div class="col-md-6">
+        <div class="action">
+          <a class="btn btn-primary action__btn" (click)="closeDialog()">Cancelar</a>
+          <button class="btn btn-primary action__btn" type="submit">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+.coordinators {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  min-height: 400px;
+  max-height: 540px;
+  background-color: #80808005;
+  padding: 14px;
+  margin: 18px 0px;
+  border-radius: 4px;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 4px;
+  }
+}
+
+.coordinator-btn {
+  background-color: #ff4081;
+  font-size: 14px;
+  font-weight: 500;
+
+  &:hover {
+    color: #fff;
+  }
+}
+

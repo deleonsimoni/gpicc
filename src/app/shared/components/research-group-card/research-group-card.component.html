@@ -1,0 +1,73 @@
+<div class="profile-card">
+  <div class="row profile-card--blur-content align-items-center">
+    <div class="col-md-12">
+      <img class="profile-card__image"
+        src="{{ researchGroup.imagePathS3 ? (researchGroup.imagePathS3 | imagePathComplement) : '../../../assets/img/placeholder-profile.png' }}"
+        alt="">
+    </div>
+    <div class="col-md-8">
+      <div class="profile-card__data">
+        <p class="profile-data__title">{{ researchGroup.title }}</p>
+        <p class="profile-data__group">Coordenador(a)</p>
+        <p class="profile-data__name">{{ researchGroup.coordenadoraName }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="row profile-card__action">
+
+    <div class="content-action row">
+      <div class="col-12">
+
+        <button class="btn btn-success content-action__btn col-12 m-2" (click)="participante.emit()">
+          <i class="fa-solid fa-address-book"></i>
+          Participantes
+        </button>
+        <button class="btn btn-success content-action__btn col-12 m-2" (click)="pesquisa.emit()">
+          <i class="fa-solid fa-comments"></i>
+          Pesquisas
+        </button>
+        <button class="btn btn-success content-action__btn col-12 m-2" (click)="dissertacao.emit(researchGroup)">
+          <i class="fa-solid fa-university"></i>
+          TCC, Dissertações e Teses
+        </button>
+        <button class="btn btn-success content-action__btn col-12 m-2" (click)="artigo.emit(researchGroup)">
+          <i class="fa-solid fa-tags"></i>
+          Artigos
+        </button>
+        <button class="btn btn-success content-action__btn col-12 m-2" (click)="livro.emit(researchGroup)">
+          <i class="fa-solid fa-book"></i>
+          Livros
+        </button>
+        <button class="btn btn-success content-action__btn col-12 m-2" (click)="capitulo.emit(researchGroup)">
+          <i class="fa-solid fa-bookmark"></i>
+          Capitulos Livros
+        </button>
+
+        <button class="btn btn-success content-action__btn col-12 m-2" (click)="extensaoEnsino.emit(researchGroup)">
+          <i class="fa-solid fa-info-circle"></i>
+          Editar Extensão Ensino
+        </button>
+
+        <button class="btn btn-success content-action__btn col-12 m-2" (click)="parceiros.emit(researchGroup)">
+          <i class="fa-solid fa-user"></i>
+          Parceiros
+        </button>
+
+        <button class="btn btn-primary content-action__btn col-12 m-2" (click)="edit.emit()">
+          <i class="fa-solid fa-pencil"></i>
+          Editar Grupo
+        </button>
+
+        <!--
+        <button class="btn btn-danger content-action__btn col-12 m-2" (click)="delete.emit(researchGroup)">
+          <i class="fa-solid fa-trash"></i>
+          Deletar
+        </button>
+        -->
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

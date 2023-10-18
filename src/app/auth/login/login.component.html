@@ -1,0 +1,81 @@
+<main id="login" style="margin-top: 120px;">
+  <div class="container login-content">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-sm-10 col-lg-6">
+
+        <div class="box" *ngIf="changePassword">
+          <div class="section-header">
+            <h2>{{ 'form.altSenha' | translate }}</h2>
+          </div>
+          <div class="form-row justify-content-center">
+            <div class="form-group col-md-12">
+              <input type="text" name="senhaChange" class="form-control" id="senhaChange" placeholder="{{ 'form.senha' | translate }}"
+                [(ngModel)]="novaSenha" />
+            </div>
+            <div class="form-group col-md-12">
+              <input type="text" name="senhaChange" class="form-control" id="senhaChange" placeholder="{{ 'form.senha' | translate }}"
+                [(ngModel)]="novaSenhaRepeat" />
+            </div>
+          </div>
+
+          <div class="row justify-content-center mb-2">
+            <button (click)="changePasswordAPI()" mat-raised-button color="primary">
+              {{ 'form.altSenha' | translate }} <mat-icon>badge</mat-icon>
+            </button>
+
+          </div>
+
+        </div>
+
+        <div class="box" *ngIf="!changePassword">
+          <div class="section-header">
+            <h2>{{ 'header.login' | translate }}</h2>
+          </div>
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-row justify-content-center">
+              <div class="form-group col-md-12">
+                <input type="text" name="email" class="form-control" id="email" placeholder="Email"
+                  formControlName="email" />
+                <div *ngIf="validate.email.errors" class="alert alert-danger">
+                  <div [hidden]="!validate.email.errors.required">
+                    {{ 'form.obrEmail' | translate }}
+                  </div>
+                  <div [hidden]="!validate.email.errors.pattern">
+                    {{ 'form.invEmail' | translate }}
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-12">
+                <input type="password" name="senha" class="form-control" id="senha" placeholder="{{ 'form.senha' | translate }}"
+                  formControlName="password" />
+                <div *ngIf="validate.password.errors" class="alert alert-danger">
+                  <div [hidden]="!validate.password.errors.required">
+                    {{ 'form.obrSenha' | translate }}
+                  </div>
+                  <div [hidden]="!validate.password.errors.minlength">
+                    {{ 'form.minSenha' | translate }}
+                  </div>
+                </div>
+              </div>
+              <!--<a [routerLink]="['/register']">Realizar Inscrição</a>-->
+              <a [routerLink]="['/esqueci-senha']">
+                {{ 'form.esqSenha' | translate }}
+              </a>
+
+            </div>
+
+            <div class="row justify-content-center mb-2">
+              <button type="submit" mat-raised-button color="primary">
+                {{ 'comum.entrar' | translate }} <mat-icon>badge</mat-icon>
+              </button>
+
+            </div>
+            <span>{{ 'form.novoCad' | translate }}
+              <a [routerLink]="['/auth/register']">{{ 'form.resgistro' | translate }}</a> {{ 'comum.aqui' | translate }}</span>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main><!-- #eixos -->

@@ -1,0 +1,89 @@
+<div class="row" mat-dialog-content>
+  <form [formGroup]="grupoForm" (ngSubmit)="registerTesis()">
+
+
+
+    <div class="section">
+      <div *ngIf="grupo=='GEDOC'">
+        <h3 class="section__title">TCC, Dissertações e Teses</h3>
+      </div>
+      <div *ngIf="grupo!='GEDOC'">
+        <h3 class="section__title">Dissertações e Teses</h3>
+      </div>
+    </div>
+
+    <div class="form-row justify-content-center align-items-center">
+      <div class="form-group col-12 col-md-12">
+        <div class="form-group">
+          <input type="text" name="titleTesis" class="form-control" id="titleTesis" placeholder="Título"
+            formControlName="titleTesis" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            <input type="radio" value="TCC" formControlName="categoryId">
+            <span> TCC</span>
+          </label>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            <input type="radio" value="Monografia" formControlName="categoryId">
+            <span> Monografia</span>
+          </label>
+
+        </div>
+
+        <div class="form-group">
+
+
+          <label>
+            <input type="radio" value="mestrado" formControlName="categoryId">
+            <span> Mestrado</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+
+
+          <label>
+            <input type="radio" value="doutorado" formControlName="categoryId">
+            <span> Doutorado</span>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="authorTesis" class="form-control" id="authorTesis" placeholder="Autor(a)"
+            formControlName="authorTesis" />
+          <div class="validation"></div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="dateTesis" class="form-control" id="dateTesis" placeholder="Data de Defesa"
+            formControlName="dateTesis" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="linkTesis" class="form-control" id="linkTesis" placeholder="Link"
+            formControlName="linkTesis" />
+          <div class="validation"></div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="row justify-content-center" mat-dialog-actions>
+      <div class="col-md-6">
+        <div class="action">
+          <a class="btn btn-primary action__btn" (click)="closeDialog()">Cancelar</a>
+          <button class="btn btn-primary action__btn" type="submit">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

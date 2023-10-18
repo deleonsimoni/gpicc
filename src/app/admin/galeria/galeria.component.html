@@ -1,0 +1,26 @@
+<form>
+  <div class="forms">
+    <div class="row">
+      <div class="col-3 col-md-3 mb-3" *ngFor="let picture of gallery; let index = index">
+        <div class="profile">
+          <img [src]="picture && picture.base64 ? picture.base64 : '../../../assets/img/placeholder-profile.png'"
+            class="profile__gallery">
+          <input type="file" name="logo2" class="profile__input" id="logo2" placeholder="Logo"
+            (change)="setGalleryImage($event, index)" (click)="canSelect($event, index)" />
+        </div>
+        <ng-container *ngIf="index > 0 && theresNewPhoto">
+          <a class="profile__delete" (click)="deleteImage(picture)">{{ 'comum.deletar' | translate }}</a>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center" mat-dialog-actions>
+    <div class="col-md-6">
+      <div class="action" [ngClass]="{ 'action--disable': !theresNewPhoto }">
+        <a class="btn btn-primary action__btn" (click)="unselectedImage()">{{ 'comum.cancelar' | translate }}</a>
+        <button class="btn btn-primary action__btn" type="button" (click)="saveImages()">{{ 'comum.salvar' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~ngx-toastr/toastr';
+
+$custom-typography: mat.define-typography-config($font-family: 'Exo',
+  );
+
+@include mat.core($custom-typography);
+
+body {
+  background-color: #f4f3f3;
+  margin: 0;
+
+  app-root * {
+    font-family: 'Exo', sans-serif;
+  }
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-dialog-container {
+  height: auto !important;
+  overflow-y: scroll !important;
+}

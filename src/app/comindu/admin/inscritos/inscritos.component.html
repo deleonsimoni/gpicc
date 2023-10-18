@@ -1,0 +1,60 @@
+<section id="hero" class="hero">
+    <div class="container" data-aos="fade-up">
+
+        <div class="hero section-header" style="min-height: 0;">
+            <h2>COM.INDU</h2>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-lg-12 content">
+                <h1>{{ 'comIndu.usuario' | translate }}</h1>
+            </div>
+        </div>
+
+        <div>
+            <div *ngIf="pager.totalItems">{{ 'comIndu.totalD' | translate }} {{ pager.totalItems }} {{ 'comIndu.usuario' | translate }}
+
+
+
+            </div>
+
+            <div class="row" *ngIf="user && user.icAdmin">
+                <div class="col-md-8">
+
+                </div>
+
+
+            </div>
+
+            <div class="row" style="padding-bottom: 6px;" *ngIf="user && user.isAdmin">
+
+
+                <!--  <div *ngIf="status == '6' && !gerandoRelatorio" style="padding-left: 50%;" class="col-md-8 float-right pull-right">
+        <button class="btn-danger" (click)="gerarRelatorio()">Gerar Relatório</button>
+      </div>-->
+            </div>
+
+            <div class="row" *ngFor="let subscribed of users; let i = index" [ngClass]="{'mb-3': users.length > 1}">
+
+                <app-inscritos-card data-aos="fade-up" [subscribed]="subscribed"
+                    (selected)="receiverSelectedUser($event)">
+                </app-inscritos-card>
+
+                <app-inscritos-data data-aos="fade-up" [subscribed]="subscribed"
+                    *ngIf="subscribed && subscribed._id == userSelect">
+                </app-inscritos-data>
+
+            </div>
+
+            <div *ngIf="pager.totalItems" class="pagination justify-content-center">
+
+                <mat-paginator [length]="pager.totalItems" [pageSize]="pager.pageSize"
+                    (page)="pageEvent = retrieveAdminData($event)">
+                </mat-paginator>
+
+            </div>
+        </div>
+    </div>
+</section>

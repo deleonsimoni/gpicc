@@ -1,0 +1,126 @@
+ngb-carousel .wrapper {
+    position: relative;
+    height: 0;
+    padding-top: 55%;
+    /* Keep ratio for 900x500 images */
+}
+
+
+ngb-carousel .wrapper>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+.carouselCont {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.picsum-img-wrapper {
+    height: 600px;
+}
+
+.picsum-img-wrapper-mobile {
+    margin-top: 50px;
+    height: 445px;
+}
+
+.carousel-caption-container {
+    text-align: left !important;
+    background-color: #97d2f2;
+    max-width: 60vh;
+    border-top-right-radius: 20px 20px;
+    color: white;
+    text-align: center;
+    margin-top: -167px;
+}
+
+.carousel-caption-container-mobile {
+    text-align: left !important;
+    background-color: #97d2f2;
+    max-width: 60vh;
+    color: white;
+    text-align: center;
+    margin-top: -167px;
+}
+
+.carousel-caption-header {
+    margin-left: 10px;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 1.8em;
+}
+
+.carousel-caption-header-mobile {
+    margin-left: 10px;
+    text-shadow: 2px 2px 4px #000000;
+    font-size: 1.5em;
+}
+
+.carousel-caption-description-mobile {
+
+    background-color: #f98635;
+    font-size: 1.3em;
+
+}
+
+.carousel-caption-description {
+
+    background-color: #f98635;
+    font-size: 1.3em;
+
+}
+
+.carousel-caption-link {
+    text-align: left;
+    color: #ffffff;
+    width: 20vh;
+    font-size: 1.0em;
+    display: block;
+    margin-left: auto;
+    margin-right: 10px;
+    text-decoration: underline;
+
+}
+
+.carousel-caption-link:hover {
+    text-align: left;
+    color: #ffffff;
+    width: 20vh;
+    font-size: 1.0em;
+    display: block;
+    margin-left: auto;
+    margin-right: 10px;
+    text-decoration: underline;
+
+}
+
+.carousel-caption-link-mobile {
+    text-align: left;
+    color: #ffffff;
+    width: 20vh;
+    font-size: 1.0em;
+    display: block;
+    margin-left: auto;
+    margin-right: 10px;
+    text-decoration: underline;
+
+}
+
+.carousel-caption-link-mobile:hover {
+    text-align: left;
+    color: #ffffff;
+    width: 20vh;
+    font-size: 1.0em;
+    display: block;
+    margin-left: auto;
+    margin-right: 10px;
+    text-decoration: underline;
+
+}

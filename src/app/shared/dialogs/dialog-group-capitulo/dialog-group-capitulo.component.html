@@ -1,0 +1,89 @@
+<div class="row" mat-dialog-content>
+  <form [formGroup]="grupoForm" (ngSubmit)="registerChapter()">
+
+
+
+    <div class="section">
+      <h3 class="section__title">Capítulo de Livros</h3>
+    </div>
+
+    <div class="form-row justify-content-center align-items-center">
+      <div class="form-group col-12 col-md-12">
+        <div class="form-group">
+          <input type="text" name="titleChapter" class="form-control" id="titleChapter" placeholder="Título do capítulo"
+            formControlName="titleChapter" />
+          <div class="validation"></div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="authorsChapter" class="form-control" id="authorsChapter" placeholder="Autores"
+            formControlName="authorsChapter" />
+          <div class="validation"></div>
+        </div>
+        <div class="form-group">
+          <input type="text" name="titleBook" class="form-control" id="titleBook" placeholder="Título do Livro"
+            formControlName="titleBook" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="eds" class="form-control" id="eds" placeholder="Organizadores"
+            formControlName="eds" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="publisher" class="form-control" id="publisher" placeholder="Editora"
+            formControlName="publisher" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="edition" class="form-control" id="edition" placeholder="Edição"
+            formControlName="edition" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="location" class="form-control" id="location" placeholder="Local"
+            formControlName="location" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="vol" class="form-control" id="vol" placeholder="Volume" formControlName="vol" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="pages" class="form-control" id="pages" placeholder="Páginas"
+            formControlName="pages" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="year" class="form-control" id="year" placeholder="Ano" formControlName="year" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="number" name="year" class="form-control" id="year" placeholder="Ordem" formControlName="ordem" />
+          <div class="validation"></div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+    <div class="row justify-content-center" mat-dialog-actions>
+      <div class="col-md-6">
+        <div class="action">
+          <a class="btn btn-primary action__btn" (click)="closeDialog()">Cancelar</a>
+          <button class="btn btn-primary action__btn" type="submit">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

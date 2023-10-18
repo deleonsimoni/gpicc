@@ -1,0 +1,86 @@
+<div class="container" style="overflow-y:scroll;">
+    <div class="row justify-content-between">
+        <div class="section-header" mat-dialog-title>
+            <h2>{{ 'comum.administrar' | translate }} - {{ 'comum.quemSomos' | translate }}?</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+
+        <form role="form" class="reviewer" [formGroup]="form" (ngSubmit)="register()">
+
+
+            <div class="form-row justify-content-center">
+                <div class="conferencer-img">
+                    <img id="imageRender" height="100px" width="100px" class="profile-card__image"
+                        src="{{ logo ? (logo | imagePathComplement) : '../../../assets/img/placeholder-profile.png' }}"
+                        alt="" #imageRender>
+                    <button (click)="loadImage()"><i class="fas fa-camera"></i></button>
+                </div>
+            </div>
+
+
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-12">
+                    <input type="text" name="notice" class="form-control" id="title" placeholder="Título"
+                        formControlName="title" />
+
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-12">
+                    <input type="text" name="notice" class="form-control" id="title" placeholder="Subtitulo"
+                        formControlName="subTitle" />
+
+                </div>
+            </div>
+
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-12">
+                    <input type="text" name="notice" class="form-control" id="title" placeholder="facebook"
+                        formControlName="facebook" />
+
+                </div>
+            </div>
+
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-12">
+                    <input type="text" name="notice" class="form-control" id="title" placeholder="youtube"
+                        formControlName="youtube" />
+
+                </div>
+            </div>
+
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-12">
+                    <input type="text" name="notice" class="form-control" id="title" placeholder="instagram"
+                        formControlName="instagram" />
+
+                </div>
+            </div>
+
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-12">
+                    <input type="text" name="notice" class="form-control" id="title" placeholder="twitter"
+                        formControlName="twitter" />
+
+                </div>
+            </div>
+            <div class="form-row justify-content-center">
+                <div class="form-group col-md-12">
+
+                    <angular-editor [placeholder]="'Conteúdo...'" formControlName="content"></angular-editor>
+
+                </div>
+            </div>
+
+            <input type="file" class="custom-file-input" style="display: none;" accept="image/*" data-max-size="5048"
+                id="imageConferencer" (change)="setImage($event.target.files)" #fileInput />
+
+            <div class="row justify-content-end m-4">
+                <button type="submit" mat-raised-button color="primary">
+                    {{ 'comum.submeter' | translate }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

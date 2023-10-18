@@ -1,0 +1,80 @@
+<div class="row" style="width: 800px;" mat-dialog-content>
+    <div class="section-header">
+        <p>COM.INDU - {{ 'comum.cadastro' | translate }}</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="register()">
+
+        <div class="form-row justify-content-center align-items-center">
+            <div class="col-12  order-2 order-md-1">
+
+                <div class="form-group">
+                    <div class="profile">
+                        <img [src]="logo ? logo : '../../../assets/img/placeholder-banner.png'" class="">
+                        <input type="file" name="logo" class="profile__input" id="logo" placeholder="Logo"
+                            (change)="getProfileImageCode($event)" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="{{ 'comum.titulo' | translate }}"
+                        formControlName="name" />
+                    <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="content" class="form-control" id="content" placeholder="{{ 'comum.descricao' | translate }}"
+                        formControlName="content" />
+                    <div class="validation"></div>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field style="display: block;" appearance="fill">
+                        <mat-label>{{ 'comIndu.adm' | translate }}</mat-label>
+                        <mat-select formControlName="owners" multiple [compareWith]="compare">
+                            <mat-option *ngFor="let admin of admins" [value]="admin">{{admin.email}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                </div>
+
+
+                <!--    <div class="form-group">
+                    Cor que represente esta comunidade
+                    <input [(colorPicker)]="color" [style.background]="color" (colorPickerChange)="cor=$event" />
+                </div>-->
+
+                <div class="form-group">
+                    <mat-form-field class="example-chip-list">
+                        <mat-chip-list #chipList>
+                            <mat-chip class="custom-chip-size" *ngFor="let tag of tags" [selectable]="selectable"
+                                [removable]="removable" (removed)="remove(tag)">
+                                {{tag}}
+                                <mat-icon matChipRemove *ngIf="removable">X</mat-icon>
+                            </mat-chip>
+                            <input placeholder="{{ 'comIndu.trilhasCom' | translate }}"
+                                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+                        </mat-chip-list>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row justify-content-center" mat-dialog-actions>
+            <div class="col-md-6">
+                <div class="action">
+                    <a class="btn btn-primary action__btn" (click)="closeDialog()">{{ 'comum.cancelar' | translate }}</a>
+                    <button *ngIf="!carregando" class="btn btn-primary action__btn" type="submit">{{ 'comum.salvar' | translate }}</button>
+                    <button *ngIf="carregando" class="btn btn-primary action__btn" type="submit">{{ 'comum.aguarde' | translate }}</button>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </form>
+</div>

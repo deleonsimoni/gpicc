@@ -1,0 +1,161 @@
+h1 {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    font-family: "Anonymous Pro";
+    font-weight: 300;
+    font-size: 40px;
+    color: #080808;
+    -webkit-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+h1 span {
+    display: block;
+    font-size: 0.5em;
+    line-height: 1.3;
+}
+
+h1 em {
+    font-style: normal;
+    font-weight: 600;
+}
+
+.twelve h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 160px;
+    text-align: center;
+    margin: auto;
+    white-space: nowrap;
+    padding-bottom: 13px;
+}
+
+.twelve h1:before {
+    background-color: #ED8975;
+    content: '';
+    display: block;
+    height: 3px;
+    width: 75px;
+    margin-bottom: 5px;
+}
+
+.twelve h1:after {
+    background-color: #b2e7E8;
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    width: 75px;
+    margin-bottom: 0.25em;
+}
+
+.comindu-title h2 {
+    font-family: revert !important;
+    margin-top: 30px;
+    font-size: 60px;
+
+}
+
+.mat-card-header.purple {
+    color: #080808;
+}
+
+.mat-card-subtitle {
+    color: #080808;
+
+}
+
+.mat-card {
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.mat-card-content {
+    padding: 5px;
+}
+
+::ng-deep .mat-icon {
+    height: 48px !important;
+    width: 48px !important;
+    font-size: 48px !important;
+}
+
+::ng-deep.buttons-class {
+    height: 160px !important;
+    width: 210px !important;
+    font-size: 48px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-get-started {
+    background: #ed8975;
+    border: 0;
+    border-radius: 3px;
+    padding: 10px 30px;
+    color: #080808;
+    transition: 0.4s;
+    cursor: pointer;
+    text-align: center;
+    margin: 30px;
+}
+
+.btn-meu-comindu {
+    background: #f2d096;
+    border: 0;
+    border-radius: 3px;
+    padding: 10px 30px;
+    color: #080808;
+    transition: 0.4s;
+    cursor: pointer;
+    text-align: center;
+    margin: 30px;
+}
+
+.btn-comindu {
+    background: #8fb9aa;
+    border: 0;
+    border-radius: 3px;
+    padding: 10px 30px;
+    color: #080808;
+    transition: 0.4s;
+    cursor: pointer;
+    text-align: center;
+    margin: 6px;
+}
+
+.text-oneline {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: initial;
+}
+
+.btn-entrar-comindu {
+    background: #8fb9aa;
+    border: 0;
+    border-radius: 3px;
+    padding: 10px 30px;
+    color: #080808;
+    transition: 0.4s;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.card {
+    background: #ed8975;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
+
+}

@@ -1,0 +1,30 @@
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="page-header mt-2">
+            <h1 id="timeline">{{ 'comum.eventos' | translate }}</h1>
+        </div>
+
+
+        <div class="row ">
+            <div class="card-deck" *ngFor="let evento of eventos">
+
+                <div data-aos="fade-up" class="card border-0 col-sm-6 p-0">
+                    <img class="card-img-top" *ngIf="evento.imagePathS3"
+                        src="{{evento.imagePathS3 | imagePathComplement}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title h4">{{evento.title}}</h4>
+                        <p class="card-text" *ngIf="evento.subTitle">{{evento.subTitle}}</p>
+                        <h5 class="card-date" *ngIf="evento.period">{{evento.period}}</h5>
+                        <h5 class="card-date" *ngIf="evento.externalLink"><a href="{{evento.externalLink}}"
+                                target="_blank">{{ 'comum.maisInfo' | translate }}</a></h5>
+                        <h5 class="card-date" *ngIf="evento.content"><a class="linkLEPED" (click)="visualizar(evento)"
+                                target="_blank">{{ 'comum.acervo' | translate }}</a></h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,77 @@
+.profile {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  cursor: pointer;
+
+  &__image {
+    border: 2px solid #000;
+    border-style: dashed;
+    border-radius: 50%;
+    width: 100%;
+  }
+
+  &__input {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 999;
+    bottom: 0px;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+
+  &__gallery {
+    border-radius: 4px;
+    width: 100%;
+  }
+
+  &__delete {
+    color: #ff0000;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.section {
+  position: relative;
+  height: 34px;
+  margin-bottom: 10px;
+
+  &__title {
+    font-size: 18px;
+  }
+
+  &::after {
+    content: "-";
+    position: absolute;
+    top: -4px;
+    font-weight: 900;
+    font-size: 36px;
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+
+  &__link {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &__btn {
+    color: #fff;
+  }
+}

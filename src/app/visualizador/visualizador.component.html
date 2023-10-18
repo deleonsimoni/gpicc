@@ -1,0 +1,31 @@
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="page-header mt-2">
+            <h1 id="timeline">{{item.title}}</h1>
+            <p class="linkLEPED" (click)="voltar()"> {{ 'comum.voltar' | translate }} </p>
+        </div>
+
+
+        <div class="row ">
+            <div class="card-deck">
+                <div data-aos="fade-up" class="card border-0 col-sm-12 p-0">
+                    <img *ngIf="item.imagePathS3" class="card-img-top" src="{{item.imagePathS3 | imagePathComplement}}"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text" [innerHTML]="item.content">
+
+                        </p>
+                        <p class="card-text" *ngIf="item.externalLink">
+                            <a target="_blank" href="{{item.externalLink}}">{{ 'comum.acesseAqui' | translate }}</a>
+                        </p>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
