@@ -1,5 +1,5 @@
 {
-    "comum":{
+    "comum": {
         "galeria": "our gallery",
         "quemSomos": "Who We Are",
         "cordenadoras": "Coordinators",
@@ -14,7 +14,7 @@
         "resumo": "Abstract",
         "publicacoes": "Publishing",
         "financiamento": "Financing",
-        "leped": "Laboratório de Estudos e Pesquisas em Didática e Formação de Professores",
+        "leped": "Grupo de pesquisa Infância e Cultura Contemporânea",
         "gepemat": "Grupo de Estudos e Pesquisas em Formação de Professores que ensinam Matemática / FE-UFRJ",
         "gecult": "Grupo de Estudos e Pesquisas sobre Educação, Arte e Cultura",
         "titulo": "Title",
@@ -53,7 +53,7 @@
         "alterar": "Alter",
         "atualizar": "Update"
     },
-    "form":{
+    "form": {
         "senha": "Password",
         "conSenha": "Confirm password",
         "altSenha": "Change Password",
@@ -79,7 +79,7 @@
         "bairro": "Neighborhood",
         "pais": "Country",
         "estado": "State",
-        "termo":{
+        "termo": {
             "1": "I have read and agree with the",
             "2": "Terms of Use"
         },
@@ -91,7 +91,7 @@
         "rua": "Street",
         "pescEmail": "Search email"
     },
-    "contato":{
+    "contato": {
         "titulo": "Contact",
         "endereco": "Address",
         "horarios": "Timetables",
@@ -101,13 +101,13 @@
         "mensagem": "Message sent. Thank you!",
         "enviar": "Send message"
     },
-    "footer":{
+    "footer": {
         "endereco": "Address",
         "contato": "Contact",
         "apoio": "Support",
         "direitos": "All rights reserved"
     },
-    "header":{
+    "header": {
         "login": "Log in",
         "cadastro": "Sign up",
         "administrador": "Manager",
@@ -156,7 +156,7 @@
         "validar": "Validate",
         "comprovante": "Voucher",
         "click": "Click to Download",
-        "comVal" : "Valid Voucher",
+        "comVal": "Valid Voucher",
         "comAgu": "Waiting for Proof",
         "respo": "Answered",
         "respoAgu": "Waiting for Response",

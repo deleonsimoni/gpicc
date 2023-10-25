@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, APP_INITIALIZER, LOCALE_ID } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { SharedModule } from './shared/shared.module';
 
@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './shared/services';
-import { CarrosselHomeComponent } from './carrossel-home/carrossel-home.component';
+//import { CarrosselHomeComponent } from './carrossel-home/carrossel-home.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { HistoricoComponent } from './historico/historico.component';
@@ -83,9 +83,9 @@ export function appInitializerFactory(authService: AuthService) {
     ColorPickerModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
     }),
     NgxPopperModule.forRoot(),
@@ -96,7 +96,7 @@ export function appInitializerFactory(authService: AuthService) {
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    CarrosselHomeComponent,
+    // CarrosselHomeComponent,
     EventosComponent,
     NoticiasComponent,
     HistoricoComponent,

@@ -1,5 +1,5 @@
 {
-    "comum":{
+    "comum": {
         "galeria": "nossa galeria",
         "quemSomos": "Quem Somos",
         "cordenadoras": "Coordenadoras",
@@ -14,7 +14,7 @@
         "resumo": "Resumo",
         "publicacoes": "Publicações",
         "financiamento": "Financiamento",
-        "leped": "Laboratório de Estudos e Pesquisas em Didática e Formação de Professores",
+        "leped": "Grupo de pesquisa Infância e Cultura Contemporânea",
         "gepemat": "Grupo de Estudos e Pesquisas em Formação de Professores que ensinam Matemática / FE-UFRJ",
         "gecult": "Grupo de Estudos e Pesquisas sobre Educação, Arte e Cultura",
         "titulo": "Título",
@@ -53,7 +53,7 @@
         "alterar": "Alterar",
         "atualizar": "Atualizar"
     },
-    "form":{
+    "form": {
         "senha": "Senha",
         "conSenha": "Confirmar senha",
         "altSenha": "Alterar Senha",
@@ -79,7 +79,7 @@
         "bairro": "Bairro",
         "pais": "País",
         "estado": "Estado",
-        "termo":{
+        "termo": {
             "1": "Li e concordo com o",
             "2": "termo de uso"
         },
@@ -91,7 +91,7 @@
         "rua": "Rua",
         "pescEmail": "Pesquisar email"
     },
-    "contato":{
+    "contato": {
         "titulo": "Contato",
         "endereco": "Endereço",
         "horarios": "Horários",
@@ -101,13 +101,13 @@
         "mensagem": "Mensagem enviada. Obrigado!",
         "enviar": "Enviar mensagem"
     },
-    "footer":{
+    "footer": {
         "endereco": "Endereço",
         "contato": "Contato",
         "apoio": "Apoio",
         "direitos": "Todos direitos reservados"
     },
-    "header":{
+    "header": {
         "login": "Login",
         "cadastro": "Cadastre-se",
         "administrador": "Administrador",
@@ -156,7 +156,7 @@
         "validar": "Validar",
         "comprovante": "Comprovante",
         "click": "Clique para Baixar",
-        "comVal" : "Comprovante Válido",
+        "comVal": "Comprovante Válido",
         "comAgu": "Aguardando Comprovação",
         "respo": "Respondido",
         "respoAgu": "Aguardando Resposta",
