@@ -1,0 +1,73 @@
+<div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+        <p>{{ 'tabelacao.partAtual' | translate }}</p>
+
+    </div>
+    <section id="chefs" class="chefs">
+
+        <div class="row gy-4 mb-4 align-items-center justify-content-center">
+
+            <div class=" col-lg-4 col-md-6 d-flex align-items-stretch" *ngFor="let participante of home?.participantes"
+                data-aos="fade-up" data-aos-delay="100">
+                <div class="chef-member">
+                    <div class="member-img">
+                        <img src="{{participante.imagePathS3 | imagePathComplement}}"
+                            class="img-fluid img-participantes" alt="">
+                        <div class="social">
+                            <a target="_blank" href="{{participante.twitter}}"><i class="bi bi-twitter"></i></a>
+                            <a target="_blank" href="{{participante.facebook}}"><i class="bi bi-facebook"></i></a>
+                            <a target="_blank" href="{{participante.instagram}}"><i class="bi bi-instagram"></i></a>
+                            <a target="_blank" href="{{participante.email}}"><i class="bi bi-globe"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <p>{{participante.name}}<br />
+
+
+                            <a target="_blank" href="{{participante.lattes}}">Lattes</a><br />
+                        </p>
+                    </div>
+                </div>
+            </div><!-- End Chefs Member -->
+
+
+        </div>
+    </section>
+
+
+</div>
+
+
+<div class="container" data-aos="fade-up">
+
+    <div class="section-header">
+        <p>{{ 'tabelacao.parcIntt' | translate }}</p>
+
+    </div>
+
+    <div class="row gy-4 mb-4">
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" *ngFor="let parceria of home?.parceiros"
+            data-aos="fade-up" data-aos-delay="100">
+            <div class="chef-member">
+                <div class="member-img">
+                    <img src="{{parceria.imagePathS3 | imagePathComplement}}" class="img-fluid" alt="">
+
+                </div>
+                <div class="member-info">
+                    <p><strong>{{parceria.parceriaName}}</strong></p>
+
+                    <p>
+                        {{parceria.parceriaDesc}}
+
+                    </p>
+                </div>
+            </div>
+        </div><!-- End Chefs Member -->
+
+
+
+
+    </div>
+</div>

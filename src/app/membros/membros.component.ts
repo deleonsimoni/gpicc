@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { GpiccService } from '@app/shared/services/gpicc.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-membros',
+  templateUrl: './membros.component.html',
+  styleUrls: ['./membros.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class MembrosComponent implements OnInit {
 
   publicacao = 'dissertacao';
   pesquisas = 'Pesquisas Realizadas';
@@ -56,15 +55,6 @@ export class HomeComponent implements OnInit {
     })
 
   }
-
-  sanitizeVideo(link) {
-    if (link && link.includes('watch')) {
-      link = link.replace('watch?v=', 'embed/');
-    }
-
-    return this._sanitizer.bypassSecurityTrustResourceUrl(link);
-  }
-
 
   public loadScript() {
     let body = <HTMLDivElement>document.body;

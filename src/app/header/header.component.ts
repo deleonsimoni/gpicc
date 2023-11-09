@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '@app/shared/interfaces';
 
 import { AuthService } from '@app/shared/services';
-import { LepedService } from '@app/shared/services/leped.service';
+import { ComumService } from '@app/shared/services/comum.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -23,7 +23,7 @@ export class HeaderComponent {
     private router: Router,
     private authService: AuthService,
     public translate: TranslateService,
-    public lepedService: LepedService
+    public comumService: ComumService
 
   ) {
 
@@ -51,7 +51,7 @@ export class HeaderComponent {
   changeSelectedCountryCode(value: string): void {
 
     this.selectedCountryCode = value;
-    this.lepedService.localeVar = value;
+    this.comumService.localeVar = value;
     this.translate.use(value);
 
   }

@@ -7,7 +7,7 @@ import { tap, pluck, catchError } from 'rxjs/operators';
 import { User } from '@app/shared/interfaces';
 
 import { TokenStorage } from './token.storage';
-import { LepedService } from '../leped.service';
+import { ComumService } from '../comum.service';
 
 interface AuthResponse {
   token: string;
@@ -21,7 +21,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private tokenStorage: TokenStorage,
-    private lepedService: LepedService) { }
+    private comumService: ComumService) { }
 
   login(form: any): Observable<User> {
     return this.http
@@ -43,7 +43,6 @@ export class AuthService {
 
 
     const formData: FormData = new FormData();
-    formData.append('comprovante', comprovante, comprovante.name);
     formData.append('formulario', JSON.stringify(form));
 
     return this.http
@@ -96,7 +95,7 @@ export class AuthService {
 
   getAuthorizationHeaders() {
     const token: string | null = this.tokenStorage.getToken() || '';
-    return { Authorization: `Bearer ${token}`, 'locale': this.lepedService.localeVar || 'BR' };
+    return { Authorization: `Bearer ${token}`, 'locale': this.comumService.localeVar || 'BR' };
   }
 
   /**

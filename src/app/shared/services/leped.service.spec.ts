@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LepedService } from './leped.service';
+import { LepedService } from './comum.service';
 
 describe('LepedService', () => {
   let service: LepedService;

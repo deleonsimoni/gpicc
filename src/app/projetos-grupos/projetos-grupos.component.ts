@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { GpiccService } from '@app/shared/services/gpicc.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-projetos-grupos',
+  templateUrl: './projetos-grupos.component.html',
+  styleUrls: ['./projetos-grupos.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class ProjetosGruposComponent implements OnInit {
 
   publicacao = 'dissertacao';
   pesquisas = 'Pesquisas Realizadas';
@@ -29,32 +28,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.listAll();
-    this.translate.onLangChange.subscribe((event) => {
-      this.listAll();
-    });
-  }
-
-  public listAll() {
-
-    this.gpiccService.listHome('gpicc')
-      .subscribe((res: any) => {
-        this.home = res[0];
-        this.ordenarParticipantes();
-      }, err => {
-        console.log(err);
-      });
-
-  }
-
-  ordenarParticipantes() {
-
-    this.home.participantes.sort(function (a, b) {
-      if (a.name < b.name) { return -1; }
-      if (a.name > b.name) { return 1; }
-      return 0;
-    })
-
+    this.getPesquisas('gpicc', 1);
   }
 
   sanitizeVideo(link) {
@@ -65,6 +39,29 @@ export class HomeComponent implements OnInit {
     return this._sanitizer.bypassSecurityTrustResourceUrl(link);
   }
 
+  public getPesquisas(type, typePesquisa) {
+
+    this.gpiccService.listPesquisa(type, typePesquisa)
+      .subscribe((res: any) => {
+        if (res.length > 1) {
+          this.pesquisasServer = { pesquisas: res };
+        } else {
+          this.pesquisasServer = res[0];
+        }
+
+        if (typePesquisa) {
+          if (typePesquisa == 1) {
+            this.pesquisasServer.pesquisas = this.pesquisasServer.pesquisas.filter(p => p.icPesquisa == 'Realizada')
+          } else {
+            this.pesquisasServer.pesquisas = this.pesquisasServer.pesquisas.filter(p => p.icPesquisa == 'Em Andamento')
+          }
+        }
+
+      }, err => {
+        console.log(err);
+      });
+
+  }
 
   public loadScript() {
     let body = <HTMLDivElement>document.body;

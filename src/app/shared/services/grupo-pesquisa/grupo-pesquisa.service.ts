@@ -6,7 +6,7 @@ import { forkJoin, Observable } from "rxjs";
 @Injectable({ providedIn: 'root' })
 export class GrupoPesquisaService {
 
-  private url = '/api/leped/grupo-pesquisa';
+  private url = '/api/gpicc-user/grupo-pesquisa';
 
   constructor(
     private httpClient: HttpClient

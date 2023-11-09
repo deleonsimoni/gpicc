@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LepedService } from '@app/shared/services/leped.service';
+import { ComumService } from '@app/shared/services/comum.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -19,7 +19,7 @@ export class QuemSomosComponent implements OnInit {
 
   constructor(
     private builder: FormBuilder,
-    private lepedService: LepedService,
+    private comumService: ComumService,
     private toastr: ToastrService,
   ) {
     this.form = this.builder.group({
@@ -36,7 +36,7 @@ export class QuemSomosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.lepedService.listQuemSomos().subscribe((res: any) => {
+    this.comumService.listQuemSomos().subscribe((res: any) => {
       this.carregando = false;
       this.data = res;
       this.logo = res[0].logo;
@@ -53,7 +53,7 @@ export class QuemSomosComponent implements OnInit {
 
       if (this.form.value._id) {
 
-        this.lepedService.atualizarQuemSomos(this.image == null ? null : this.image[0], this.form.value)
+        this.comumService.atualizarQuemSomos(this.image == null ? null : this.image[0], this.form.value)
           .subscribe((res: any) => {
             this.toastr.success('Quem Somos alterado com sucesso', 'Sucesso');
           }, (err: any) => {
@@ -62,7 +62,7 @@ export class QuemSomosComponent implements OnInit {
           });
 
       } else {
-        this.lepedService.cadastrarQuemSomos(this.image[0], this.form.value)
+        this.comumService.cadastrarQuemSomos(this.image[0], this.form.value)
           .subscribe((res: any) => {
             this.toastr.success('Quem Somos cadastrado', 'Sucesso');
           }, (err: any) => {

@@ -9,7 +9,6 @@ import {
 import { Observable } from 'rxjs';
 
 import { AuthService } from '@app/shared/services';
-import { LepedService } from '@app/shared/services/leped.service';
 
 @Injectable()
 export class AuthHeaderInterceptor implements HttpInterceptor {

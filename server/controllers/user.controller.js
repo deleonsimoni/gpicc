@@ -103,20 +103,6 @@ async function insert(req) {
   delete user.password;
   let retorno = {};
 
-  if (req.files) {
-    let fileName = 'comprovantes/usuarios/' + user.email + '/' + req.files.comprovante.name;
-    await S3Uploader.uploadFile(fileName, req.files.comprovante.data).then(async fileData => {
-      console.log('Arquivo submetido para AWS ' + fileName);
-      user.comprovanteProfessorPath = fileName;
-      retorno.temErro = false;
-    }, err => {
-      console.log('Erro ao enviar imagem para AWS: ' + fileName);
-      retorno.temErro = true;
-      retorno.mensagem = 'Servidor momentaneamente inoperante. Tente novamente mais tarde.';
-    });
-  }
-
-
   if (retorno.temErro) {
     return 'Ocorreu um erro ao registrar';
   } else {

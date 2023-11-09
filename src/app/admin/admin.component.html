@@ -6,18 +6,7 @@
                     <div class="section-header">
                         <h2>{{ 'comum.ola' | translate }}, {{user.fullname.split(' ').slice(-1).join(' ')}}</h2>
 
-                        <h2>{{ 'adimim.painel' | translate }} - LEPED</h2>
-                    </div>
-
-                    <div [ngClass]="{'section-header': menu.length > 1}">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item m-2" *ngFor="let item of menu">
-                                <button *ngIf="item.show" mat-raised-button color="accent" (click)="nomeMenu=item.name"
-                                    [routerLink]="[item.path]">
-                                    {{item.name}}
-                                </button>
-                            </li>
-                        </ul>
+                        <h2>ADMINISTRAÇÃO - GPICC</h2>
                     </div>
 
                     <div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogNewsComponent } from '@app/shared/dialogs/dialog-news/dialog-news.component';
-import { LepedService } from '@app/shared/services/leped.service';
+import { ComumService } from '@app/shared/services/comum.service';
 import { iif, map, Observable, of, switchMap, take } from 'rxjs';
 
 @Component({
@@ -15,7 +15,7 @@ export class NoticiasComponent implements OnInit {
   public news: Array<any> = [];
 
   constructor(
-    private lepedService: LepedService,
+    private comumService: ComumService,
     public dialog: MatDialog
   ) { }
 
@@ -25,7 +25,7 @@ export class NoticiasComponent implements OnInit {
   }
 
   private listAll(): Observable<any> {
-    return this.lepedService.listNoticia()
+    return this.comumService.listNoticia()
       .pipe(
         map((news: any) => this.news = news)
       )
@@ -49,7 +49,7 @@ export class NoticiasComponent implements OnInit {
       .pipe(
         switchMap(({ save, form, file }: any) =>
           iif(() => save,
-            this.lepedService.cadastrarNoticia(file, form)
+            this.comumService.cadastrarNoticia(file, form)
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )
@@ -63,7 +63,7 @@ export class NoticiasComponent implements OnInit {
       .pipe(
         switchMap(({ save, form, file }: any) =>
           iif(() => save,
-            this.lepedService.atualizarNoticia(file, { ...form, _id: data._id })
+            this.comumService.atualizarNoticia(file, { ...form, _id: data._id })
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )
@@ -73,7 +73,7 @@ export class NoticiasComponent implements OnInit {
   }
 
   public delete(coordinator: any): void {
-    this.lepedService.deletarNoticia(coordinator._id)
+    this.comumService.deletarNoticia(coordinator._id)
       .pipe(
         take(1),
         switchMap(_ => this.listAll())

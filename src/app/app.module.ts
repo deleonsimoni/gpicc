@@ -27,11 +27,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ObrasPublicadasComponent } from './obras-publicadas/obras-publicadas.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { NgxFlagPickerModule } from 'ngx-flag-picker';
-import { GepedComponent } from './geped/geped.component';
-import { GepematComponent } from './gepemat/gepemat.component';
-import { GeprodComponent } from './geprod/geprod.component';
-import { GedocComponent } from './gedoc/gedoc.component';
-import { GecultComponent } from './gecult/gecult.component';
 
 import { ToastrModule } from 'ngx-toastr';
 import { DialogDeleteComponent } from './dialog/dialog-delete/dialog-delete.component';
@@ -39,22 +34,18 @@ import { ModalTermoComponent } from './dialog/modal-termo/modal-termo.component'
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { CustomPipesModule } from './shared/pipes/custom-pipes.module';
 import { VisualizadorComponent } from './visualizador/visualizador.component';
-import { HomeCominduComponent } from './comindu/home-comindu/home-comindu.component';
 import { NgxPopperModule } from 'ngx-popper';
 
 import { MatCardModule } from '@angular/material/card';
-import { RegisterCominduComponent } from './comindu/dialog/register-comindu/register-comindu.component';
-import { ComunidadeCominduComponent } from './comindu/comunidade-comindu/comunidade-comindu.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatListModule } from '@angular/material/list';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
-import { MeuCominduComponent } from './comindu/meu-comindu/meu-comindu.component';
-import { InscritosComponent } from './comindu/admin/inscritos/inscritos.component';
-import { InscritosCardComponent } from './comindu/admin/inscritos-card/inscritos-card.component';
-import { InscritosDataComponent } from './comindu/admin/inscritos-data/inscritos-data.component';
-import { ChatCominduComponent } from './comindu/chat-comindu/chat-comindu.component';
+import { MembrosComponent } from './membros/membros.component';
+import { ProjetosInstitucionaisComponent } from './projetos-institucionais/projetos-institucionais.component';
+import { ProjetosGruposComponent } from './projetos-grupos/projetos-grupos.component';
+import { ProducoesComponent } from './producoes/producoes.component';
 
 registerLocaleData(localePT);
 
@@ -105,22 +96,14 @@ export function appInitializerFactory(authService: AuthService) {
     SobreComponent,
     ObrasPublicadasComponent,
     GruposComponent,
-    GepedComponent,
-    GepematComponent,
-    GeprodComponent,
-    GedocComponent,
-    GecultComponent,
     DialogDeleteComponent,
     ModalTermoComponent,
     VisualizadorComponent,
-    HomeCominduComponent,
-    RegisterCominduComponent,
-    ComunidadeCominduComponent,
-    MeuCominduComponent,
-    InscritosComponent,
-    InscritosCardComponent,
-    InscritosDataComponent,
-    ChatCominduComponent,
+    MembrosComponent,
+    ProjetosInstitucionaisComponent,
+    ProjetosGruposComponent,
+    ProducoesComponent,
+
 
   ],
   providers: [

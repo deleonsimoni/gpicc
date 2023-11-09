@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LepedService } from '@app/shared/services/leped.service';
+import { ComumService } from '@app/shared/services/comum.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 
@@ -15,7 +15,7 @@ export class EventosComponent implements OnInit {
   carregando = false;
 
   constructor(
-    private lepedService: LepedService,
+    private comumService: ComumService,
     private router: Router,
     private toastr: ToastrService,
     private translate: TranslateService
@@ -30,7 +30,7 @@ export class EventosComponent implements OnInit {
   }
 
   list() {
-    this.lepedService.listEvento()
+    this.comumService.listEvento()
       .subscribe((res: any) => {
         this.carregando = false;
         this.eventos = res;

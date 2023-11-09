@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LepedService } from '@app/shared/services/leped.service';
+import { ComumService } from '@app/shared/services/comum.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -13,7 +13,7 @@ export class SobreComponent implements OnInit {
   quemSomos;
 
   constructor(
-    private lepedService: LepedService,
+    private comumService: ComumService,
     private translate: TranslateService
   ) { }
 
@@ -25,7 +25,7 @@ export class SobreComponent implements OnInit {
   }
 
   list() {
-    this.lepedService.listQuemSomos().subscribe((res: any) => {
+    this.comumService.listQuemSomos().subscribe((res: any) => {
       this.carregando = false;
       this.quemSomos = res[0];
     }, err => {

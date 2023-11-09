@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TruncateStringPipe } from '@app/shared/pipes/truncate-string.pipe';
-import { LepedService } from '@app/shared/services/leped.service';
+import { ComumService } from '@app/shared/services/comum.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -15,14 +15,14 @@ export class NoticiasComponent implements OnInit {
   carregando = false;
 
   constructor(
-    private lepedService: LepedService,
+    private comumService: ComumService,
     private router: Router,
     private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
 
-    this.lepedService.listNoticia()
+    this.comumService.listNoticia()
       .subscribe((res: any) => {
         this.carregando = false;
         this.noticias = res;

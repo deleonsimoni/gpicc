@@ -13,10 +13,10 @@
         <li><a routerLink="/obras-publicadas">Obras Publicadas</a></li>-->
         <!--<li><a routerLink="/endipe">XX ENDIPE RIO 2020</a></li>-->
 
-        <li><a routerLink="/geped">Membros do GPICC</a></li>
-        <li><a routerLink="/gepemat">Projetos Institucionais</a></li>
-        <li><a routerLink="/geprod">Projetos do Grupo</a></li>
-        <li><a routerLink="/gedoc">Produções</a></li>
+        <li><a routerLink="/membros">Membros do GPICC</a></li>
+        <li><a routerLink="/projetos-institucionais">Projetos Institucionais</a></li>
+        <li><a routerLink="/projetos-grupo">Projetos do Grupo</a></li>
+        <li><a routerLink="/producoes">Produções</a></li>
         <!--<li><a routerLink="/gecult" (click)="navbar.toggle()">GECULT</a></li>
         <li><a routerLink="/eventos">{{ 'comum.eventos' | translate }}</a></li>-->
         <li><a routerLink="/noticias">{{ 'comum.noticias' | translate}}</a></li>
@@ -24,9 +24,10 @@
         <li><a *ngIf="!user" routerLink="/auth/register">{{ 'header.cadastro' | translate }}</a></li>
 
 
-        <li><a *ngIf="user?.isAdmin || user?.isGeped || user?.isGeprod || user?.isGedoc" routerLink="/admin">{{
+        <li><a *ngIf="user?.isAdmin || user?.isGeped || user?.isGeprod || user?.isGedoc"
+            routerLink="/admin/grupos-pesquisa">{{
             'header.administrador' | translate }}</a></li>
-        <li><a *ngIf="user" (click)="logout()">{{ 'header.sair' | translate }}</a></li>
+        <li><a *ngIf="user" style="cursor: pointer;" (click)="logout()">{{ 'header.sair' | translate }}</a></li>
 
         <!--<li class="dropdown"><a href="#"><span>Drop Down</span> <i
               class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -58,4 +59,9 @@
     <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
   </div>
+
+
 </header>
+<div class="container-line">
+  <div class="line"></div>
+</div>

@@ -24,8 +24,6 @@ export class RegisterComponent implements OnInit {
 
   public registerForm: FormGroup;
   public carregando = false;
-  comprovanteProfessorFile: File | null = null;
-
 
   constructor(
     private router: Router,
@@ -70,10 +68,6 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  handleFileInput(files: FileList) {
-    this.comprovanteProfessorFile = files.item(0);
-  }
-
 
   register(): void {
 
@@ -109,10 +103,6 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    if (!this.comprovanteProfessorFile) {
-      this.toastr.error('Envie o comprovante da categoria de professor', 'Atenção: ');
-      return;
-    }
 
     if (this.registerForm.valid && form != null) {
 
@@ -121,7 +111,7 @@ export class RegisterComponent implements OnInit {
       this.registerForm.removeControl('cf-password');
 
       this.authService
-        .register(form, this.comprovanteProfessorFile)
+        .register(form, null)
         .subscribe((res: any) => {
           this.toastr.success('Cadastro realizado com sucesso.', 'Bem-vindo');
           this.router.navigate(['']);

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEventsComponent } from '@app/shared/dialogs/dialog-events/dialog-events.component';
 import { DialogNewsComponent } from '@app/shared/dialogs/dialog-news/dialog-news.component';
-import { LepedService } from '@app/shared/services/leped.service';
+import { ComumService } from '@app/shared/services/comum.service';
 import { iif, map, Observable, of, switchMap, take } from 'rxjs';
 
 @Component({
@@ -17,7 +17,7 @@ export class EventosComponent implements OnInit {
   public events: Array<any> = [];
 
   constructor(
-    private lepedService: LepedService,
+    private comumService: ComumService,
     public dialog: MatDialog
   ) { }
 
@@ -27,7 +27,7 @@ export class EventosComponent implements OnInit {
   }
 
   private listAll(): Observable<any> {
-    return this.lepedService.listEvento()
+    return this.comumService.listEvento()
       .pipe(
         map((events: any) => this.events = events)
       )
@@ -51,7 +51,7 @@ export class EventosComponent implements OnInit {
       .pipe(
         switchMap(({ save, form, file }: any) =>
           iif(() => save,
-            this.lepedService.cadastrarEvento(file, form)
+            this.comumService.cadastrarEvento(file, form)
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )
@@ -65,7 +65,7 @@ export class EventosComponent implements OnInit {
       .pipe(
         switchMap(({ save, form, file }: any) =>
           iif(() => save,
-            this.lepedService.atualizarEvento(file, { ...form, _id: data._id })
+            this.comumService.atualizarEvento(file, { ...form, _id: data._id })
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )
@@ -75,7 +75,7 @@ export class EventosComponent implements OnInit {
   }
 
   public delete(coordinator: any): void {
-    this.lepedService.deletarEvento(coordinator._id)
+    this.comumService.deletarEvento(coordinator._id)
       .pipe(
         take(1),
         switchMap(_ => this.listAll())
