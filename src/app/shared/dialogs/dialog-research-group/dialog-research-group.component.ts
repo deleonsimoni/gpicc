@@ -141,7 +141,7 @@ export class DialogResearchGroupComponent {
       let galeria: any[] = [];
       this.gallery.splice(1)
         .forEach(el => {
-          if (el.base64.includes("leped.s3")) {
+          if (el.base64.includes("gpicc.s3")) {
             galeria.push("images/" + el.base64.replace(/.+images\//, ""));
           }
         });

@@ -138,7 +138,7 @@ async function insertGrupoPesquisa(req, idUser) {
   let retorno = { temErro: true };
   form.user = idUser;
 
-  if (req.files?.fotoGrupo) {
+  if (req.files && req.files.fotoGrupo) {
     let fileName1 = 'images/' + req.files.fotoGrupo.name;
 
     try {
@@ -153,7 +153,7 @@ async function insertGrupoPesquisa(req, idUser) {
     }
   }
 
-  if (req.files?.fotoCoordenadora) {
+  if (req.files && req.files.fotoCoordenadora) {
     let fileName2 = 'images/' + req.files.fotoCoordenadora.name;
 
     try {
@@ -168,7 +168,7 @@ async function insertGrupoPesquisa(req, idUser) {
     }
   }
 
-  if (req.files?.galeria1) {
+  if (req.files && req.files.galeria1) {
     let promises = [], fileName = [];
 
     Object.keys(req.files).forEach(el => {
@@ -206,7 +206,7 @@ async function updateGrupoPesquisa(req, idUser) {
   let retorno = { temErro: false };
   form.user = idUser;
 
-  if (req.files?.fotoGrupo) {
+  if (req.files && req.files.fotoGrupo) {
     let fileName1 = 'images/' + req.files.fotoGrupo.name;
 
     try {
@@ -220,7 +220,7 @@ async function updateGrupoPesquisa(req, idUser) {
     }
   }
 
-  if (req.files?.fotoCoordenadora && !retorno.temErro) {
+  if (req.files && req.files.fotoCoordenadora && !retorno.temErro) {
     let fileName2 = 'images/' + req.files.fotoCoordenadora.name;
 
     try {
@@ -234,7 +234,7 @@ async function updateGrupoPesquisa(req, idUser) {
     }
   }
 
-  if (req.files?.galeria1 && !retorno.temErro) {
+  if (req.files && req.files.galeria1 && !retorno.temErro) {
     let promises = [], fileName = [];
 
     Object.keys(req.files).forEach(el => {
