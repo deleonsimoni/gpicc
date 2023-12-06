@@ -120,6 +120,7 @@ async function getArtigosgp(req, res) {
 }
 
 async function getParticipantesgp(req, res) {
+    console.log('aa')
     let response = await grupospesquisaCtrl.getParticipantesgp(req);
     res.json(response);
 }
