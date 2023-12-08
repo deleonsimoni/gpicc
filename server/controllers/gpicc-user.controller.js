@@ -39,7 +39,7 @@ async function getHome(req) {
 
 
   return await GrupoPesquisa.find({ type: req.query.type })
-    .select('title subTitle content imagePathS3 facebook youtube instagram twitter galeria participantes parceiros')
+    .select('title subTitle content imagePathS3 facebook minicurriculo youtube instagram twitter galeria participantes parceiros')
     .sort({
       'createAt': -1
     });

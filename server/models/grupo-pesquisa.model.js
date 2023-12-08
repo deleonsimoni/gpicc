@@ -114,6 +114,9 @@ const GrupoPesquisaSchema = new mongoose.Schema(
       facebook: {
         type: String,
       },
+      minicurriculo: {
+        type: String,
+      },
       imagePathS3: {
         type: String,
       },
@@ -130,13 +133,40 @@ const GrupoPesquisaSchema = new mongoose.Schema(
         type: String,
 
       },
-      parceriaDesc: {
+      parceriaemail: {
         type: String,
+      },
 
+      parceriaorcid: {
+        type: String
+      },
+
+      parcerialattes: {
+        type: String,
+      },
+
+      parceriainstagram: {
+        type: String,
+      },
+
+      parceriatwitter: {
+        type: String,
+      },
+
+      parceriafacebook: {
+        type: String,
+      },
+      parceriaminicurriculo: {
+        type: String,
       },
       imagePathS3: {
         type: String,
-      }
+      },
+      createAt: {
+        type: Date,
+        default: Date.now
+      },
+
     }],
 
     extensaoEnsino: [{

@@ -40,6 +40,7 @@ export class MembrosComponent implements OnInit {
       .subscribe((res: any) => {
         this.home = res[0];
         this.ordenarParticipantes();
+        this.ordenarParceiros();
       }, err => {
         console.log(err);
       });
@@ -49,6 +50,16 @@ export class MembrosComponent implements OnInit {
   ordenarParticipantes() {
 
     this.home.participantes.sort(function (a, b) {
+      if (a.name < b.name) { return -1; }
+      if (a.name > b.name) { return 1; }
+      return 0;
+    })
+
+  }
+
+  ordenarParceiros() {
+
+    this.home.parceiros.sort(function (a, b) {
       if (a.name < b.name) { return -1; }
       if (a.name > b.name) { return 1; }
       return 0;

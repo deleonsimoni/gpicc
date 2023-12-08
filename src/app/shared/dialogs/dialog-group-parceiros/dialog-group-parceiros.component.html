@@ -2,22 +2,26 @@
     <form [formGroup]="grupoForm" (ngSubmit)="registerBook()">
 
         <div class="section">
-            <h3 class="section__title">Parceiros</h3>
+            <h3 class="section__title">Egressos</h3>
         </div>
 
         <div class="form-row justify-content-center align-items-center">
             <div class="col-12 col-md-8 order-2 order-md-1">
                 <div class="form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Nome"
+                    <input type="text" name="parceriaName" class="form-control" id="parceriaName" placeholder="Name"
                         formControlName="parceriaName" />
                     <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="email" class="form-control" id="email" placeholder="Descrição"
-                        formControlName="parceriaDesc" />
+                    <input type="text" name="parceriaemail" class="form-control" id="parceriaemail" placeholder="Email"
+                        formControlName="parceriaemail" />
                     <div class="validation"></div>
                 </div>
-
+                <div class="form-group">
+                    <input type="text" name="parceriaorcid" class="form-control" id="parceriaorcid" placeholder="ORCID"
+                        formControlName="parceriaorcid" />
+                    <div class="validation"></div>
+                </div>
             </div>
             <div class="col-8 col-md-4 order-1 order-md-2 mb-3">
                 <div class="profile">
@@ -29,8 +33,40 @@
         </div>
 
         <!-- <div class="section">
-        <h3 class="section__title">Contato</h3>
-      </div> -->
+            <h3 class="section__title">Contato</h3>
+          </div> -->
+
+        <div class="form-row">
+            <div class="form-group col-12 col-md-6">
+                <input type="email" name="parcerialattes" class="form-control" id="parcerialattes" placeholder="Lattes"
+                    formControlName="parcerialattes" />
+                <div class="validation"></div>
+            </div>
+            <div class="form-group col-12 col-md-6">
+                <input type="email" name="parceriainstagram" class="form-control" id="parceriainstagram"
+                    placeholder="Instagram" formControlName="parceriainstagram" />
+                <div class="validation"></div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-12 col-md-6">
+                <input type="email" name="parceriatwitter" class="form-control" id="parceriatwitter"
+                    placeholder="Twitter" formControlName="parceriatwitter" />
+                <div class="validation"></div>
+            </div>
+            <div class="form-group col-12 col-md-6">
+                <input type="email" name="parceriafacebook" class="form-control" id="parceriafacebook"
+                    placeholder="Facebook" formControlName="parceriafacebook" />
+                <div class="validation"></div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-12 col-md-12">
+                    <angular-editor placeholder="Mini Curriculo..."
+                        formControlName="parceriaminicurriculo"></angular-editor>
+                </div>
+            </div>
+        </div>
 
 
         <div class="row justify-content-center" mat-dialog-actions>

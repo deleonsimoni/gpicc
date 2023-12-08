@@ -115,8 +115,8 @@
     },
     "tabelacao": {
         "titulos": {
-            "pesquisas": "Pesquisas",
-            "ensinoEx": "Ensino e Extensão"
+            "pesquisas": "Projetos do grupo",
+            "ensinoEx": "Projetos institucionais"
         },
         "butao": {
             "pescReal": "Pesquisas realizadas",
@@ -127,7 +127,7 @@
             "tcc": "TCC, Dissertações e Teses"
         },
         "partAtual": "Participantes atuais",
-        "parcIntt": "Parcerias Institucionais",
+        "parcIntt": "Egressos",
         "zelda": "Link de acesso",
         "dataDef": "Data de defesa",
         "disponivel": "Disponível em",
@@ -140,8 +140,8 @@
         "noticia": "Notícia",
         "artigo": "Artigo",
         "livro": "Livro",
-        "parceiro": "Parceiro",
-        "pesquisa": "Pesquisa",
+        "parceiro": "Egressos",
+        "pesquisa": "Projeto do Grupo",
         "participantes": "Participantes",
         "nope": "Não há grupos cadastrados",
         "cadDissert": "Cadastrar Dissertação/Tese",

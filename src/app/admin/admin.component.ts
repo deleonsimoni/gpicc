@@ -24,7 +24,7 @@ export class AdminComponent implements OnInit {
         { name: 'NOTÍCIAS', path: '/admin/noticias', show: this.user?.isAdmin },
         {
           name: 'GRUPOS DE PESQUISA', path: '/admin/grupos-pesquisa', show: this.user?.isGeped || this.user?.isGeprod
-            || this.user?.isGedoc
+            || this.user?.isGedoc || this.user?.isGpicc
         },
       ];
     });

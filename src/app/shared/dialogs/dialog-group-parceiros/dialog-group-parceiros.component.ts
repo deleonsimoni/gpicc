@@ -37,7 +37,13 @@ export class DialogGroupParceirosComponent {
   private createForm(): FormGroup {
     return this.formBuilder.group({
       parceriaName: [null, [Validators.required]],
-      parceriaDesc: [null],
+      parceriaemail: [null, []],
+      parceriaorcid: [null, []],
+      parcerialattes: [null, []],
+      parceriainstagram: [null, []],
+      parceriatwitter: [null, []],
+      parceriafacebook: [null, []],
+      parceriaminicurriculo: [null, []],
       imagePathS3: [null, []],
     });
   }
@@ -47,7 +53,13 @@ export class DialogGroupParceirosComponent {
 
     this.grupoForm.patchValue({
       parceriaName: data.parceriaName,
-      parceriaDesc: data.parceriaDesc,
+      parceriaemail: data.email,
+      parceriaorcid: data.orcid,
+      parcerialattes: data.lattes,
+      parceriainstagram: data.instagram,
+      parceriatwitter: data.twitter,
+      parceriafacebook: data.facebook,
+      parceriaminicurriculo: data.minicurriculo,
       imagePathS3: data.imagePathS3
 
     })
