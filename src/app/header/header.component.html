@@ -22,6 +22,7 @@
         <li><a routerLink="/noticias">{{ 'comum.noticias' | translate}}</a></li>
         <li><a *ngIf="!user" routerLink="/auth/login">{{ 'header.login' | translate }}</a></li>
         <li><a *ngIf="!user" routerLink="/auth/register">{{ 'header.cadastro' | translate }}</a></li>
+        <li><a *ngIf="user" routerLink="/postagens">Postagens</a></li>
 
 
         <li><a *ngIf="user?.isAdmin || user?.isGeped || user?.isGeprod || user?.isGedoc"

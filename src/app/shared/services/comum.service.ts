@@ -42,6 +42,10 @@ export class ComumService {
   }
 
 
+  listPostagens() {
+    return this.http.get(`/api/gpicc-user/noticia`);
+  }
+
   listNoticia() {
     return this.http.get(`/api/grupos-pesquisa/parceiros?type=gpicc`);
   }
@@ -52,7 +56,7 @@ export class ComumService {
 
   cadastrarNoticia(file: any, form: any): Observable<any> {
     const formData: FormData = new FormData();
-    formData.append('formulario', JSON.stringify(form));
+    formData.append('formulario', JSON.stringify(form.value));
 
     if (file) {
       formData.append('fileArray', file, `${file.name}`);

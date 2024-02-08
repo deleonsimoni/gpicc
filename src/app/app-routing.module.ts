@@ -13,6 +13,8 @@ import { MembrosComponent } from './membros/membros.component';
 import { ProjetosInstitucionaisComponent } from './projetos-institucionais/projetos-institucionais.component';
 import { ProjetosGruposComponent } from './projetos-grupos/projetos-grupos.component';
 import { ProducoesComponent } from './producoes/producoes.component';
+import { PostagensComponent } from './postagens/postagens.component';
+import { AuthGuard } from './shared/guards';
 
 const routes: Routes = [
   {
@@ -49,6 +51,11 @@ const routes: Routes = [
     path: 'projetos-institucionais',
     component: ProjetosInstitucionaisComponent,
     /*canActivate: [AuthGuard],*/
+  },
+  {
+    path: 'postagens',
+    component: PostagensComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'projetos-grupo',

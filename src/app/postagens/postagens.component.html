@@ -1,0 +1,74 @@
+<div>
+    <section id="hero" class="hero d-flex align-items-center section-bg" style="background-color: #fff;">
+        <div class="container">
+
+
+            <h4>Área interna - Somente para usuários</h4>
+
+
+
+            <div class="row" mat-dialog-content>
+                <form [formGroup]="form" (ngSubmit)="cadastrar()">
+
+
+                    <div class="form-row justify-content-center align-items-center">
+                        <div class="col-12 col-md-8 order-2 order-md-1">
+
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Titulo"
+                                    formControlName="title" />
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" id="name" placeholder="Ano"
+                                    formControlName="ano" />
+                                <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="group" class="form-control" id="group" placeholder="Link"
+                                    formControlName="link" />
+                                <div class="validation"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="row justify-content-center" mat-dialog-actions>
+                        <div class="col-md-6">
+                            <div class="action">
+                                <button class="btn btn-primary action__btn" type="submit">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <section *ngIf="news" id="about" class="about">
+                <div class="container" data-aos="fade-up">
+
+                    <div class="page-header mt-2">
+                        <h1 id="timeline">Postagens</h1>
+                    </div>
+
+                    <mat-card *ngFor="let noticia of news" class="example-card m-4">
+                        <mat-card-title><b>{{noticia.user.fullname | titlecase }}</b></mat-card-title>
+                        <mat-card-title><b>{{noticia.title}}</b></mat-card-title>
+                        <mat-card-title><b>{{noticia.ano}}</b></mat-card-title>
+                        <mat-card-title><b>{{noticia.link}}</b></mat-card-title>
+
+                    </mat-card>
+
+                </div>
+            </section>
+
+
+
+        </div>
+    </section>
+</div>

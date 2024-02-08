@@ -33,10 +33,20 @@ router.put('/grupo-pesquisa', [passport.authenticate('jwt', {
     session: false
 }), requireAdmin, fileUpload()], asyncHandler(updateGrupoPesquisa));
 
+router.post('/noticia', [passport.authenticate('jwt', {
+    session: false
+}), fileUpload()], asyncHandler(insertNoticia));
+
 async function getProjetosInstitucionais(req, res) {
     let response = await gpiccUserController.getProjetosInstitucionais(req);
     res.json(response);
 }
+
+async function insertNoticia(req, res) {
+    let response = await gpiccUserController.insertNoticia(req, req.user._id);
+    res.json(response);
+}
+
 
 async function getNoticia(req, res) {
     let response = await gpiccUserController.getNoticia();

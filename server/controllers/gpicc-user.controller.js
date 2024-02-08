@@ -5,6 +5,8 @@ const Coordenadoras = require('../models/coordenadora.model');
 const Eventos = require('../models/evento.model');
 const Galeria = require('../models/galeria.model');
 const GrupoPesquisa = require('../models/grupo-pesquisa.model');
+const User = require('../models/user.model');
+
 const S3Uploader = require('./aws.controller');
 const quemsomosTranslate = require('../translate/quemsomos.json');
 const eventoTranslate = require('../translate/evento.json');
@@ -26,6 +28,7 @@ module.exports = {
   getProjetosInstitucionais,
   getMonografias,
   getDissertacoes,
+  insertNoticia
 
 
 };
@@ -225,9 +228,33 @@ async function insertGrupoPesquisa(req, idUser) {
 
 async function getNoticia() {
   return await Noticia.find()
+    .populate({ path: 'user', model: User, select: 'fullname' })
     .sort({
       createAt: -1
     });
+}
+
+async function insertNoticia(req, idUser) {
+  let form = JSON.parse(req.body.formulario);
+  form.user = idUser;
+  let retorno = { temErro: true };
+
+  if (req.files) {
+    let fileName = 'images/' + req.files.fileArray.name;
+    await S3Uploader.uploadBase64(fileName, req.files.fileArray.data).then(async fileData => {
+      console.log('Arquivo submetido para AWS ' + fileName);
+      form.imagePathS3 = fileName;
+      retorno.temErro = false;
+      return await new Noticia(form).save();
+    }, err => {
+      console.log('Erro ao enviar imagem para AWS: ' + fileName);
+      retorno.temErro = true;
+      retorno.mensagem = 'Servidor momentaneamente inoperante. Tente novamente mais tarde.';
+    });
+
+  } else {
+    return await new Noticia(form).save();
+  }
 }
 
 async function updateGrupoPesquisa(req, idUser) {

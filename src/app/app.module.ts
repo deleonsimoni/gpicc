@@ -46,6 +46,7 @@ import { MembrosComponent } from './membros/membros.component';
 import { ProjetosInstitucionaisComponent } from './projetos-institucionais/projetos-institucionais.component';
 import { ProjetosGruposComponent } from './projetos-grupos/projetos-grupos.component';
 import { ProducoesComponent } from './producoes/producoes.component';
+import { PostagensComponent } from './postagens/postagens.component';
 
 registerLocaleData(localePT);
 
@@ -101,8 +102,10 @@ export function appInitializerFactory(authService: AuthService) {
     VisualizadorComponent,
     MembrosComponent,
     ProjetosInstitucionaisComponent,
+    PostagensComponent,
     ProjetosGruposComponent,
     ProducoesComponent,
+    PostagensComponent,
 
 
   ],

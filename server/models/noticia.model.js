@@ -17,25 +17,16 @@ const NoticiaSchema = new mongoose.Schema(
       required: true
     },
 
-    content: {
+    link: {
       type: String,
-      required: true
     },
 
     imagePathS3: {
       type: String,
     },
 
-    ordem: {
+    ano: {
       type: Number,
-    },
-
-    externalLink: {
-      type: String,
-    },
-
-    isCarrossel: {
-      type: Boolean
     }
 
   },
