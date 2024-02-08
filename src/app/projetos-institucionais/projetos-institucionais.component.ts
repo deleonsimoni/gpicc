@@ -41,21 +41,9 @@ export class ProjetosInstitucionaisComponent implements OnInit {
 
   public getPesquisas(type, typePesquisa) {
 
-    this.gpiccService.listPesquisa(type, typePesquisa)
+    this.gpiccService.listExtensaoEnsino(type, typePesquisa)
       .subscribe((res: any) => {
-        if (res.length > 1) {
-          this.pesquisasServer = { pesquisas: res };
-        } else {
-          this.pesquisasServer = res[0];
-        }
-
-        if (typePesquisa) {
-          if (typePesquisa == 1) {
-            this.pesquisasServer.pesquisas = this.pesquisasServer.pesquisas.filter(p => p.icPesquisa == 'Realizada')
-          } else {
-            this.pesquisasServer.pesquisas = this.pesquisasServer.pesquisas.filter(p => p.icPesquisa == 'Em Andamento')
-          }
-        }
+        this.pesquisasServer = res[0];
 
       }, err => {
         console.log(err);

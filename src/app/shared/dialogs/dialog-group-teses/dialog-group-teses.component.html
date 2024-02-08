@@ -4,11 +4,8 @@
 
 
     <div class="section">
-      <div *ngIf="grupo=='GEDOC'">
-        <h3 class="section__title">TCC, Dissertações e Teses</h3>
-      </div>
-      <div *ngIf="grupo!='GEDOC'">
-        <h3 class="section__title">Dissertações e Teses</h3>
+      <div>
+        <h3 class="section__title">Teses, Dissertações, Monografias e Artigos</h3>
       </div>
     </div>
 
@@ -21,38 +18,39 @@
         </div>
 
         <div class="form-group">
+          <h5>Tipo</h5>
+          <label>
+            <input type="radio" value="Tese" formControlName="categoryId">
+            <span> Tese</span>
+          </label>
+
+
+        </div>
+
+        <div class="form-group">
 
           <label>
-            <input type="radio" value="TCC" formControlName="categoryId">
-            <span> TCC</span>
+            <input type="radio" value="Dissertacao" formControlName="categoryId">
+            <span> Dissertação</span>
           </label>
 
         </div>
 
         <div class="form-group">
+
 
           <label>
             <input type="radio" value="Monografia" formControlName="categoryId">
             <span> Monografia</span>
           </label>
-
         </div>
 
         <div class="form-group">
 
 
           <label>
-            <input type="radio" value="mestrado" formControlName="categoryId">
-            <span> Mestrado</span>
-          </label>
-        </div>
-
-        <div class="form-group">
-
-
-          <label>
-            <input type="radio" value="doutorado" formControlName="categoryId">
-            <span> Doutorado</span>
+            <input type="radio" value="Artigo" formControlName="categoryId">
+            <span> Artigo</span>
           </label>
         </div>
 
@@ -62,17 +60,28 @@
           <div class="validation"></div>
         </div>
         <div class="form-group">
-          <input type="text" name="dateTesis" class="form-control" id="dateTesis" placeholder="Data de Defesa"
+          <input type="text" name="dateTesis" class="form-control" id="dateTesis" placeholder="Ano de conclusão"
             formControlName="dateTesis" />
           <div class="validation"></div>
         </div>
 
         <div class="form-group">
-          <input type="text" name="linkTesis" class="form-control" id="linkTesis" placeholder="Link"
-            formControlName="linkTesis" />
+          <input type="text" name="linkTesis" class="form-control" id="linkTesis" placeholder="Financiamento"
+            formControlName="financing" />
           <div class="validation"></div>
         </div>
 
+        <div class="form-group">
+          <input type="text" name="linkTesis" class="form-control" id="linkTesis" placeholder="Periodico"
+            formControlName="periodic" />
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
+          <input type="text" name="linkTesis" class="form-control" id="linkTesis" placeholder="Link da publicação"
+            formControlName="link" />
+          <div class="validation"></div>
+        </div>
 
       </div>
     </div>

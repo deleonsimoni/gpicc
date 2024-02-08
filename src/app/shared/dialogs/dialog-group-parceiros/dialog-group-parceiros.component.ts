@@ -36,7 +36,7 @@ export class DialogGroupParceirosComponent {
 
   private createForm(): FormGroup {
     return this.formBuilder.group({
-      parceriaName: [null, [Validators.required]],
+      title: [null, [Validators.required]],
       parceriaemail: [null, []],
       parceriaorcid: [null, []],
       parcerialattes: [null, []],
@@ -45,6 +45,10 @@ export class DialogGroupParceirosComponent {
       parceriafacebook: [null, []],
       parceriaminicurriculo: [null, []],
       imagePathS3: [null, []],
+      date: [null, []],
+      link: [null, []],
+      details: [null, []],
+
     });
   }
 
@@ -60,7 +64,11 @@ export class DialogGroupParceirosComponent {
       parceriatwitter: data.twitter,
       parceriafacebook: data.facebook,
       parceriaminicurriculo: data.minicurriculo,
-      imagePathS3: data.imagePathS3
+      imagePathS3: data.imagePathS3,
+      title: data.title,
+      date: data.date,
+      link: data.link,
+      details: data.details,
 
     })
   }

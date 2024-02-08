@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
     <div class="col-md-12">
         <h3>
-            {{type | uppercase}} - {{ 'comum.teses' | translate }}
+            {{type | uppercase}} - {{ 'comum.teses' | translate }}, Dissertações, Monografias e Artigos
         </h3>
         <div class="forms">
             <div class="row" *ngFor="let item of itens">
@@ -16,7 +16,7 @@
 <div class="row justify-content-end mb-4">
     <div class="col-md-3 text-end">
         <button mat-raised-button color="accent" class="btn coordinator-btn" (click)="register()">
-            {{ 'admim.cadastrar' | translate }} {{ 'admim.cadDissert' | translate }}
+            {{ 'admim.cadastrar' | translate }}
         </button>
     </div>
 </div>

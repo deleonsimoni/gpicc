@@ -1,42 +1,103 @@
 <div>
     <section id="hero" class="hero d-flex align-items-center section-bg" style="background-color: #fff;">
         <div class="container">
+            <h4> Produções do Grupo</h4>
 
             <div class="tabset2">
+                <h5> Selecione o tipo</h5>
 
-                <button type="button" (click)="getPesquisas('geped', 1);pesquisas = 'Pesquisas Realizadas'"
-                    class="btn btn-primary m-3">{{ 'tabelacao.butao.pescReal' | translate }}</button>
+                <button type="button" (click)="getTese('Tese');pesquisas = 'Teses'"
+                    class="btn btn-primary m-3">Teses</button>
 
 
-                <button type="button" (click)="getPesquisas('geped', 2);pesquisas = 'Em Andamento'"
-                    class="btn btn-primary m-3">{{
-                    'tabelacao.butao.pescAnda' | translate }}</button>
+                <button type="button" (click)="getTese('Dissertacao');pesquisas = 'Dissertações'"
+                    class="btn btn-primary m-3">Dissertações</button>
+
+                <button type="button" (click)="getTese('Monografia');pesquisas = 'Monografias'"
+                    class="btn btn-primary m-3">Monografias</button>
+
+
+                <button type="button" (click)="getTese('Artigo');pesquisas = 'Artigos'"
+                    class="btn btn-primary m-3">Artigos</button>
+
+                <button type="button" (click)="getLivros();pesquisas = 'Livros'"
+                    class="btn btn-primary m-3">Livros</button>
+
+
+                <button type="button" (click)="getCapLivros();pesquisas = 'Capitulo de Livros'"
+                    class="btn btn-primary m-3">Capitulo de Livros</button>
 
 
             </div>
-            <div id="realizada" class="tabset2" *ngIf="pesquisasServer">
+            <div id="realizada" class="tabset2" *ngIf="teses">
                 <br />
                 <br />
                 <h4> {{pesquisas}}</h4>
-                <p *ngFor="let pesquisa of pesquisasServer.pesquisas" style="text-align: justify;">
-                    <strong>{{pesquisa.titleResearch}} </strong>
-                    <br />
-                    <strong>{{ 'comum.coordenacao' | translate }}:</strong> {{pesquisa.coordination}}
-                    <br />
-                    <strong>{{ 'comum.periodo' | translate }}:</strong> {{pesquisa.period}}<br /> <br />
-                    <strong>{{ 'comum.resumo' | translate }}:</strong>
-                    <span [innerHTML]="pesquisa.resume"></span>
-                    <br /> <br />
+                <div *ngFor="let pesquisa of teses.teses" style="text-align: justify;">
+                    <div *ngIf="pesquisas != 'Livros' && pesquisas != 'Capitulo de Livros' ">
+                        <strong>{{pesquisa.titleTesis}} </strong>
+                        <br />
+                        <strong>Autor:</strong> {{pesquisa.authorTesis}}
+                        <br />
+                        <strong>Ano de conclusão :</strong> {{pesquisa.dateTesis}}
+                        <br />
+                        <strong>{{ 'comum.financiamento' | translate }}:</strong> {{pesquisa.financing}}
+                        <br />
 
-                    <strong>{{ 'comum.financiamento' | translate }}:</strong> {{pesquisa.financing}}
+                        <div *ngIf="pesquisas == 'Artigos'">
+                            <strong>Periodico:</strong> {{pesquisa.periodic}}<br />
+                            <strong>Link:</strong> {{pesquisa.link}}
+                        </div>
+                        <br>
+                    </div>
+                    <div *ngIf="pesquisas == 'Capitulo de Livros'">
 
-                    <br /> <br />
+                        <p *ngFor="let capitulo of capitulos?.capitulos" style="text-align: justify;"> <br />
 
-                    <strong>{{ 'comum.publicacoes' | translate }}:</strong> <br /> <br />
-                    <span [innerHTML]="pesquisa.researchLink"></span>
+                            <strong>{{capitulo.titleChapter}}</strong> <br />
+                            <strong> {{ 'comum.autor' | translate }}(es): </strong><br />
+                            {{capitulo.authorsChapter}}<br />
+                            <strong>{{ 'comum.livros' | translate }}: </strong>{{capitulo.titleBook}}<br />
+                            <strong>{{ 'comum.organizador' | translate }}(es): </strong><br />
+                            {{capitulo.eds}}<br />
+                            <strong>{{ 'comum.editora' | translate }}: </strong>{{capitulo.publisher}}<br />
+                            <strong>{{ 'comum.edicao' | translate }}: </strong>{{capitulo.edition}}<br />
+                            <strong>{{ 'comum.local' | translate }}: </strong>{{capitulo.location}}<br />
+                            <strong>{{ 'comum.volume' | translate }}: </strong>{{capitulo.vol}}<br />
+                            <strong>{{ 'comum.paginas' | translate }}: </strong>{{capitulo.pages}}<br />
+                            <strong>{{ 'comum.ano' | translate }}: </strong>{{capitulo.year}}<br /><br />
+                        </p>
+                    </div>
+
+                    <div *ngIf="pesquisas == 'Livros'">
+                        <div class="row gy-4 mb-4">
+                            <div *ngFor="let livro of livros?.livros"
+                                class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                                data-aos-delay="100">
+                                <div class="chef-member">
+                                    <div class="member-img">
+                                        <img width="304" height="236" src="{{livro.imagePathS3 | imagePathComplement}}"
+                                            class="img-fluid" alt="">
+
+                                    </div>
+
+                                    <div class="col-8">
+
+                                        <p><b>{{livro.titleBook}}</b></p>
+                                        <div style="text-align: justify; text-justify: inter-word;" class="mb-4">
+                                            <p>{{livro.authorsBook}}</p>
+                                            <p><a href="{{livro.linkBook}}" target="_blank">+ {{ 'comum.saibaMais' |
+                                                    translate }}</a></p>
+
+                                        </div>
+                                    </div>
 
 
-                </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 

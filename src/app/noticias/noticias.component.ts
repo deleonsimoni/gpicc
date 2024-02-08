@@ -25,7 +25,7 @@ export class NoticiasComponent implements OnInit {
     this.comumService.listNoticia()
       .subscribe((res: any) => {
         this.carregando = false;
-        this.noticias = res;
+        this.noticias = res[0];
       }, err => {
         this.carregando = false;
         this.toastr.success('Ocorreu um erro ao listar as notícias', 'Aguarde');

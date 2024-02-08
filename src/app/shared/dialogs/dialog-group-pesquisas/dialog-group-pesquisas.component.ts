@@ -35,6 +35,7 @@ export class DialogGroupPesquisasComponent {
       resume: [null, [Validators.required]],
       financing: [null, []],
       icPesquisa: [null, [Validators.required]],
+      icTipoPesquisa: [null, [Validators.required]],
       /*  publicationResearch: [null, [Validators.required]],*/
       researchLink: [null, []]
     });
@@ -51,6 +52,7 @@ export class DialogGroupPesquisasComponent {
       resume: data.resume,
       financing: data.financing,
       icPesquisa: data.icPesquisa,
+      icTipoPesquisa: data.icTipoPesquisa,
       /*publicationResearch: data.publicationResearch,*/
       researchLink: data.researchLink
 

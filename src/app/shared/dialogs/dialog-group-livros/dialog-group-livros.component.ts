@@ -40,7 +40,9 @@ export class DialogGroupLivrosComponent {
       authorsBook: [null],
       linkBook: [null, [Validators.required]],
       imagePathS3: [null, []],
-      ordem: []
+      ordem: [],
+      editora: [],
+      datePublish: []
     });
   }
 
@@ -52,7 +54,9 @@ export class DialogGroupLivrosComponent {
       authorsBook: data.authorsBook,
       linkBook: data.linkBook,
       imagePathS3: data.imagePathS3,
-      ordem: data.ordem
+      ordem: data.ordem,
+      editora: data.editora,
+      datePublish: data.datePublish
 
 
     })

@@ -19,6 +19,9 @@ export class ProducoesComponent implements OnInit {
   artigos;
   capitulos;
   extensaoEnsino;
+  dissertacoes;
+  monografias;
+  type = 'gpicc';
 
   constructor(
     private gpiccService: GpiccService,
@@ -28,7 +31,7 @@ export class ProducoesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getPesquisas('gpicc', 1);
+    //this.getPesquisas('gpicc', 1);
   }
 
   sanitizeVideo(link) {
@@ -39,22 +42,42 @@ export class ProducoesComponent implements OnInit {
     return this._sanitizer.bypassSecurityTrustResourceUrl(link);
   }
 
-  public getPesquisas(type, typePesquisa) {
+  public getTese(categoryType) {
 
-    this.gpiccService.listPesquisa(type, typePesquisa)
+    this.gpiccService.getTeses(this.type, categoryType)
+      .subscribe((res: any) => {
+
+        this.teses = res[0];
+
+
+      }, err => {
+        console.log(err);
+      });
+
+  }
+
+  public getLivros() {
+
+    this.gpiccService.getLivro(this.type)
+      .subscribe((res: any) => {
+
+        this.livros = res[0];
+
+
+      }, err => {
+        console.log(err);
+      });
+
+  }
+
+  public getCapLivros() {
+
+    this.gpiccService.getCapitulos(this.type)
       .subscribe((res: any) => {
         if (res.length > 1) {
-          this.pesquisasServer = { pesquisas: res };
+          this.capitulos = { capitulos: res };
         } else {
-          this.pesquisasServer = res[0];
-        }
-
-        if (typePesquisa) {
-          if (typePesquisa == 1) {
-            this.pesquisasServer.pesquisas = this.pesquisasServer.pesquisas.filter(p => p.icPesquisa == 'Realizada')
-          } else {
-            this.pesquisasServer.pesquisas = this.pesquisasServer.pesquisas.filter(p => p.icPesquisa == 'Em Andamento')
-          }
+          this.capitulos = res[0];
         }
 
       }, err => {

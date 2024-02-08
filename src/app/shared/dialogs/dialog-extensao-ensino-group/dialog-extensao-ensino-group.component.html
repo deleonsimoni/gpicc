@@ -14,69 +14,37 @@
                         formControlName="title" />
                     <div class="validation"></div>
                 </div>
-                <div *ngIf="type=='gedoc'" class="form-group">
 
-                    <label>
-                        <input type="radio" value="Realizados" formControlName="icEnsino">
-                        <span> Realizados</span>
-                    </label>
-
-                </div>
-
-                <div *ngIf="type=='gedoc'" class="form-group">
-
-
-                    <label>
-                        <input type="radio" value="Em Andamento" formControlName="icEnsino">
-                        <span> Em Andamento</span>
-                    </label>
-                </div>
-
-                <div *ngIf="type=='gedoc'" class="form-group">
-                    <input type="text" name="dataArticle" class="form-control" id="dataArticle" placeholder="Data"
-                        formControlName="date" />
-                    <div class="validation"></div>
-                </div>
                 <div class="form-group">
-                    <input type="text" name="authorsArticle" class="form-control" id="authorsArticle"
-                        placeholder="Tipo de material" formControlName="type" />
-                    <div class="validation"></div>
-                </div>
-                <div *ngIf="type=='gedoc'" class="form-group">
-                    <input type="text" name="coordination" class="form-control" id="coordination"
-                        placeholder="Coordenação" formControlName="coordination" />
+                    <input type="text" name="titleArticle" class="form-control" id="titleArticle" placeholder="Inicio"
+                        formControlName="begin" />
                     <div class="validation"></div>
                 </div>
 
-                <div *ngIf="type=='gedoc'" class="form-group">
-                    <angular-editor [placeholder]="'Resumo...'" formControlName="resume"></angular-editor>
+                <div class="form-group">
+                    <input type="text" name="titleArticle" class="form-control" id="titleArticle" placeholder="Fim"
+                        formControlName="end" />
                     <div class="validation"></div>
                 </div>
-                <div *ngIf="type=='gedoc'" class="form-group">
+
+
+
+                <div class="form-group">
                     <input type="text" name="financing" class="form-control" id="financing" placeholder="Financiamento"
                         formControlName="financing" />
                     <div class="validation"></div>
                 </div>
 
-
-                <div *ngIf="type=='gedoc'" class="form-group">
-                    <angular-editor [placeholder]="'Publicações...'" formControlName="researchLink"></angular-editor>
-                    <div class="validation"></div>
-                </div>
-
-
                 <div class="form-group">
-                    <input type="text" name="journalArticle" class="form-control" id="journalArticle"
-                        placeholder="Link de acesso" formControlName="link" />
+                    <angular-editor [placeholder]="'Resumo...'" formControlName="resume"></angular-editor>
                     <div class="validation"></div>
                 </div>
 
                 <div class="form-group">
-                    <input type="text" name="linkArticle" class="form-control" id="linkArticle"
-                        placeholder="Link Youtube" formControlName="linkYoutube" />
+                    <input type="text" name="journalArticle" class="form-control" id="journalArticle"
+                        placeholder="Link de acesso" formControlName="researchLink" />
                     <div class="validation"></div>
                 </div>
-
 
             </div>
         </div>

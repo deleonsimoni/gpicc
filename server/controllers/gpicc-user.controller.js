@@ -23,7 +23,9 @@ module.exports = {
   updateGrupoPesquisa,
   insertGrupoPesquisa,
   getNoticia,
-
+  getProjetosInstitucionais,
+  getMonografias,
+  getDissertacoes,
 
 
 };
@@ -123,12 +125,39 @@ async function getCapitulos(req) {
 }
 
 async function getTeses(req) {
-
+  console.log(req.query.category)
   return await GrupoPesquisa.aggregate([
     { $match: { type: req.query.type } },
     { $unwind: '$teses' },
+    { $match: { 'teses.categoryId': req.query.category } },
     { $sort: { 'teses.createAt': -1 } },
     { $group: { _id: '$_id', teses: { $push: '$teses' } } }]);
+}
+
+async function getMonografias(req) {
+
+  return await GrupoPesquisa.aggregate([
+    { $match: { type: req.query.type } },
+    { $unwind: '$monografias' },
+    { $sort: { 'monografias.createAt': -1 } },
+    { $group: { _id: '$_id', teses: { $push: '$monografias' } } }]);
+}
+
+async function getDissertacoes(req) {
+
+  return await GrupoPesquisa.aggregate([
+    { $match: { type: req.query.type } },
+    { $unwind: '$dissertacoes' },
+    { $sort: { 'dissertacoes.createAt': -1 } },
+    { $group: { _id: '$_id', dissertacoes: { $push: '$dissertacoes' } } }]);
+}
+
+async function getProjetosInstitucionais(req) {
+  return await GrupoPesquisa.aggregate([
+    { $match: { type: req.query.type } },
+    { $unwind: '$projetosinstitucionais' },
+    { $sort: { 'projetosinstitucionais.createAt': -1 } },
+    { $group: { _id: '$_id', projetosinstitucionais: { $push: '$projetosinstitucionais' } } }]);
 }
 
 

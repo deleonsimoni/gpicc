@@ -15,12 +15,16 @@ router.get('/livro', asyncHandler(getLivro));
 router.get('/artigo', asyncHandler(getArtigo));
 router.get('/capitulos', asyncHandler(getCapitulos));
 router.get('/teses', asyncHandler(getTeses));
+router.get('/monografias', asyncHandler(getMonografias));
+router.get('/dissertacoes', asyncHandler(getDissertacoes));
 router.get('/extensao-ensino', asyncHandler(getExtensaoEnsino));
 router.get('/noticia', asyncHandler(getNoticia));
+router.get('/projetos-institucionais', asyncHandler(getProjetosInstitucionais));
 
 router.get('/grupo-pesquisa', [passport.authenticate('jwt', {
     session: false
 })], asyncHandler(getGrupoPesquisa));
+
 router.post('/grupo-pesquisa', [passport.authenticate('jwt', {
     session: false
 }), requireAdmin, fileUpload()], asyncHandler(insertGrupoPesquisa));
@@ -28,6 +32,11 @@ router.post('/grupo-pesquisa', [passport.authenticate('jwt', {
 router.put('/grupo-pesquisa', [passport.authenticate('jwt', {
     session: false
 }), requireAdmin, fileUpload()], asyncHandler(updateGrupoPesquisa));
+
+async function getProjetosInstitucionais(req, res) {
+    let response = await gpiccUserController.getProjetosInstitucionais(req);
+    res.json(response);
+}
 
 async function getNoticia(req, res) {
     let response = await gpiccUserController.getNoticia();
@@ -81,5 +90,15 @@ async function getCapitulos(req, res) {
 
 async function getTeses(req, res) {
     let response = await gpiccUserController.getTeses(req);
+    res.json(response);
+}
+
+async function getMonografias(req, res) {
+    let response = await gpiccUserController.getMonografias(req);
+    res.json(response);
+}
+
+async function getDissertacoes(req, res) {
+    let response = await gpiccUserController.getDissertacoes(req);
     res.json(response);
 }

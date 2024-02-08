@@ -35,15 +35,11 @@ export class DialogExtensaoEnsinoGroupComponent {
   private createForm(): FormGroup {
     return this.formBuilder.group({
       title: [null, [Validators.required]],
-      date: [null, []],
-      type: [null, []],
-      coordination: [null, []],
+      begin: [null, []],
+      end: [null, []],
       resume: [null, []],
       financing: [null, []],
-      icEnsino: [null, []],
-      researchLink: [null, []],
-      link: [null, []],
-      linkYoutube: [null, []]
+      researchLink: [null, []]
     });
 
   }
@@ -53,15 +49,11 @@ export class DialogExtensaoEnsinoGroupComponent {
   private fillForm(data: any): void {
     this.grupoForm.patchValue({
       title: data.title,
-      date: data.date,
-      type: data.type,
-      coordination: data.coordination,
+      begin: data.begin,
+      end: data.end,
       resume: data.resume,
       financing: data.financing,
-      icEnsino: data.icEnsino,
-      researchLink: data.researchLink,
-      link: data.link,
-      linkYoutube: data.linkYoutube
+      researchLink: data.researchLink
     })
   }
 

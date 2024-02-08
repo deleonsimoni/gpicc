@@ -35,7 +35,10 @@ export class DialogGroupTesesComponent {
       categoryId: [null, [Validators.required]],
       authorTesis: [null, [Validators.required]],
       dateTesis: [null, [Validators.required]],
-      linkTesis: [null, []]
+      link: [null, []],
+      periodic: [null, []],
+      financing: [null, []]
+
 
     });
   }
@@ -50,8 +53,9 @@ export class DialogGroupTesesComponent {
       resume: data.resume,
       authorTesis: data.authorTesis,
       dateTesis: data.dateTesis,
-      linkTesis: data.linkTesis
-
+      link: data.link,
+      periodic: data.periodic,
+      financing: data.financing
     })
   }
 

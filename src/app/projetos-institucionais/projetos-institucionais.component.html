@@ -2,28 +2,18 @@
     <section id="hero" class="hero d-flex align-items-center section-bg" style="background-color: #fff;">
         <div class="container">
 
-            <div class="tabset2">
 
-                <button type="button" (click)="getPesquisas('geped', 1);pesquisas = 'Pesquisas Realizadas'"
-                    class="btn btn-primary m-3">{{ 'tabelacao.butao.pescReal' | translate }}</button>
-
-
-                <button type="button" (click)="getPesquisas('geped', 2);pesquisas = 'Em Andamento'"
-                    class="btn btn-primary m-3">{{
-                    'tabelacao.butao.pescAnda' | translate }}</button>
-
-
-            </div>
-            <div id="realizada" class="tabset2" *ngIf="pesquisasServer">
+            <h4> Projetos Institucionais</h4>
+            <div id="realizada" *ngIf="pesquisasServer">
                 <br />
                 <br />
-                <h4> {{pesquisas}}</h4>
-                <p *ngFor="let pesquisa of pesquisasServer.pesquisas" style="text-align: justify;">
-                    <strong>{{pesquisa.titleResearch}} </strong>
+                <p *ngFor="let pesquisa of pesquisasServer.extensaoEnsino" style="text-align: justify;">
+                    <strong>{{pesquisa.title}} </strong>
                     <br />
-                    <strong>{{ 'comum.coordenacao' | translate }}:</strong> {{pesquisa.coordination}}
+
+
+                    <strong>{{ 'comum.periodo' | translate }}:</strong> {{pesquisa.begin}} - {{pesquisa.end}}<br />
                     <br />
-                    <strong>{{ 'comum.periodo' | translate }}:</strong> {{pesquisa.period}}<br /> <br />
                     <strong>{{ 'comum.resumo' | translate }}:</strong>
                     <span [innerHTML]="pesquisa.resume"></span>
                     <br /> <br />

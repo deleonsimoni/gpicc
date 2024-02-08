@@ -30,9 +30,18 @@ export class GpiccService {
     return this.httpClient.get(`${this.url}/livro?type=${type}`);
   }
 
-  public getTeses(type): Observable<any> {
-    return this.httpClient.get(`${this.url}/teses?type=${type}`);
+  public getTeses(type, category): Observable<any> {
+    return this.httpClient.get(`${this.url}/teses?type=${type}&category=${category}`);
   }
+
+  public getDissertacao(type): Observable<any> {
+    return this.httpClient.get(`${this.url}/dissertacao?type=${type}`);
+  }
+
+  public getMonografia(type): Observable<any> {
+    return this.httpClient.get(`${this.url}/monografia?type=${type}`);
+  }
+
 
   public listPesquisa(type, typePesquisa): Observable<any> {
     return this.httpClient.get(`${this.url}/pesquisa?type=${type}&typePesquisa=${typePesquisa}`);

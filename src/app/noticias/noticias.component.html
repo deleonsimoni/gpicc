@@ -5,7 +5,7 @@
             <h1 id="timeline">{{ 'comum.noticias' | translate }}</h1>
         </div>
 
-        <mat-card *ngFor="let noticia of noticias" class="example-card m-4">
+        <mat-card *ngFor="let noticia of noticias?.parceiros" class="example-card m-4">
             <mat-card-title><b>{{noticia.title}}</b></mat-card-title>
             <mat-card-content>
                 <div class="row">
@@ -18,8 +18,7 @@
                 <div class="row">
 
                     <div class="">
-                        <p [innerHTML]="noticia.content  | truncateString:[500, '...']"></p><a
-                            (click)="visualizar(noticia)" class="linkLEPED">{{ 'comum.leia' | translate | uppercase }}</a>
+                        <p [innerHTML]="noticia.details"></p><a (click)="visualizar(noticia)" class="linkLEPED"></a>
                     </div>
                 </div>
 

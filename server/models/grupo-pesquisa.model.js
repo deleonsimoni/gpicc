@@ -129,6 +129,26 @@ const GrupoPesquisaSchema = new mongoose.Schema(
     }],
     parceiros: [{
 
+      title: {
+        type: String,
+
+      },
+
+      date: {
+        type: String,
+
+      },
+
+      link: {
+        type: String,
+
+      },
+
+      details: {
+        type: String,
+
+      },
+
       parceriaName: {
         type: String,
 
@@ -169,61 +189,16 @@ const GrupoPesquisaSchema = new mongoose.Schema(
 
     }],
 
-    extensaoEnsino: [{
 
-      icEnsino: {
-        type: String,
-      },
-
-      title: {
-        type: String,
-
-      },
-      date: {
-        type: String,
-      },
-      type: {
-        type: String,
-
-      },
-      resume: {
-        type: String,
-
-      },
-
-      coordination: {
-        type: String,
-
-      },
-
-      financing: {
-        type: String,
-      },
-
-      researchLink: {
-        type: String,
-      },
-
-      publications: [{
-        type: String,
-      }],
-
-      link: {
-        type: String,
-      },
-      linkYoutube: {
-        type: String,
-      },
-      createAt: {
-        type: Date,
-        default: Date.now
-      },
-
-    }],
 
     pesquisas: [{
 
       icPesquisa: {
+        type: String,
+        required: true
+      },
+
+      icTipoPesquisa: {
         type: String,
         required: true
       },
@@ -259,6 +234,42 @@ const GrupoPesquisaSchema = new mongoose.Schema(
       publications: [{
         type: String,
       }],
+
+      createAt: {
+        type: Date,
+        default: Date.now
+      },
+
+    }],
+
+    extensaoEnsino: [{
+
+      title: {
+        type: String,
+        required: true
+      },
+
+      begin: {
+        type: String,
+        required: true
+      },
+
+      end: {
+        type: String
+      },
+
+      resume: {
+        type: String,
+        required: true
+      },
+
+      financing: {
+        type: String,
+      },
+
+      researchLink: {
+        type: String,
+      },
 
       createAt: {
         type: Date,
@@ -312,15 +323,25 @@ const GrupoPesquisaSchema = new mongoose.Schema(
       dateTesis: {
         type: String,
       },
-      linkTesis: {
+      link: {
         type: String,
       },
+
+      financing: {
+        type: String,
+      },
+
+      periodic: {
+        type: String,
+      },
+
 
       createAt: {
         type: Date,
         default: Date.now
       },
     }],
+
 
     livros: [{
 
@@ -342,6 +363,13 @@ const GrupoPesquisaSchema = new mongoose.Schema(
       ordem: {
         type: String,
       },
+      editora: {
+        type: String,
+      },
+      datePublish: {
+        type: String,
+      },
+
 
       createAt: {
         type: Date,

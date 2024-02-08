@@ -2,7 +2,7 @@
   <form [formGroup]="form" (ngSubmit)="register()">
 
     <div class="section">
-      <h3 class="section__title">Pesquisas</h3>
+      <h3 class="section__title">Projeto do Grupo</h3>
     </div>
 
     <div class="form-row justify-content-center align-items-center">
@@ -28,6 +28,29 @@
           <label>
             <input type="radio" value="Em Andamento" formControlName="icPesquisa">
             <span> Em Andamento</span>
+          </label>
+        </div>
+
+        <div class="">
+          <h5 class="">Tipo</h5>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="radio" value="Tese" formControlName="icTipoPesquisa">
+            <span> Tese</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="radio" value="Dissertacao" formControlName="icTipoPesquisa">
+            <span> Dissertação</span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="radio" value="Monografia" formControlName="icTipoPesquisa">
+            <span> Monografia</span>
           </label>
         </div>
 
