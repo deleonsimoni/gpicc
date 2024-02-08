@@ -122,8 +122,21 @@ async function getTesesgp(req) {
 
 async function insertTesesgp(req, idUser) {
 
-  let form = req.body;
+  let form = JSON.parse(req.body.formulario);
   form.user = idUser;
+
+  if (req.files) {
+    let fileName = idUser + '/' + req.files.file.name;
+    await S3Uploader.uploadFile(fileName, req.files.file.data).then(async fileData => {
+      console.log('Arquivo submetido para AWS ' + fileName);
+      form.pathS3 = fileName;
+
+    }, err => {
+      console.log('Erro ao enviar imagem para AWS: ' + fileName);
+
+      retorno.mensagem = 'Servidor momentaneamente inoperante. Tente novamente mais tarde.';
+    });
+  }
 
   return await GrupoPesquisa.findOneAndUpdate({ type: req.query.type }, {
     '$push': {
@@ -144,8 +157,22 @@ async function deleteTesesgp(id, req) {
 
 async function updateTesesgp(req, idUser) {
 
-  let form = req.body;
+
+  let form = JSON.parse(req.body.formulario);
   form.user = idUser;
+
+  if (req.files) {
+    let fileName = idUser + '/' + req.files.file.name;
+    await S3Uploader.uploadFile(fileName, req.files.file.data).then(async fileData => {
+      console.log('Arquivo submetido para AWS ' + fileName);
+      form.pathS3 = fileName;
+
+    }, err => {
+      console.log('Erro ao enviar imagem para AWS: ' + fileName);
+
+      retorno.mensagem = 'Servidor momentaneamente inoperante. Tente novamente mais tarde.';
+    });
+  }
 
   return await GrupoPesquisa.findOneAndUpdate({
     type: req.query.type,
@@ -175,8 +202,21 @@ async function getPesquisasgp(req) {
 
 async function insertPesquisasgp(req, idUser) {
 
-  let form = req.body;
+  let form = JSON.parse(req.body.formulario);
   form.user = idUser;
+
+  if (req.files) {
+    let fileName = idUser + '/' + req.files.file.name;
+    await S3Uploader.uploadFile(fileName, req.files.file.data).then(async fileData => {
+      console.log('Arquivo submetido para AWS ' + fileName);
+      form.pathS3 = fileName;
+
+    }, err => {
+      console.log('Erro ao enviar imagem para AWS: ' + fileName);
+
+      retorno.mensagem = 'Servidor momentaneamente inoperante. Tente novamente mais tarde.';
+    });
+  }
 
   return await GrupoPesquisa.findOneAndUpdate({ type: req.query.type }, {
     '$push': {
@@ -197,8 +237,21 @@ async function deletePesquisasgp(id, req) {
 
 async function updatePesquisasgp(req, idUser) {
 
-  let form = req.body;
+  let form = JSON.parse(req.body.formulario);
   form.user = idUser;
+
+  if (req.files) {
+    let fileName = idUser + '/' + req.files.file.name;
+    await S3Uploader.uploadFile(fileName, req.files.file.data).then(async fileData => {
+      console.log('Arquivo submetido para AWS ' + fileName);
+      form.pathS3 = fileName;
+
+    }, err => {
+      console.log('Erro ao enviar imagem para AWS: ' + fileName);
+
+      retorno.mensagem = 'Servidor momentaneamente inoperante. Tente novamente mais tarde.';
+    });
+  }
 
   return await GrupoPesquisa.findOneAndUpdate({
     type: req.query.type,
@@ -490,8 +543,21 @@ async function getCapitulosgp(req) {
 
 async function insertCapitulosgp(req, idUser) {
 
-  let form = req.body;
+  let form = JSON.parse(req.body.formulario);
   form.user = idUser;
+
+  if (req.files) {
+    let fileName = idUser + '/' + req.files.file.name;
+    await S3Uploader.uploadFile(fileName, req.files.file.data).then(async fileData => {
+      console.log('Arquivo submetido para AWS ' + fileName);
+      form.pathS3 = fileName;
+
+    }, err => {
+      console.log('Erro ao enviar imagem para AWS: ' + fileName);
+
+      retorno.mensagem = 'Servidor momentaneamente inoperante. Tente novamente mais tarde.';
+    });
+  }
 
   return await GrupoPesquisa.findOneAndUpdate({ type: req.query.type }, {
     '$push': {
@@ -512,8 +578,21 @@ async function deleteCapitulosgp(id, req) {
 
 async function updateCapitulosgp(req, idUser) {
 
-  let form = req.body;
+  let form = JSON.parse(req.body.formulario);
   form.user = idUser;
+
+  if (req.files) {
+    let fileName = idUser + '/' + req.files.file.name;
+    await S3Uploader.uploadFile(fileName, req.files.file.data).then(async fileData => {
+      console.log('Arquivo submetido para AWS ' + fileName);
+      form.pathS3 = fileName;
+
+    }, err => {
+      console.log('Erro ao enviar imagem para AWS: ' + fileName);
+
+      retorno.mensagem = 'Servidor momentaneamente inoperante. Tente novamente mais tarde.';
+    });
+  }
 
   return await GrupoPesquisa.findOneAndUpdate({
     type: req.query.type,

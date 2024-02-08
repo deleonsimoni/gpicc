@@ -58,7 +58,7 @@ export class PesquisasComponent implements OnInit {
       .pipe(
         switchMap(({ save, form, file }: any) =>
           iif(() => save,
-            this.grupoPesquisaService.cadastrarPesquisa(form, this.type)
+            this.grupoPesquisaService.cadastrarPesquisa(form, this.type, file)
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )
@@ -70,9 +70,9 @@ export class PesquisasComponent implements OnInit {
   public edit(data: any): void {
     this.openDialog(data)
       .pipe(
-        switchMap(({ save, form }: any) =>
+        switchMap(({ save, form, file }: any) =>
           iif(() => save,
-            this.grupoPesquisaService.atualizarPesquisa({ ...form, _id: data._id }, this.type)
+            this.grupoPesquisaService.atualizarPesquisa({ ...form, _id: data._id }, this.type, file)
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )

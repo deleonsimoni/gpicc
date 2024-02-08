@@ -11,6 +11,7 @@ import { ImagePathComplement } from "@app/shared/pipes/image-path-complement.pip
 export class DialogGroupCapituloComponent {
 
   public grupoForm: FormGroup;
+  file: File | null = null;
 
 
   constructor(
@@ -25,6 +26,10 @@ export class DialogGroupCapituloComponent {
       this.fillForm(this.data.form);
     }
 
+  }
+
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
   }
 
   private createForm(): FormGroup {
@@ -69,8 +74,7 @@ export class DialogGroupCapituloComponent {
 
   public registerChapter(): void {
     if (this.grupoForm.valid) {
-      const files = [];
-      this.dialogRef.close({ save: true, form: this.grupoForm.value, files })
+      this.dialogRef.close({ save: true, form: this.grupoForm.value, file: this.file })
     }
   }
 

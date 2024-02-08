@@ -240,8 +240,8 @@ async function insertNoticia(req, idUser) {
   let retorno = { temErro: true };
 
   if (req.files) {
-    let fileName = 'images/' + req.files.fileArray.name;
-    await S3Uploader.uploadBase64(fileName, req.files.fileArray.data).then(async fileData => {
+    let fileName = 'noticias/' + req.files.file.name;
+    await S3Uploader.uploadBase64(fileName, req.files.file.data).then(async fileData => {
       console.log('Arquivo submetido para AWS ' + fileName);
       form.imagePathS3 = fileName;
       retorno.temErro = false;

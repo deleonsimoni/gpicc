@@ -59,7 +59,7 @@ export class ComumService {
     formData.append('formulario', JSON.stringify(form.value));
 
     if (file) {
-      formData.append('fileArray', file, `${file.name}`);
+      formData.append('file', file, `${file.name}`);
     }
     return this.http.post(`/api/gpicc-user/noticia`, formData);
   }

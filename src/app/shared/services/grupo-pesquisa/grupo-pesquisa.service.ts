@@ -71,32 +71,48 @@ export class GrupoPesquisaService {
     return this.httpClient.get(`/api/grupos-pesquisa/pesquisas?type=${type}`);
   }
 
-  cadastrarPesquisa(form: any, type) {
-    return this.httpClient.post(`/api/grupos-pesquisa/pesquisas?type=${type}`, form);
+  cadastrarPesquisa(form: any, type, file) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file?.name);
+    formData.append('formulario', JSON.stringify(form));
+
+    return this.httpClient.post(`/api/grupos-pesquisa/pesquisas?type=${type}`, formData);
   }
 
   deletarPesquisa(form: any, type) {
     return this.httpClient.delete(`/api/grupos-pesquisa/pesquisas/${form}?type=${type}`);
   }
 
-  atualizarPesquisa(form: any, type) {
-    return this.httpClient.put(`/api/grupos-pesquisa/pesquisas?type=${type}`, form);
+  atualizarPesquisa(form: any, type, file) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file?.name);
+    formData.append('formulario', JSON.stringify(form));
+
+    return this.httpClient.put(`/api/grupos-pesquisa/pesquisas?type=${type}`, formData);
   }
 
   listTese(type) {
     return this.httpClient.get(`/api/grupos-pesquisa/teses?type=${type}`);
   }
 
-  cadastrarTese(form: any, type) {
-    return this.httpClient.post(`/api/grupos-pesquisa/teses?type=${type}`, form);
+  cadastrarTese(form: any, type, file) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file?.name);
+    formData.append('formulario', JSON.stringify(form));
+
+    return this.httpClient.post(`/api/grupos-pesquisa/teses?type=${type}`, formData);
   }
 
   deletarTese(form: any, type) {
     return this.httpClient.delete(`/api/grupos-pesquisa/teses/${form}?type=${type}`);
   }
 
-  atualizarTese(form: any, type) {
-    return this.httpClient.put(`/api/grupos-pesquisa/teses?type=${type}`, form);
+  atualizarTese(form: any, type, file) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file?.name);
+    formData.append('formulario', JSON.stringify(form));
+
+    return this.httpClient.put(`/api/grupos-pesquisa/teses?type=${type}`, formData);
   }
 
   listArtigo(type) {
@@ -135,16 +151,24 @@ export class GrupoPesquisaService {
     return this.httpClient.get(`/api/grupos-pesquisa/capitulos?type=${type}`);
   }
 
-  cadastrarCapitulo(form: any, type) {
-    return this.httpClient.post(`/api/grupos-pesquisa/capitulos?type=${type}`, form);
+  cadastrarCapitulo(form: any, type, file) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file?.name);
+    formData.append('formulario', JSON.stringify(form));
+
+    return this.httpClient.post(`/api/grupos-pesquisa/capitulos?type=${type}`, formData);
   }
 
   deletarCapitulo(form: any, type) {
     return this.httpClient.delete(`/api/grupos-pesquisa/capitulos/${form}?type=${type}`);
   }
 
-  atualizarCapitulo(form: any, type) {
-    return this.httpClient.put(`/api/grupos-pesquisa/capitulos?type=${type}`, form);
+  atualizarCapitulo(form: any, type, file) {
+    const formData: FormData = new FormData();
+    formData.append('file', file, file?.name);
+    formData.append('formulario', JSON.stringify(form));
+
+    return this.httpClient.put(`/api/grupos-pesquisa/capitulos?type=${type}`, formData);
   }
   listParticipantesGrupo(type) {
     return this.httpClient.get(`/api/grupos-pesquisa/participantes-grupo?type=${type}`);

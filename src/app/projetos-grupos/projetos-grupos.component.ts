@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ImagePathComplement } from '@app/shared/pipes/image-path-complement.pipe';
 import { GpiccService } from '@app/shared/services/gpicc.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -23,7 +24,8 @@ export class ProjetosGruposComponent implements OnInit {
   constructor(
     private gpiccService: GpiccService,
     private _sanitizer: DomSanitizer,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private pipeImage: ImagePathComplement
 
   ) { }
 
@@ -37,6 +39,10 @@ export class ProjetosGruposComponent implements OnInit {
     }
 
     return this._sanitizer.bypassSecurityTrustResourceUrl(link);
+  }
+
+  baixar(url) {
+    return url = this.pipeImage.transform(url);
   }
 
   public getPesquisas(type, typePesquisa) {

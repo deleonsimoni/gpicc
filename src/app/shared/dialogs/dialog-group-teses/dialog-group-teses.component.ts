@@ -11,8 +11,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 export class DialogGroupTesesComponent {
   grupo = '';
   public grupoForm: FormGroup;
-
-
+  file: File | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -59,12 +58,15 @@ export class DialogGroupTesesComponent {
     })
   }
 
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
+  }
 
 
   public registerTesis(): void {
     if (this.grupoForm.valid) {
       const files = [];
-      this.dialogRef.close({ save: true, form: this.grupoForm.value, files })
+      this.dialogRef.close({ save: true, form: this.grupoForm.value, file: this.file })
     }
   }
 

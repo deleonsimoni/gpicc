@@ -57,7 +57,7 @@ export class TesesComponent implements OnInit {
       .pipe(
         switchMap(({ save, form, file }: any) =>
           iif(() => save,
-            this.grupoPesquisaService.cadastrarTese(form, this.type)
+            this.grupoPesquisaService.cadastrarTese(form, this.type, file)
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )
@@ -69,9 +69,9 @@ export class TesesComponent implements OnInit {
   public edit(data: any): void {
     this.openDialog(data)
       .pipe(
-        switchMap(({ save, form }: any) =>
+        switchMap(({ save, form, file }: any) =>
           iif(() => save,
-            this.grupoPesquisaService.atualizarTese({ ...form, _id: data._id }, this.type)
+            this.grupoPesquisaService.atualizarTese({ ...form, _id: data._id }, this.type, file)
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )

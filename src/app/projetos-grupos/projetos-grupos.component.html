@@ -37,8 +37,14 @@
                         <strong>{{ 'comum.publicacoes' | translate }}:</strong> <br /> <br />
                         <span [innerHTML]="pesquisa.researchLink"></span>
 
+                        <span *ngIf="pesquisa?.pathS3" class="col-12">
+                            <br /><br /> <strong>Download Arquivo:</strong>
+                            <p><a href="{{ baixar(pesquisa.pathS3) }}" target="_blank">Clique aqui</a>
+                            </p>
+                        </span>
 
                     </p>
+
 
 
 

@@ -149,6 +149,10 @@ const GrupoPesquisaSchema = new mongoose.Schema(
 
       },
 
+      pathS3: {
+        type: String,
+      },
+
       parceriaName: {
         type: String,
 
@@ -235,6 +239,10 @@ const GrupoPesquisaSchema = new mongoose.Schema(
         type: String,
       }],
 
+      pathS3: {
+        type: String,
+      },
+
       createAt: {
         type: Date,
         default: Date.now
@@ -270,6 +278,9 @@ const GrupoPesquisaSchema = new mongoose.Schema(
       researchLink: {
         type: String,
       },
+      pathS3: {
+        type: String,
+      },
 
       createAt: {
         type: Date,
@@ -295,6 +306,9 @@ const GrupoPesquisaSchema = new mongoose.Schema(
         type: String,
       },
       ordem: {
+        type: String,
+      },
+      pathS3: {
         type: String,
       },
 
@@ -335,6 +349,9 @@ const GrupoPesquisaSchema = new mongoose.Schema(
         type: String,
       },
 
+      pathS3: {
+        type: String,
+      },
 
       createAt: {
         type: Date,
@@ -413,6 +430,9 @@ const GrupoPesquisaSchema = new mongoose.Schema(
         type: String,
       },
       ordem: {
+        type: String,
+      },
+      pathS3: {
         type: String,
       },
 

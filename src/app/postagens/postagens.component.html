@@ -27,9 +27,15 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" name="group" class="form-control" id="group" placeholder="Link"
+                                <input type="number" name="group" class="form-control" id="group" placeholder="Link"
                                     formControlName="link" />
                                 <div class="validation"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="file">Arquivo</label><br />
+                                <input type="file" name="logo" id="logo" accept="pdf/*" placeholder="Arquivo"
+                                    (change)="handleFileInput($event.target.files)" />
                             </div>
 
                         </div>
@@ -59,8 +65,17 @@
                     <mat-card *ngFor="let noticia of news" class="example-card m-4">
                         <mat-card-title><b>{{noticia.user.fullname | titlecase }}</b></mat-card-title>
                         <mat-card-title><b>{{noticia.title}}</b></mat-card-title>
-                        <mat-card-title><b>{{noticia.ano}}</b></mat-card-title>
-                        <mat-card-title><b>{{noticia.link}}</b></mat-card-title>
+                        <mat-card-title>{{noticia.ano}}</mat-card-title>
+                        <mat-card-title>{{noticia.link}}</mat-card-title>
+                        <mat-card-title>
+
+                            <span *ngIf="noticia?.imagePathS3" class="col-12">
+                                <p><a href="{{ baixar(noticia.imagePathS3) }}" target="_blank">Download arquivo</a>
+                                </p>
+                            </span>
+
+                        </mat-card-title>
+
 
                     </mat-card>
 

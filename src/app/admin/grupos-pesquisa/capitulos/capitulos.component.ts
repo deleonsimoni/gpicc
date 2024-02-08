@@ -57,7 +57,7 @@ export class CapitulosComponent implements OnInit {
       .pipe(
         switchMap(({ save, form, file }: any) =>
           iif(() => save,
-            this.grupoPesquisaService.cadastrarCapitulo(form, this.type)
+            this.grupoPesquisaService.cadastrarCapitulo(form, this.type, file)
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )
@@ -69,9 +69,9 @@ export class CapitulosComponent implements OnInit {
   public edit(data: any): void {
     this.openDialog(data)
       .pipe(
-        switchMap(({ save, form }: any) =>
+        switchMap(({ save, form, file }: any) =>
           iif(() => save,
-            this.grupoPesquisaService.atualizarCapitulo({ ...form, _id: data._id }, this.type)
+            this.grupoPesquisaService.atualizarCapitulo({ ...form, _id: data._id }, this.type, file)
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )
