@@ -19,6 +19,8 @@ export class MembrosComponent implements OnInit {
   artigos;
   capitulos;
   extensaoEnsino;
+  egressos;
+  participantes;
 
   constructor(
     private gpiccService: GpiccService,
@@ -39,6 +41,8 @@ export class MembrosComponent implements OnInit {
     this.gpiccService.listHome('gpicc')
       .subscribe((res: any) => {
         this.home = res[0];
+        this.participantes = this.home.participantes.filter(part => !part.isEgresso);
+        this.egressos = this.home.participantes.filter(part => part.isEgresso);
         this.ordenarParticipantes();
         this.ordenarParceiros();
       }, err => {
@@ -49,7 +53,7 @@ export class MembrosComponent implements OnInit {
 
   ordenarParticipantes() {
 
-    this.home.participantes.sort(function (a, b) {
+    this.participantes.sort(function (a, b) {
       if (a.name < b.name) { return -1; }
       if (a.name > b.name) { return 1; }
       return 0;
@@ -59,7 +63,7 @@ export class MembrosComponent implements OnInit {
 
   ordenarParceiros() {
 
-    this.home.parceiros.sort(function (a, b) {
+    this.egressos.sort(function (a, b) {
       if (a.name < b.name) { return -1; }
       if (a.name > b.name) { return 1; }
       return 0;

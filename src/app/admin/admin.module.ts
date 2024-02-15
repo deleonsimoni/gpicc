@@ -21,9 +21,10 @@ import { CapitulosComponent } from './grupos-pesquisa/capitulos/capitulos.compon
 import { QuemSomosGrupoComponent } from './grupos-pesquisa/quem-somos-grupo/quem-somos-grupo.component';
 import { ParceirosComponent } from './grupos-pesquisa/parceiros/parceiros.component';
 import { ExtensaoEnsinoComponent } from './grupos-pesquisa/extensao-ensino/extensao-ensino.component';
+import { UsuariosCadastradosComponent } from './usuarios-cadastrados/usuarios-cadastrados.component';
 
 @NgModule({
-  declarations: [AdminComponent, QuemSomosComponent, CoordenadorasComponent, GaleriaComponent, NoticiasComponent, EventosComponent, GruposPesquisaComponent, PesquisasComponent, TesesComponent, ArtigosComponent, LivrosComponent, CapitulosComponent, QuemSomosGrupoComponent, ParceirosComponent, ExtensaoEnsinoComponent],
+  declarations: [AdminComponent, QuemSomosComponent, CoordenadorasComponent, GaleriaComponent, NoticiasComponent, EventosComponent, GruposPesquisaComponent, PesquisasComponent, TesesComponent, ArtigosComponent, LivrosComponent, CapitulosComponent, QuemSomosGrupoComponent, ParceirosComponent, ExtensaoEnsinoComponent, UsuariosCadastradosComponent],
   imports: [CommonModule, SharedModule, AdminRoutingModule, AngularEditorModule, CustomPipesModule],
   providers: [OnlyAdminUsersGuard],
 })

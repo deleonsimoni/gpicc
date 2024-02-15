@@ -25,7 +25,7 @@ export class NoticiasComponent implements OnInit {
   }
 
   private listAll(): Observable<any> {
-    return this.comumService.listNoticia()
+    return this.comumService.listNoticia(null)
       .pipe(
         map((news: any) => this.news = news)
       )

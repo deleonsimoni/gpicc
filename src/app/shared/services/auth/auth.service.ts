@@ -80,6 +80,20 @@ export class AuthService {
     return this.user$.asObservable();
   }
 
+  retrieveUsers() {
+    return this.http.get(`/api/auth/usrs`);
+  }
+
+  setAdmin(id) {
+    return this.http.post(`/api/auth/setadmin/${id}`, {});
+  }
+
+
+  unsetAdmin(id) {
+    return this.http.post(`/api/auth/unsetadmin/${id}`, {});
+  }
+
+
   me(): Observable<User | null> {
     return this.http.get<AuthResponse>('/api/auth/me').pipe(
       tap(({ user }) => this.setUser(user)),

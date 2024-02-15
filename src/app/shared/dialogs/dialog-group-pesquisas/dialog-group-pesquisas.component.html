@@ -2,7 +2,7 @@
   <form [formGroup]="form" (ngSubmit)="register()">
 
     <div class="section">
-      <h3 class="section__title">Projeto do Grupo</h3>
+      <h3 class="section__title">Projetos do Grupo</h3>
     </div>
 
     <div class="form-row justify-content-center align-items-center">
@@ -55,23 +55,13 @@
         </div>
 
         <div class="form-group">
-          <input type="text" name="coordination" class="form-control" id="coordination" placeholder="Coordenação"
+          <input type="text" name="coordination" class="form-control" id="coordination" placeholder="Autor"
             formControlName="coordination" />
           <div class="validation"></div>
         </div>
         <div class="form-group">
-          <input type="text" name="period" class="form-control" id="period" placeholder="Período"
+          <input type="text" name="period" class="form-control" id="period" placeholder="Ano do ingresso"
             formControlName="period" />
-          <div class="validation"></div>
-        </div>
-
-        <div class="form-group">
-          <angular-editor [placeholder]="'Resumo...'" formControlName="resume"></angular-editor>
-          <div class="validation"></div>
-        </div>
-        <div class="form-group">
-          <input type="text" name="financing" class="form-control" id="financing" placeholder="Financiamento"
-            formControlName="financing" />
           <div class="validation"></div>
         </div>
 

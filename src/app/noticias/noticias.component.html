@@ -9,7 +9,7 @@
             <mat-card-title><b>{{noticia.title}}</b></mat-card-title>
             <mat-card-content>
                 <div class="row">
-                    <div class="mb-4">
+                    <div *ngIf="noticia.imagePathS3" class="mb-4">
                         <img (click)="visualizar(noticia)" class="img-fluid" style="max-height: 38vh;"
                             src="{{ noticia.imagePathS3 ? (noticia.imagePathS3 | imagePathComplement) : '../../../assets/img/placeholder-profile.png' }}">
                     </div>
@@ -19,6 +19,11 @@
 
                     <div class="">
                         <p [innerHTML]="noticia.details"></p><a (click)="visualizar(noticia)" class="linkLEPED"></a>
+
+                        <div>{{ noticia.date}}</div>
+                        <a target="_blank" href="{{ noticia.link }}">Acesse</a>
+
+
                     </div>
                 </div>
 

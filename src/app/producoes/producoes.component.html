@@ -57,63 +57,60 @@
 
                         <br>
                     </div>
-                    <div *ngIf="pesquisas == 'Capitulo de Livros'">
+                </div>
+            </div>
 
-                        <p *ngFor="let capitulo of capitulos?.capitulos" style="text-align: justify;"> <br />
 
-                            <strong>{{capitulo.titleChapter}}</strong> <br />
-                            <strong> {{ 'comum.autor' | translate }}(es): </strong><br />
-                            {{capitulo.authorsChapter}}<br />
-                            <strong>{{ 'comum.livros' | translate }}: </strong>{{capitulo.titleBook}}<br />
-                            <strong>{{ 'comum.organizador' | translate }}(es): </strong><br />
-                            {{capitulo.eds}}<br />
-                            <strong>{{ 'comum.editora' | translate }}: </strong>{{capitulo.publisher}}<br />
-                            <strong>{{ 'comum.edicao' | translate }}: </strong>{{capitulo.edition}}<br />
-                            <strong>{{ 'comum.local' | translate }}: </strong>{{capitulo.location}}<br />
-                            <strong>{{ 'comum.volume' | translate }}: </strong>{{capitulo.vol}}<br />
-                            <strong>{{ 'comum.paginas' | translate }}: </strong>{{capitulo.pages}}<br />
-                            <strong>{{ 'comum.ano' | translate }}: </strong>{{capitulo.year}}<br /><br />
-                            <span *ngIf="capitulo?.pathS3" class="col-12">
-                                <strong>Download Arquivo:</strong>
-                                <p><a href="{{ baixar(capitulo.pathS3) }}" target="_blank">Clique aqui</a>
-                                </p>
-                            </span>
+            <div *ngIf="pesquisas == 'Capitulo de Livros'">
+
+                <p *ngFor="let capitulo of capitulos?.capitulos" style="text-align: justify;"> <br />
+
+                    <strong>{{capitulo.titleChapter}}</strong> <br />
+                    <strong> {{ 'comum.autor' | translate }}(es): </strong><br />
+                    {{capitulo.authorsChapter}}<br />
+                    <strong>{{ 'comum.livros' | translate }}: </strong>{{capitulo.titleBook}}<br />
+                    <strong>{{ 'comum.organizador' | translate }}(es): </strong><br />
+                    {{capitulo.eds}}<br />
+                    <strong>{{ 'comum.editora' | translate }}: </strong>{{capitulo.publisher}}<br />
+                    <strong>Link da publicação </strong>{{capitulo.edition}}<br />
+                    <strong>{{ 'comum.ano' | translate }}: </strong>{{capitulo.year}}<br /><br />
+                    <span *ngIf="capitulo?.pathS3" class="col-12">
+                        <strong>Download Arquivo:</strong>
+                        <p><a href="{{ baixar(capitulo.pathS3) }}" target="_blank">Clique aqui</a>
                         </p>
-                    </div>
+                    </span>
+                </p>
+            </div>
 
-                    <div *ngIf="pesquisas == 'Livros'">
-                        <div class="row gy-4 mb-4">
-                            <div *ngFor="let livro of livros?.livros"
-                                class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
-                                data-aos-delay="100">
-                                <div class="chef-member">
-                                    <div class="member-img">
-                                        <img width="304" height="236" src="{{livro.imagePathS3 | imagePathComplement}}"
-                                            class="img-fluid" alt="">
+            <div *ngIf="pesquisas == 'Livros'">
+                <div class="row gy-4 mb-4">
+                    <div *ngFor="let livro of livros?.livros" class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="chef-member">
+                            <div class="member-img">
+                                <img width="304" height="236" src="{{livro.imagePathS3 | imagePathComplement}}"
+                                    class="img-fluid" alt="">
 
-                                    </div>
+                            </div>
 
-                                    <div class="col-8">
+                            <div class="col-8">
 
-                                        <p><b>{{livro.titleBook}}</b></p>
-                                        <div style="text-align: justify; text-justify: inter-word;" class="mb-4">
-                                            <p>{{livro.authorsBook}}</p>
-                                            <p><a href="{{livro.linkBook}}" target="_blank">+ {{ 'comum.saibaMais' |
-                                                    translate }}</a></p>
-
-                                        </div>
-                                    </div>
-
+                                <p><b>{{livro.titleBook}}</b></p>
+                                <div style="text-align: justify; text-justify: inter-word;" class="mb-4">
+                                    <p>{{livro.authorsBook}}</p>
+                                    <p><a href="{{livro.linkBook}}" target="_blank">+ {{ 'comum.saibaMais' |
+                                            translate }}</a></p>
 
                                 </div>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
+
+
         </div>
     </section>
 </div>

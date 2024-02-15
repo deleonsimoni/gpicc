@@ -20,7 +20,10 @@ module.exports = {
   negarComprovante,
   confirmComprovante,
   resetPassword,
-  changePassword
+  changePassword,
+  getUsersAdmin,
+  setAdmin,
+  unsetAdmin
 };
 
 async function confirmComprovante(id) {
@@ -43,6 +46,36 @@ async function negarComprovante(id) {
       upsert: true
     }
   );
+}
+
+async function unsetAdmin(id) {
+  return await User.findOneAndUpdate(
+    { _id: id, },
+    { $pull: { roles: "admin" } },
+    { upsert: false }
+  );
+
+}
+
+
+async function setAdmin(id) {
+  return await User.findOneAndUpdate(
+    { _id: id, },
+    { $addToSet: { roles: "admin" } },
+    { upsert: false }
+  );
+
+}
+
+
+async function getUsersAdmin() {
+
+  usersFound = await User.find()
+    .sort({
+      fullname: 1,
+    })
+
+  return usersFound;
 }
 
 

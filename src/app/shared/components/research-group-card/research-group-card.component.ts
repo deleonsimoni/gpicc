@@ -20,5 +20,6 @@ export class ResearchGroupCardComponent {
   @Output() capitulo: EventEmitter<any> = new EventEmitter();
   @Output() parceiros: EventEmitter<any> = new EventEmitter();
   @Output() extensaoEnsino: EventEmitter<any> = new EventEmitter();
+  @Output() usuariosCadastrados: EventEmitter<any> = new EventEmitter();
 
 }

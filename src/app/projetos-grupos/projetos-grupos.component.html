@@ -23,14 +23,12 @@
                     <p *ngFor="let pesquisa of pesquisasServer.pesquisas" style="text-align: justify;">
                         <strong>{{pesquisa.icTipoPesquisa + ' - ' + pesquisa.titleResearch}} </strong>
                         <br />
-                        <strong>{{ 'comum.coordenacao' | translate }}:</strong> {{pesquisa.coordination}}
+                        <strong>Autor:</strong> {{pesquisa.coordination}}
                         <br />
-                        <strong>{{ 'comum.periodo' | translate }}:</strong> {{pesquisa.period}}<br /> <br />
+                        <strong>Ano de ingresso:</strong> {{pesquisa.period}}<br /> <br />
                         <strong>{{ 'comum.resumo' | translate }}:</strong>
-                        <span [innerHTML]="pesquisa.resume"></span>
-                        <br /> <br />
 
-                        <strong>{{ 'comum.financiamento' | translate }}:</strong> {{pesquisa.financing}}
+                        <br /> <br />
 
                         <br /> <br />
 

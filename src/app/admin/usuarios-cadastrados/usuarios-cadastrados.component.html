@@ -1,0 +1,35 @@
+<div class="container-fluid box">
+
+
+
+    <div *ngFor="let subscribed of users; let i = index" [ngClass]="{'mb-3': users.length > 1}">
+
+        <div class="card-user">
+            <div class="row">
+                <div class="col-sm-4 border-right">
+                    <small>Nome</small>
+                    <h4>{{subscribed.fullname | titlecase}}</h4>
+                </div>
+                <div class="col-sm-4 border-right">
+                    <small>EMAIL</small>
+                    <h4>{{subscribed.email}}</h4>
+                </div>
+
+                <div class="col-sm-2 text-center align-self-center pointer">
+                    Administrador?
+                    <div>
+                        <div class="btn-group" role="group">
+                            <button (click)="setAdmin(subscribed._id)" style="color: white; margin: 0" type="button"
+                                [ngClass]="{'btn btn-success': subscribed.roles.indexOf('admin') >= 0, 'btn btn-outline-success': subscribed.roles.indexOf('admin') >= 0}"
+                                class="btn">{{ 'comum.sim' | translate }}</button>
+                            <button (click)="unsetAdmin(subscribed._id)" style="color: white; margin: 0" type="button"
+                                [ngClass]="{'btn btn-danger': subscribed.roles.indexOf('admin') == -1, 'btn btn-outline-danger': subscribed.roles.indexOf('admin') == -1}"
+                                class="btn">{{ 'comum.nao' | translate }}</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>

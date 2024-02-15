@@ -38,6 +38,7 @@ export class DialogGroupQuemsomosComponent {
       facebook: [null, []],
       minicurriculo: [null, []],
       imagePathS3: [null, []],
+      isEgresso: [null, []]
     });
   }
 
@@ -54,7 +55,8 @@ export class DialogGroupQuemsomosComponent {
       twitter: data.twitter,
       facebook: data.facebook,
       minicurriculo: data.minicurriculo,
-      imagePathS3: data.imagePathS3
+      imagePathS3: data.imagePathS3,
+      isEgresso: data.isEgresso
     })
   }
 

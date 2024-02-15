@@ -46,8 +46,8 @@ export class ComumService {
     return this.http.get(`/api/gpicc-user/noticia`);
   }
 
-  listNoticia() {
-    return this.http.get(`/api/grupos-pesquisa/parceiros?type=gpicc`);
+  listNoticia(isLight) {
+    return this.http.get(`/api/grupos-pesquisa/parceiros?type=gpicc&isLight=${isLight}`);
   }
 
   listNoticiaCarrossel() {

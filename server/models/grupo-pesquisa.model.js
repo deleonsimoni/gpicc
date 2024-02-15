@@ -87,6 +87,10 @@ const GrupoPesquisaSchema = new mongoose.Schema(
 
     participantes: [{
 
+      isEgresso: {
+        type: Boolean,
+      },
+
       name: {
         type: String,
 
