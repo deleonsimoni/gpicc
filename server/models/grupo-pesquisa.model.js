@@ -381,6 +381,11 @@ const GrupoPesquisaSchema = new mongoose.Schema(
       imagePathS3: {
         type: String,
       },
+
+      pathS3: {
+        type: String,
+      },
+
       ordem: {
         type: String,
       },

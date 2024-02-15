@@ -55,9 +55,9 @@ export class LivrosComponent implements OnInit {
   public register(): void {
     this.openDialog()
       .pipe(
-        switchMap(({ save, form, file }: any) =>
+        switchMap(({ save, form, file, fileLivro }: any) =>
           iif(() => save,
-            this.grupoPesquisaService.cadastrarLivro(file, form, this.type)
+            this.grupoPesquisaService.cadastrarLivro(file, fileLivro, form, this.type)
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )
@@ -69,9 +69,9 @@ export class LivrosComponent implements OnInit {
   public edit(data: any): void {
     this.openDialog(data)
       .pipe(
-        switchMap(({ save, form, file }: any) =>
+        switchMap(({ save, form, file, fileLivro }: any) =>
           iif(() => save,
-            this.grupoPesquisaService.atualizarLivro(file, { ...form, _id: data._id }, this.type)
+            this.grupoPesquisaService.atualizarLivro(file, fileLivro, { ...form, _id: data._id }, this.type)
               .pipe(switchMap(_ => this.listAll())),
             of(null)
           )

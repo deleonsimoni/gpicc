@@ -205,13 +205,18 @@ export class GrupoPesquisaService {
     return this.httpClient.get(`/api/grupos-pesquisa/livro?type=${type}`);
   }
 
-  cadastrarLivro(file: any, form: any, type) {
+  cadastrarLivro(file: any, fileLivro, form: any, type) {
     const formData: FormData = new FormData();
     formData.append('formulario', JSON.stringify(form));
 
     if (file) {
       formData.append('fileArray', file, `${file.name}`);
     }
+
+    if (fileLivro) {
+      formData.append('fileLivro', fileLivro, `${fileLivro.name}`);
+    }
+
 
     return this.httpClient.post(`/api/grupos-pesquisa/livro?type=${type}`, formData);
   }
@@ -220,12 +225,16 @@ export class GrupoPesquisaService {
     return this.httpClient.delete(`/api/grupos-pesquisa/livro/${id}?type=${type}`);
   }
 
-  atualizarLivro(file: any, form: any, type) {
+  atualizarLivro(file: any, fileLivro, form: any, type) {
     const formData: FormData = new FormData();
     formData.append('formulario', JSON.stringify(form));
 
     if (file) {
       formData.append('fileArray', file, `${file.name}`);
+    }
+
+    if (fileLivro) {
+      formData.append('fileLivro', fileLivro, `${fileLivro.name}`);
     }
 
     return this.httpClient.put(`/api/grupos-pesquisa/livro?type=${type}`, formData);

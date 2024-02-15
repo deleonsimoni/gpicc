@@ -125,7 +125,7 @@ export class GruposPesquisaComponent implements OnInit {
 
   }
 
-  public usuariosCadastrados(data: any): void {
+  public usuariosCadastrados(): void {
     this.router.navigate(['/admin/usuarios-cadastrados'], { queryParams: { type: 'gpicc' } })
 
   }

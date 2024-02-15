@@ -102,6 +102,11 @@
                                             translate }}</a></p>
 
                                 </div>
+                                <span *ngIf="livro?.pathS3" class="col-12">
+                                    <strong>Download</strong>
+                                    <p><a href="{{ baixar(livro.pathS3) }}" target="_blank">Clique aqui</a>
+                                    </p>
+                                </span>
                             </div>
 
 

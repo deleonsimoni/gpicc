@@ -14,6 +14,7 @@ export class DialogGroupLivrosComponent {
   public logo: any;
   public logo2: any;
   public imagePathS3: File = null;
+  file;
 
   public imageBook: any[] = [
     { base64: null }
@@ -79,14 +80,20 @@ export class DialogGroupLivrosComponent {
     }
   }
 
+  handleFileInput(files: FileList) {
+    this.file = files.item(0);
+  }
+
   public registerBook(): void {
     if (this.grupoForm.valid) {
-      this.dialogRef.close({ save: true, form: this.grupoForm.value, file: this.imagePathS3 })
+      this.dialogRef.close({ save: true, form: this.grupoForm.value, file: this.imagePathS3, fileLivro: this.file })
     }
   }
 
   public closeDialog(): void {
     this.dialogRef.close({ save: false });
   }
+
+
 
 }
