@@ -25,6 +25,10 @@ const NoticiaSchema = new mongoose.Schema(
       type: String,
     },
 
+    autor: {
+      type: String,
+    },
+
     ano: {
       type: Number,
     }

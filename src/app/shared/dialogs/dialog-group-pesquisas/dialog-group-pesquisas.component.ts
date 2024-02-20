@@ -35,12 +35,12 @@ export class DialogGroupPesquisasComponent {
   private createForm(): FormGroup {
     return this.formBuilder.group({
       titleResearch: [null, [Validators.required]],
-      coordination: [null, [Validators.required]],
-      period: [null, [Validators.required]],
-      resume: [null, [Validators.required]],
+      coordination: [null,],
+      period: [null,],
+      resume: [null,],
       financing: [null, []],
-      icPesquisa: [null, [Validators.required]],
-      icTipoPesquisa: [null, [Validators.required]],
+      icPesquisa: [null,],
+      icTipoPesquisa: [null,],
       /*  publicationResearch: [null, [Validators.required]],*/
       researchLink: [null, []]
     });

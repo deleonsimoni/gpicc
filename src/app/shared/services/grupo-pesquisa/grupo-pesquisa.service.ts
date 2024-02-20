@@ -73,7 +73,9 @@ export class GrupoPesquisaService {
 
   cadastrarPesquisa(form: any, type, file) {
     const formData: FormData = new FormData();
-    formData.append('file', file, file?.name);
+    if (file) {
+      formData.append('file', file, file?.name);
+    }
     formData.append('formulario', JSON.stringify(form));
 
     return this.httpClient.post(`/api/grupos-pesquisa/pesquisas?type=${type}`, formData);

@@ -424,7 +424,7 @@ async function updateLivrosgp(req, idUser) {
   if (req.files) {
     if (req.files.fileArray) {
 
-      let fileName = 'images/grupo-geped/livros/' + req.files.fileArray.name;
+      let fileName = 'images/grupo-gpicc/livros/' + req.files.fileArray.name;
       await S3Uploader.uploadBase64(fileName, req.files.fileArray.data)
         .then(async fileData => {
           console.log('Arquivos submetidos para AWS ' + fileName);
@@ -524,7 +524,7 @@ async function insertParceirosgp(req, idUser) {
   form.user = idUser;
 
   if (req.files) {
-    let fileName = 'images/grupo-geped/parceiros/' + req.files.fileArray.name;
+    let fileName = 'images/grupo-gpicc/parceiros/' + req.files.fileArray.name;
     let retorno = { temErro: true };
 
     await S3Uploader.uploadBase64(fileName, req.files.fileArray.data)
@@ -567,7 +567,7 @@ async function updateParceirosgp(req, idUser) {
   form.user = idUser;
   let retorno = { temErro: true };
   if (req.files) {
-    let fileName = 'images/grupo-geped/parceiros/' + req.files.fileArray.name;
+    let fileName = 'images/grupo-gpicc/parceiros/' + req.files.fileArray.name;
     await S3Uploader.uploadBase64(fileName, req.files.fileArray.data)
       .then(async fileData => {
         console.log('Arquivos submetidos para AWS ' + fileName);
@@ -718,7 +718,7 @@ async function insertParticipantesgp(req, idUser) {
 
   if (req.files) {
 
-    let fileName = 'images/grupo-geped/participante/' + req.files.fileArray.name;
+    let fileName = 'images/grupo-gpicc/participante/' + req.files.fileArray.name;
     let retorno = { temErro: true };
 
     await S3Uploader.uploadBase64(fileName, req.files.fileArray.data)
@@ -761,7 +761,7 @@ async function updateParticipantesgp(req, idUser) {
   form.user = idUser;
   let retorno = { temErro: true };
   if (req.files) {
-    let fileName = 'images/grupo-geped/livros/' + req.files.fileArray.name;
+    let fileName = 'images/grupo-gpicc/livros/' + req.files.fileArray.name;
     await S3Uploader.uploadBase64(fileName, req.files.fileArray.data)
       .then(async fileData => {
         console.log('Arquivos submetidos para AWS ' + fileName);
