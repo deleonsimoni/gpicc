@@ -66,6 +66,11 @@
         </div>
 
         <div class="form-group">
+          <angular-editor [placeholder]="'Resumo...'" formControlName="resume"></angular-editor>
+          <div class="validation"></div>
+        </div>
+
+        <div class="form-group">
           <label for="file">Arquivo</label><br />
           <input type="file" name="logo" id="logo" accept="pdf/*" placeholder="Arquivo"
             (change)="handleFileInput($event.target.files)" />

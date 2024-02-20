@@ -69,9 +69,9 @@
                     </div>
 
                     <mat-card *ngFor="let noticia of news" class="example-card m-4">
-                        <mat-card-title><b>{{noticia.autor | titlecase }}</b></mat-card-title>
+                        <mat-card-title><b>{{noticia.user.fullname | titlecase }}</b></mat-card-title>
                         <mat-card-title><b>{{noticia.title}}</b></mat-card-title>
-                        <mat-card-title>{{noticia.ano}}</mat-card-title>
+                        <mat-card-title>{{noticia.autor | titlecase }} - {{noticia.ano}}</mat-card-title>
                         <mat-card-title>{{noticia.link}}</mat-card-title>
                         <mat-card-title>
 

@@ -87,7 +87,9 @@ export class GrupoPesquisaService {
 
   atualizarPesquisa(form: any, type, file) {
     const formData: FormData = new FormData();
-    formData.append('file', file, file?.name);
+    if (file) {
+      formData.append('file', file, file?.name);
+    }
     formData.append('formulario', JSON.stringify(form));
 
     return this.httpClient.put(`/api/grupos-pesquisa/pesquisas?type=${type}`, formData);
@@ -99,7 +101,9 @@ export class GrupoPesquisaService {
 
   cadastrarTese(form: any, type, file) {
     const formData: FormData = new FormData();
-    formData.append('file', file, file?.name);
+    if (file) {
+      formData.append('file', file, file?.name);
+    }
     formData.append('formulario', JSON.stringify(form));
 
     return this.httpClient.post(`/api/grupos-pesquisa/teses?type=${type}`, formData);
@@ -111,7 +115,9 @@ export class GrupoPesquisaService {
 
   atualizarTese(form: any, type, file) {
     const formData: FormData = new FormData();
-    formData.append('file', file, file?.name);
+    if (file) {
+      formData.append('file', file, file?.name);
+    }
     formData.append('formulario', JSON.stringify(form));
 
     return this.httpClient.put(`/api/grupos-pesquisa/teses?type=${type}`, formData);
@@ -153,9 +159,13 @@ export class GrupoPesquisaService {
     return this.httpClient.get(`/api/grupos-pesquisa/capitulos?type=${type}`);
   }
 
+
   cadastrarCapitulo(form: any, type, file) {
     const formData: FormData = new FormData();
-    formData.append('file', file, file?.name);
+
+    if (file) {
+      formData.append('file', file, file?.name);
+    }
     formData.append('formulario', JSON.stringify(form));
 
     return this.httpClient.post(`/api/grupos-pesquisa/capitulos?type=${type}`, formData);
@@ -167,7 +177,9 @@ export class GrupoPesquisaService {
 
   atualizarCapitulo(form: any, type, file) {
     const formData: FormData = new FormData();
-    formData.append('file', file, file?.name);
+    if (file) {
+      formData.append('file', file, file?.name);
+    }
     formData.append('formulario', JSON.stringify(form));
 
     return this.httpClient.put(`/api/grupos-pesquisa/capitulos?type=${type}`, formData);

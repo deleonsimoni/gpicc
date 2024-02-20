@@ -37,14 +37,14 @@ export class DialogGroupCapituloComponent {
       /*  type: [null, [Validators.required]],*/
       titleChapter: [null, [Validators.required]],
       authorsChapter: [null, [Validators.required]],
-      titleBook: [null, [Validators.required]],
-      eds: [null, [Validators.required]],
-      publisher: [null, [Validators.required]],
-      edition: [null, [Validators.required]],
-      location: [null, [Validators.required]],
-      vol: [null, [Validators.required]],
-      pages: [null, [Validators.required]],
-      year: [null, [Validators.required]],
+      titleBook: [null,],
+      eds: [null,],
+      publisher: [null,],
+      edition: [null,],
+      location: [null,],
+      vol: [null,],
+      pages: [null,],
+      year: [null,],
       ordem: []
 
     });

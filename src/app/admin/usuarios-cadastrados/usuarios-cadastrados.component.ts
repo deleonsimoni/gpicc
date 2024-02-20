@@ -47,5 +47,22 @@ export class UsuariosCadastradosComponent implements OnInit {
   }
 
 
+  setPostarAcervo(id) {
+
+    this.authService.setPostarAcervo(id)
+      .subscribe((res: any) => {
+        this.loadData();
+      });
+  }
+
+  unsetPostarAcervo(id) {
+
+    this.authService.unsetPostarAcervo(id)
+      .subscribe((res: any) => {
+        this.loadData();
+      });
+  }
+
+
 
 }

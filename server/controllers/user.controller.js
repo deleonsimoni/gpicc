@@ -23,7 +23,9 @@ module.exports = {
   changePassword,
   getUsersAdmin,
   setAdmin,
-  unsetAdmin
+  unsetAdmin,
+  unsetPostarAcervo,
+  setPostarAcervo
 };
 
 async function confirmComprovante(id) {
@@ -62,6 +64,26 @@ async function setAdmin(id) {
   return await User.findOneAndUpdate(
     { _id: id, },
     { $addToSet: { roles: "admin" } },
+    { upsert: false }
+  );
+
+}
+
+
+async function unsetPostarAcervo(id) {
+  return await User.findOneAndUpdate(
+    { _id: id, },
+    { $pull: { roles: "poster" } },
+    { upsert: false }
+  );
+
+}
+
+
+async function setPostarAcervo(id) {
+  return await User.findOneAndUpdate(
+    { _id: id, },
+    { $addToSet: { roles: "poster" } },
     { upsert: false }
   );
 

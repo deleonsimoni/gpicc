@@ -12,6 +12,8 @@ module.exports = router;
 router.get("/usrs", passport.authenticate("jwt", { session: false, }), getUsers);
 router.post("/setadmin/:id", passport.authenticate("jwt", { session: false, }), setAdmin);
 router.post("/unsetadmin/:id", passport.authenticate("jwt", { session: false, }), unsetAdmin);
+router.post("/setpostaracervo/:id", passport.authenticate("jwt", { session: false, }), setPostarAcervo);
+router.post("/unsetpostaracervo/:id", passport.authenticate("jwt", { session: false, }), unsetPostarAcervo);
 
 router.post('/register', [fileUpload()], asyncHandler(register), login);
 router.post('/changePassword', [passport.authenticate('jwt', {
@@ -39,6 +41,25 @@ async function setAdmin(req, res) {
 async function unsetAdmin(req, res) {
   if (req.user.roles.indexOf('admin') >= 0) {
     let users = await userCtrl.unsetAdmin(req.params.id);
+    res.json(users);
+  } else {
+    res.sendStatus(401);
+  }
+}
+
+async function setPostarAcervo(req, res) {
+
+  if (req.user.roles.indexOf('admin') >= 0) {
+    let users = await userCtrl.setPostarAcervo(req.params.id);
+    res.json(users);
+  } else {
+    res.sendStatus(401);
+  }
+}
+
+async function unsetPostarAcervo(req, res) {
+  if (req.user.roles.indexOf('admin') >= 0) {
+    let users = await userCtrl.unsetPostarAcervo(req.params.id);
     res.json(users);
   } else {
     res.sendStatus(401);

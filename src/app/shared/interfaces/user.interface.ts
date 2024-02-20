@@ -4,6 +4,7 @@ export interface User {
   createdAt: string;
   roles: string[];
   isAdmin: boolean;
+  isPoster: boolean;
   isGeped: boolean;
   isGeprod: boolean;
   isGedoc: boolean

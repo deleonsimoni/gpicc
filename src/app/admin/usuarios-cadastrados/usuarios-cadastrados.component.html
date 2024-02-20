@@ -29,6 +29,24 @@
                     </div>
 
                 </div>
+
+                <div class="col-sm-2 text-center align-self-center pointer">
+                    Pode postar Acervo?
+                    <div>
+                        <div class="btn-group" role="group">
+                            <button (click)="setPostarAcervo(subscribed._id)" style="color: white; margin: 0"
+                                type="button"
+                                [ngClass]="{'btn btn-success': subscribed.roles.indexOf('poster') >= 0, 'btn btn-outline-success': subscribed.roles.indexOf('poster') >= 0}"
+                                class="btn">{{ 'comum.sim' | translate }}</button>
+                            <button (click)="unsetPostarAcervo(subscribed._id)" style="color: white; margin: 0"
+                                type="button"
+                                [ngClass]="{'btn btn-danger': subscribed.roles.indexOf('poster') == -1, 'btn btn-outline-danger': subscribed.roles.indexOf('poster') == -1}"
+                                class="btn">{{ 'comum.nao' | translate }}</button>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
 

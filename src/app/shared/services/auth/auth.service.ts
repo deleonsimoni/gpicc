@@ -71,6 +71,8 @@ export class AuthService {
       user.isGeped = user.roles.includes('geped');
       user.isGeprod = user.roles.includes('geprod');
       user.isGedoc = user.roles.includes('gedoc');
+      user.isPoster = user.roles.includes('poster');
+
     }
 
     this.user$.next(user);
@@ -91,6 +93,15 @@ export class AuthService {
 
   unsetAdmin(id) {
     return this.http.post(`/api/auth/unsetadmin/${id}`, {});
+  }
+
+  setPostarAcervo(id) {
+    return this.http.post(`/api/auth/setpostaracervo/${id}`, {});
+  }
+
+
+  unsetPostarAcervo(id) {
+    return this.http.post(`/api/auth/unsetpostaracervo/${id}`, {});
   }
 
 
