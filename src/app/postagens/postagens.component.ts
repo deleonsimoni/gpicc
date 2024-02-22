@@ -5,6 +5,7 @@ import { ImagePathComplement } from '@app/shared/pipes/image-path-complement.pip
 import { ComumService } from '@app/shared/services/comum.service';
 import { GpiccService } from '@app/shared/services/gpicc.service';
 import { TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 import { Observable, map, switchMap } from 'rxjs';
 
 @Component({
@@ -21,7 +22,8 @@ export class PostagensComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private comumService: ComumService,
-    private pipeImage: ImagePathComplement
+    private pipeImage: ImagePathComplement,
+    private toastr: ToastrService,
 
   ) {
     this.form = this.createForm();
@@ -42,7 +44,10 @@ export class PostagensComponent implements OnInit {
   cadastrar() {
 
     this.comumService.cadastrarNoticia(this.file, this.form).subscribe((res: any) => {
-      this.listPosts()
+      this.form.reset();
+      this.file = null;
+      this.toastr.success('Publicação realizada com sucesso', 'Sucesso');
+      this.listPosts();
     }, err => {
       console.log(err);
     });
@@ -66,6 +71,7 @@ export class PostagensComponent implements OnInit {
       title: [null, [Validators.required]],
       link: [null, []],
       ano: [null, []],
+      autor: [null, []],
     });
   }
 
