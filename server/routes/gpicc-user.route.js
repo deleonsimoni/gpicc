@@ -37,6 +37,11 @@ router.post('/noticia', [passport.authenticate('jwt', {
     session: false
 }), fileUpload()], asyncHandler(insertNoticia));
 
+router.delete('/noticia/:id', [passport.authenticate('jwt', {
+    session: false
+}), requireAdmin, fileUpload()], asyncHandler(deletarNoticia));
+
+
 async function getProjetosInstitucionais(req, res) {
     let response = await gpiccUserController.getProjetosInstitucionais(req);
     res.json(response);
@@ -49,7 +54,12 @@ async function insertNoticia(req, res) {
 
 
 async function getNoticia(req, res) {
-    let response = await gpiccUserController.getNoticia();
+    let response = await gpiccUserController.getNoticia(req.params.id);
+    res.json(response);
+}
+
+async function deletarNoticia(req, res) {
+    let response = await gpiccUserController.deletarNoticia(req.params.id, req);
     res.json(response);
 }
 

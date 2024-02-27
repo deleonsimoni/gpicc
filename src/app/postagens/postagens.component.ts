@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+import { User } from '@app/shared/interfaces';
 import { ImagePathComplement } from '@app/shared/pipes/image-path-complement.pipe';
+import { AuthService } from '@app/shared/services';
 import { ComumService } from '@app/shared/services/comum.service';
 import { GpiccService } from '@app/shared/services/gpicc.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -15,6 +17,8 @@ import { Observable, map, switchMap } from 'rxjs';
 })
 export class PostagensComponent implements OnInit {
 
+  @Input() user: User | null = null;
+
   public form: FormGroup;
   news;
   file: File | null = null;
@@ -24,6 +28,7 @@ export class PostagensComponent implements OnInit {
     private comumService: ComumService,
     private pipeImage: ImagePathComplement,
     private toastr: ToastrService,
+    private authService: AuthService,
 
   ) {
     this.form = this.createForm();
@@ -38,6 +43,7 @@ export class PostagensComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authService.getUser().subscribe(user => this.user = user);
     this.listPosts();
   }
 
@@ -60,6 +66,18 @@ export class PostagensComponent implements OnInit {
     this.comumService.listPostagens()
       .subscribe((res: any) => {
         this.news = res;
+      }, err => {
+        console.log(err);
+      });
+
+  }
+
+  excluirPostagem(id) {
+
+    this.comumService.excluirPostagem(id)
+      .subscribe((res: any) => {
+        this.toastr.success('Publicação excluida com sucesso', 'Sucesso');
+        this.listPosts();
       }, err => {
         console.log(err);
       });

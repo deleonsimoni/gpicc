@@ -69,19 +69,24 @@
                     </div>
 
                     <mat-card *ngFor="let noticia of news" class="example-card m-4">
-                        <mat-card-title><b>{{noticia.user.fullname | titlecase }}</b></mat-card-title>
                         <mat-card-title><b>{{noticia.title}}</b></mat-card-title>
-                        <mat-card-title>{{noticia.autor | titlecase }} - {{noticia.ano}}</mat-card-title>
-                        <mat-card-title>{{noticia.link}}</mat-card-title>
-                        <mat-card-title>
+                        <mat-card-content>Autor: {{noticia.autor | titlecase }} - {{noticia.ano}}</mat-card-content>
+                        <mat-card-content>{{noticia.link}}</mat-card-content>
+                        <mat-card-content>Postado por: {{noticia.user.fullname | titlecase }}</mat-card-content>
+                        <mat-card-content>
 
                             <span *ngIf="noticia?.imagePathS3" class="col-12">
                                 <p><a href="{{ baixar(noticia.imagePathS3) }}" target="_blank">Download arquivo</a>
                                 </p>
                             </span>
 
-                        </mat-card-title>
+                        </mat-card-content>
 
+                        <button mat-raised-button color="accent"
+                            *ngIf="user?.isAdmin || user?.isGeped || user?.isGeprod || user?.isGedoc"
+                            class="btn coordinator-btn" (click)="excluirPostagem(noticia._id)">
+                            Excluir Postagem
+                        </button>
 
                     </mat-card>
 

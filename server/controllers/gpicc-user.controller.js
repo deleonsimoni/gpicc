@@ -28,7 +28,8 @@ module.exports = {
   getProjetosInstitucionais,
   getMonografias,
   getDissertacoes,
-  insertNoticia
+  insertNoticia,
+  deletarNoticia
 
 
 };
@@ -232,6 +233,10 @@ async function getNoticia() {
     .sort({
       createAt: -1
     });
+}
+
+async function deletarNoticia(id, req) {
+  return await Noticia.findOneAndDelete({ _id: id });
 }
 
 async function insertNoticia(req, idUser) {

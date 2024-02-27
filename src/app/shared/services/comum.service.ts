@@ -46,6 +46,10 @@ export class ComumService {
     return this.http.get(`/api/gpicc-user/noticia`);
   }
 
+  excluirPostagem(id) {
+    return this.http.delete(`/api/gpicc-user/noticia/${id}`);
+  }
+
   listNoticia(isLight) {
     return this.http.get(`/api/grupos-pesquisa/parceiros?type=gpicc&isLight=${isLight}`);
   }
