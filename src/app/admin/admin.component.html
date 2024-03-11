@@ -4,10 +4,11 @@
             <div class="offset-md-1 col-md-10">
                 <div class="box">
                     <div class="section-header">
-                        <h2>{{ 'comum.ola' | translate }}, {{user.fullname.split(' ').slice(-1).join(' ')}}</h2>
+                        <h2>{{ 'comum.ola' | translate }}, {{user.fullname}}</h2>
 
                         <h2>ADMINISTRAÇÃO - GPICC</h2>
                     </div>
+
 
                     <div>
                         <router-outlet></router-outlet>

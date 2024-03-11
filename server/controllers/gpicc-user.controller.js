@@ -35,7 +35,7 @@ module.exports = {
 };
 
 async function getGrupoPesquisa(user) {
-  return await GrupoPesquisa.find({ type: { $in: user.roles } })
+  return await GrupoPesquisa.find()
     .sort({
       createAt: -1
     });
@@ -227,12 +227,26 @@ async function insertGrupoPesquisa(req, idUser) {
   }
 }
 
-async function getNoticia() {
-  return await Noticia.find()
-    .populate({ path: 'user', model: User, select: 'fullname' })
-    .sort({
-      createAt: -1
-    });
+async function getNoticia(search) {
+  console.log(search);
+
+  if (search && search != "null") {
+
+    return await Noticia.find({ title: { $regex: '.*' + search + '.*' } })
+      .populate({ path: 'user', model: User, select: 'fullname' })
+      .sort({
+        createAt: -1
+      });
+
+  } else {
+
+    return await Noticia.find()
+      .populate({ path: 'user', model: User, select: 'fullname' })
+      .sort({
+        createAt: -1
+      });
+
+  }
 }
 
 async function deletarNoticia(id, req) {

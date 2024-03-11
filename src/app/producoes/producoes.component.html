@@ -6,26 +6,23 @@
             <div class="tabset2">
                 <h5> Selecione o tipo</h5>
 
-                <button type="button" (click)="getTese('Tese');pesquisas = 'Teses'"
-                    class="btn btn-primary m-3">Teses</button>
+                <button type="button" class="fill" (click)="getTese('Tese');pesquisas = 'Teses'">Teses</button>
 
 
                 <button type="button" (click)="getTese('Dissertacao');pesquisas = 'Dissertações'"
-                    class="btn btn-primary m-3">Dissertações</button>
+                    class="slide btn btn-primary m-3">Dissertações</button>
 
                 <button type="button" (click)="getTese('Monografia');pesquisas = 'Monografias'"
-                    class="btn btn-primary m-3">Monografias</button>
+                    class="btn btn-primary m-3 raise">Monografias</button>
 
 
-                <button type="button" (click)="getTese('Artigo');pesquisas = 'Artigos'"
-                    class="btn btn-primary m-3">Artigos</button>
+                <button type="button" (click)="getTese('Artigo');pesquisas = 'Artigos'" class="up">Artigos</button>
 
-                <button type="button" (click)="getLivros();pesquisas = 'Livros'"
-                    class="btn btn-primary m-3">Livros</button>
+                <button type="button" (click)="getLivros();pesquisas = 'Livros'" class="close">Livros</button>
 
 
                 <button type="button" (click)="getCapLivros();pesquisas = 'Capitulo de Livros'"
-                    class="btn btn-primary m-3">Capitulo de Livro</button>
+                    class="fill btn btn-primary m-3">Capitulo de Livro</button>
 
 
             </div>

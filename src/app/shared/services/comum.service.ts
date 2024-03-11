@@ -42,8 +42,8 @@ export class ComumService {
   }
 
 
-  listPostagens() {
-    return this.http.get(`/api/gpicc-user/noticia`);
+  listPostagens(title) {
+    return this.http.get(`/api/gpicc-user/noticia?search=${title}`);
   }
 
   excluirPostagem(id) {

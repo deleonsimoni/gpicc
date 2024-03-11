@@ -19,6 +19,7 @@ export class PostagensComponent implements OnInit {
 
   @Input() user: User | null = null;
 
+  titleSearch;
   public form: FormGroup;
   news;
   file: File | null = null;
@@ -63,12 +64,31 @@ export class PostagensComponent implements OnInit {
 
   private listPosts() {
 
-    this.comumService.listPostagens()
+    this.comumService.listPostagens(null)
       .subscribe((res: any) => {
         this.news = res;
       }, err => {
         console.log(err);
       });
+
+  }
+
+  search() {
+
+    if (!this.titleSearch) {
+      this.toastr.warning('Preencha o campo de pesquisa.', 'Atenção');
+    } else {
+
+      this.comumService.listPostagens(this.titleSearch)
+        .subscribe((res: any) => {
+          this.news = res;
+        }, err => {
+          console.log(err);
+        });
+
+    }
+
+
 
   }
 

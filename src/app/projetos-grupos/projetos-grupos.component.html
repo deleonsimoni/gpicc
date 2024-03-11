@@ -7,11 +7,11 @@
                 <div class="tabset2">
 
                     <button type="button" (click)="getPesquisas('gpicc', 1);pesquisas = 'Pesquisas Realizadas'"
-                        class="btn btn-primary m-3">{{ 'tabelacao.butao.pescReal' | translate }}</button>
+                        class="fill btn btn-primary m-3">{{ 'tabelacao.butao.pescReal' | translate }}</button>
 
 
                     <button type="button" (click)="getPesquisas('gpicc', 2);pesquisas = 'Em Andamento'"
-                        class="btn btn-primary m-3">{{
+                        class="pulse btn btn-primary m-3">{{
                         'tabelacao.butao.pescAnda' | translate }}</button>
 
 
@@ -25,7 +25,7 @@
                         <br />
                         <strong>Autor:</strong> {{pesquisa.coordination}}
                         <br />
-                        <strong>Ano de ingresso:</strong> {{pesquisa.period}}<br /> <br />
+                        <strong>Ano de conclusão:</strong> {{pesquisa.period}}<br /> <br />
                         <strong>{{ 'comum.resumo' | translate }}:</strong>
                         <span [innerHTML]="pesquisa.resume"></span>
 

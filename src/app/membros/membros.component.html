@@ -21,7 +21,7 @@
                             <a target="_blank" href="{{participante.email}}"><i class="bi bi-globe"></i></a>
                         </div>
                     </div>
-                    <div class="member-info">
+                    <div class="">
                         <p>{{participante.name}}<br />
 
 
@@ -29,7 +29,7 @@
 
                         </p>
                         <p>
-                            {{participante.minicurriculo}}
+                        <p [innerHTML]="participante.minicurriculo" style="text-align: justify; margin-top: 15px;">
 
                         </p>
 

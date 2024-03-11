@@ -54,7 +54,7 @@ async function insertNoticia(req, res) {
 
 
 async function getNoticia(req, res) {
-    let response = await gpiccUserController.getNoticia(req.params.id);
+    let response = await gpiccUserController.getNoticia(req.query.search);
     res.json(response);
 }
 

@@ -15,13 +15,12 @@
 
         <li><a routerLink="/membros">Membros</a></li>
         <li><a routerLink="/projetos-institucionais">Projetos Institucionais</a></li>
-        <li><a routerLink="/projetos-grupo">Projetos do Grupo</a></li>
+        <li><a routerLink="/projetos-grupo">Projetos Individuais</a></li>
         <li><a routerLink="/producoes">Produções</a></li>
         <!--<li><a routerLink="/gecult" (click)="navbar.toggle()">GECULT</a></li>
         <li><a routerLink="/eventos">{{ 'comum.eventos' | translate }}</a></li>-->
         <li><a routerLink="/noticias">Dicas & Eventos</a></li>
         <li><a *ngIf="!user" routerLink="/auth/login">{{ 'header.login' | translate }}</a></li>
-        <li><a *ngIf="!user" routerLink="/auth/register">{{ 'header.cadastro' | translate }}</a></li>
         <li><a *ngIf="user && user?.isPoster" routerLink="/postagens">Acervo Digital</a></li>
 
         <li><a *ngIf="user?.isAdmin || user?.isGeped || user?.isGeprod || user?.isGedoc"
