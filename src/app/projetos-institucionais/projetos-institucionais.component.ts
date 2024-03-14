@@ -39,12 +39,18 @@ export class ProjetosInstitucionaisComponent implements OnInit {
     return this._sanitizer.bypassSecurityTrustResourceUrl(link);
   }
 
+  orderArray(array) {
+    array.extensaoEnsino.sort(function (a, b) {
+      return b.end - a.end
+    });
+  }
+
   public getPesquisas(type, typePesquisa) {
 
     this.gpiccService.listExtensaoEnsino(type, typePesquisa)
       .subscribe((res: any) => {
         this.pesquisasServer = res[0];
-
+        this.orderArray(this.pesquisasServer);
       }, err => {
         console.log(err);
       });

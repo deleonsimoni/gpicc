@@ -6,6 +6,7 @@
 // Animate the size, outside
 .pulse:hover,
 .pulse:focus {
+    color: #a972cb;
     animation: pulse 1s;
     box-shadow: 0 0 0 2em transparent;
 }

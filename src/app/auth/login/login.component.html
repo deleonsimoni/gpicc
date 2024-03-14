@@ -9,12 +9,12 @@
           </div>
           <div class="form-row justify-content-center">
             <div class="form-group col-md-12">
-              <input type="text" name="senhaChange" class="form-control" id="senhaChange" placeholder="{{ 'form.senha' | translate }}"
-                [(ngModel)]="novaSenha" />
+              <input type="text" name="senhaChange" class="form-control" id="senhaChange"
+                placeholder="{{ 'form.senha' | translate }}" [(ngModel)]="novaSenha" />
             </div>
             <div class="form-group col-md-12">
-              <input type="text" name="senhaChange" class="form-control" id="senhaChange" placeholder="{{ 'form.senha' | translate }}"
-                [(ngModel)]="novaSenhaRepeat" />
+              <input type="text" name="senhaChange" class="form-control" id="senhaChange"
+                placeholder="{{ 'form.senha' | translate }}" [(ngModel)]="novaSenhaRepeat" />
             </div>
           </div>
 
@@ -46,8 +46,8 @@
                 </div>
               </div>
               <div class="form-group col-md-12">
-                <input type="password" name="senha" class="form-control" id="senha" placeholder="{{ 'form.senha' | translate }}"
-                  formControlName="password" />
+                <input type="password" name="senha" class="form-control" id="senha"
+                  placeholder="{{ 'form.senha' | translate }}" formControlName="password" />
                 <div *ngIf="validate.password.errors" class="alert alert-danger">
                   <div [hidden]="!validate.password.errors.required">
                     {{ 'form.obrSenha' | translate }}
@@ -58,9 +58,9 @@
                 </div>
               </div>
               <!--<a [routerLink]="['/register']">Realizar Inscrição</a>-->
-              <a [routerLink]="['/esqueci-senha']">
+              <!-- <a [routerLink]="['/esqueci-senha']">
                 {{ 'form.esqSenha' | translate }}
-              </a>
+              </a>-->
 
             </div>
 
@@ -70,8 +70,7 @@
               </button>
 
             </div>
-            <span>{{ 'form.novoCad' | translate }}
-              <a [routerLink]="['/auth/register']">{{ 'form.resgistro' | translate }}</a> {{ 'comum.aqui' | translate }}</span>
+
           </form>
         </div>
       </div>

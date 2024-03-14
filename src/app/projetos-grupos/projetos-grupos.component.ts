@@ -41,6 +41,29 @@ export class ProjetosGruposComponent implements OnInit {
     return this._sanitizer.bypassSecurityTrustResourceUrl(link);
   }
 
+  orderArray(array) {
+    array.sort(function (a, b) {
+      let a1;
+      let b1;
+
+      if (a.period.includes('-')) {
+        a1 = a.period.split('-')[1];
+      } else {
+        a1 = a;
+      }
+
+      if (b.period.includes('-')) {
+        b1 = b.period.split('-')[1];
+      } else {
+        b1 = b;
+      }
+
+      return b1 - a1
+    });
+
+  }
+
+
   baixar(url) {
     return url = this.pipeImage.transform(url);
   }
@@ -62,6 +85,8 @@ export class ProjetosGruposComponent implements OnInit {
             this.pesquisasServer.pesquisas = this.pesquisasServer.pesquisas.filter(p => p.icPesquisa == 'Em Andamento')
           }
         }
+
+        this.orderArray(this.pesquisasServer.pesquisas);
 
       }, err => {
         console.log(err);

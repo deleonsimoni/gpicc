@@ -44,6 +44,7 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.builder.group({
       fullname: [null, [Validators.required]],
       socialname: [null, []],
+      cpf: [null, []],
       email: [null, [Validators.required, Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       repeatEmail: [null, [Validators.required, Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       password: [null, [Validators.required, Validators.minLength(6)]],
@@ -78,16 +79,6 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    if (this.registerForm.get('phones').get('cellphone').errors) {
-      this.toastr.error('Número de celular inválido.', 'Atenção: ');
-      return;
-    }
-
-    if (this.registerForm.get('address').get('zip').errors) {
-      this.toastr.error('CEP inválido.', 'Atenção: ');
-      return;
-    }
-
     if (!this.registerForm.value.icAcceptTerms) {
       this.toastr.error('É necessário aceitar os termos para prosseguir.', 'Atenção: ');
       return;
@@ -104,7 +95,7 @@ export class RegisterComponent implements OnInit {
     }
 
 
-    if (this.registerForm.valid && form != null) {
+    if (form != null) {
 
       this.carregando = true;
       this.registerForm.value.email = this.registerForm.value.email.toLowerCase().trim();

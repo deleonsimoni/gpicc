@@ -12,6 +12,9 @@ const UserSchema = new mongoose.Schema(
     nick: {
       type: String
     },
+    cpf: {
+      type: String
+    },
     bio: {
       type: String
     },

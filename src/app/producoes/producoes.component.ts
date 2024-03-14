@@ -36,6 +36,14 @@ export class ProducoesComponent implements OnInit {
     //this.getPesquisas('gpicc', 1);
   }
 
+  orderByYearTese(array) {
+    array.teses.sort((a, b) => b.dateTesis - a.dateTesis);
+  }
+
+  orderByYearCapLivro(array) {
+    array.capitulos.sort((a, b) => b.year - a.year);
+  }
+
   sanitizeVideo(link) {
     if (link && link.includes('watch')) {
       link = link.replace('watch?v=', 'embed/');
@@ -54,7 +62,7 @@ export class ProducoesComponent implements OnInit {
       .subscribe((res: any) => {
 
         this.teses = res[0];
-
+        this.orderByYearTese(this.teses);
 
       }, err => {
         console.log(err);
@@ -85,7 +93,7 @@ export class ProducoesComponent implements OnInit {
         } else {
           this.capitulos = res[0];
         }
-
+        this.orderByYearCapLivro(this.capitulos);
       }, err => {
         console.log(err);
       });
