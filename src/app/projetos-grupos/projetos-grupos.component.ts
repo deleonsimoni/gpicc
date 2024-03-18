@@ -78,14 +78,6 @@ export class ProjetosGruposComponent implements OnInit {
           this.pesquisasServer = res[0];
         }
 
-        if (typePesquisa) {
-          if (typePesquisa == 1) {
-            this.pesquisasServer.pesquisas = this.pesquisasServer.pesquisas.filter(p => p.icPesquisa == 'Realizada')
-          } else {
-            this.pesquisasServer.pesquisas = this.pesquisasServer.pesquisas.filter(p => p.icPesquisa == 'Em Andamento')
-          }
-        }
-
         this.orderArray(this.pesquisasServer.pesquisas);
 
       }, err => {

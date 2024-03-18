@@ -63,9 +63,11 @@ async function getPesquisa(req) {
     return await GrupoPesquisa.aggregate([
       { $match: { type: req.query.type } },
       { $unwind: '$pesquisas' },
-      { $match: { 'pesquisas.icPesquisa': tipo } },
+      //{ $match: { 'pesquisas.icPesquisa': tipo } },
       { $sort: { 'pesquisas.ordem': -1 } },
       { $group: { _id: '$_id', pesquisas: { $push: '$pesquisas' } } }]);
+
+
   }
 
 

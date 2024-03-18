@@ -58,7 +58,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'projetos-grupo',
+    path: 'projetos-individuais',
     component: ProjetosGruposComponent,
     /*canActivate: [AuthGuard],*/
   },

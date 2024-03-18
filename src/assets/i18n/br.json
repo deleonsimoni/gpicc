@@ -115,7 +115,7 @@
     },
     "tabelacao": {
         "titulos": {
-            "pesquisas": "Projetos do grupo",
+            "pesquisas": "Projetos individuais",
             "ensinoEx": "Projetos institucionais"
         },
         "butao": {
@@ -141,7 +141,7 @@
         "artigo": "Artigo",
         "livro": "Livro",
         "parceiro": "Egressos",
-        "pesquisa": "Projeto do Grupo",
+        "pesquisa": "Projetos Individuais",
         "participantes": "Participantes",
         "nope": "Não há grupos cadastrados",
         "cadDissert": "Cadastrar Dissertação/Tese",
