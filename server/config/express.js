@@ -49,6 +49,14 @@ app.use(/^((?!(api)).)*/, (req, res) => {
   res.sendFile(path.join(__dirname, '../../dist/index.html'));
 });
 
+// Middleware para redirecionar todas as solicitações HTTPS para HTTP
+app.use((req, res, next) => {
+  if (req.secure) {
+    return res.redirect('http://' + req.headers.host + req.url);
+  }
+  next();
+});
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

@@ -39,7 +39,7 @@ export class DialogGroupLivrosComponent {
     return this.formBuilder.group({
       titleBook: [null, [Validators.required]],
       authorsBook: [null],
-      linkBook: [null, [Validators.required]],
+      linkBook: [null],
       imagePathS3: [null, []],
       ordem: [],
       editora: [],

@@ -10,7 +10,7 @@
 
 
                 <button type="button" (click)="getTese('Dissertacao');pesquisas = 'Dissertações'"
-                    class="btn m-3 pulse">Dissertações</button>
+                    class="up">Dissertações</button>
 
                 <button type="button" (click)="getTese('Monografia');pesquisas = 'Monografias'"
                     class="btn m-3 fill">Monografias</button>
@@ -92,9 +92,12 @@
 
                                 <p><b>{{livro.titleBook}}</b></p>
                                 <div style="text-align: justify; text-justify: inter-word;" class="mb-4">
-                                    <p>{{livro.authorsBook}}</p>
-                                    <p><a href="{{livro.linkBook}}" target="_blank">+ {{ 'comum.saibaMais' |
-                                            translate }}</a></p>
+                                    <span><b>Autores:</b> {{livro.authorsBook}}</span><br />
+                                    <span><b>Editora:</b> {{livro.editora}}</span><br />
+                                    <span><b>Ano de publicação:</b> {{livro.datePublish}}</span><br />
+
+                                    <span *ngIf="livro.linkBook"><b>Link: </b><a href="{{livro.linkBook}}"
+                                            target="_blank"> Clique aqui</a></span>
 
                                 </div>
                                 <span *ngIf="livro?.pathS3" class="col-12">
