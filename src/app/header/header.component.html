@@ -13,19 +13,20 @@
         <li><a routerLink="/obras-publicadas">Obras Publicadas</a></li>-->
         <!--<li><a routerLink="/endipe">XX ENDIPE RIO 2020</a></li>-->
 
-        <li><a routerLink="/membros">Membros</a></li>
-        <li><a routerLink="/projetos-institucionais">Projetos Institucionais</a></li>
-        <li><a routerLink="/projetos-individuais">Projetos Individuais</a></li>
-        <li><a routerLink="/producoes">Produções</a></li>
+        <li><a (click)="closeMenu()" routerLink="/membros">Membros</a></li>
+        <li><a (click)="closeMenu()" routerLink="/projetos-institucionais">Projetos Institucionais</a></li>
+        <li><a (click)="closeMenu()" routerLink="/projetos-individuais">Projetos Individuais</a></li>
+        <li><a (click)="closeMenu()" routerLink="/producoes">Produções</a></li>
         <!--<li><a routerLink="/gecult" (click)="navbar.toggle()">GECULT</a></li>
         <li><a routerLink="/eventos">{{ 'comum.eventos' | translate }}</a></li>-->
-        <li><a routerLink="/noticias">Dicas & Eventos</a></li>
-        <li><a *ngIf="!user" routerLink="/auth/login">{{ 'header.login' | translate }}</a></li>
-        <li><a *ngIf="user && user?.isPoster" routerLink="/postagens">Acervo Digital</a></li>
+        <li><a (click)="closeMenu()" routerLink="/noticias">Dicas & Eventos</a></li>
+        <li><a (click)="closeMenu()" *ngIf="!user" routerLink="/auth/login">{{ 'header.login' | translate }}</a></li>
+        <li><a (click)="closeMenu()" *ngIf="user && user?.isPoster" routerLink="/postagens">Acervo Digital</a></li>
 
-        <li><a *ngIf="user?.isAdmin || user?.isGeped || user?.isGeprod || user?.isGedoc"
+        <li><a (click)="closeMenu()" *ngIf="user?.isAdmin || user?.isGeped || user?.isGeprod || user?.isGedoc"
             routerLink="/admin/grupos-pesquisa">Admin</a></li>
-        <li><a *ngIf="user" style="cursor: pointer;" (click)="logout()">{{ 'header.sair' | translate }}</a></li>
+        <li><a (click)="closeMenu()" *ngIf="user" style="cursor: pointer;" (click)="logout()">{{ 'header.sair' |
+            translate }}</a></li>
 
         <!--<li class="dropdown"><a href="#"><span>Drop Down</span> <i
               class="bi bi-chevron-down dropdown-indicator"></i></a>

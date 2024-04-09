@@ -50,12 +50,7 @@ app.use(/^((?!(api)).)*/, (req, res) => {
 });
 
 // Middleware para redirecionar todas as solicitações HTTPS para HTTP
-app.use((req, res, next) => {
-  if (req.secure) {
-    return res.redirect('http://' + req.headers.host + req.url);
-  }
-  next();
-});
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

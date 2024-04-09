@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { User } from '@app/shared/interfaces';
@@ -23,12 +23,24 @@ export class HeaderComponent {
     private router: Router,
     private authService: AuthService,
     public translate: TranslateService,
-    public comumService: ComumService
+    public comumService: ComumService,
+    private elementRef: ElementRef
 
   ) {
 
   }
 
+  public closeMenu() {
+    const element = this.elementRef.nativeElement.querySelector('.mobile-nav-toggle');
+
+    // Verifica se o elemento foi encontrado
+    if (element) {
+      // Simula o clique no elemento
+      element.click();
+    } else {
+      console.error('Elemento não encontrado');
+    }
+  }
 
   public loadScript() {
     let body = <HTMLDivElement>document.body;
